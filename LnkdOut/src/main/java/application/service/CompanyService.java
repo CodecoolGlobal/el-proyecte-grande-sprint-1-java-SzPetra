@@ -1,5 +1,6 @@
 package application.service;
 
+import application.model.CompanyModel;
 import application.model.StudentModel;
 import application.service.dao.CompanyDao;
 import application.service.dao.StudentDao;
@@ -14,4 +15,11 @@ public class CompanyService {
         this.companyDao = companyDao;
     }
 
+    public void addCompany(CompanyModel company) {
+        companyDao.addCompany(company);
+    }
+
+    public List<CompanyModel> getAllCompany() {
+        return companyDao.getAllCompany();
+    }
 }
