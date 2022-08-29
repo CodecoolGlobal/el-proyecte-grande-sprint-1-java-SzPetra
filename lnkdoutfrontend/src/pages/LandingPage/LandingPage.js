@@ -1,8 +1,15 @@
 import React from 'react';
+import Header from "../../components/Header";
+import Content from "./components/Content";
+import Footer from "../../components/Footer";
 
 function LandingPage(props) {
     return (
-        <div></div>
+        <>
+            <Header />
+            <Content />
+            <Footer />
+        </>
     );
 }
 
