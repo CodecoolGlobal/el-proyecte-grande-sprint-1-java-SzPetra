@@ -1,13 +1,28 @@
-import React from 'react';
+import { Outlet, Link } from "react-router-dom";
 
-
-function Header(props) {
+const Header = () => {
     return (
         <>
-            {"Navbar"}
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Logo</Link>
+                    </li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/student">Student</Link>
+                    </li>
+                    <li>
+                        <Link to="/company">Company</Link>
+                    </li>
+                </ul>
+            </nav>
 
+            <Outlet />
         </>
-    );
-}
+    )
+};
 
 export default Header;
