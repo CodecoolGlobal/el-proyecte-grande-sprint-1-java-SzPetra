@@ -14,11 +14,10 @@ public class StudentDaoMem implements StudentDao {
     private final List<StudentModel> students = new ArrayList<>();
     @Override
     public List<StudentModel> getAllStudent() {
-        fillStudents();
         return students;
     }
 
-    private void fillStudents(){
-        students.add(new StudentModel("Petrus", 13));
+    public void registerStudent(StudentModel student) {
+        students.add(student);
     }
 }

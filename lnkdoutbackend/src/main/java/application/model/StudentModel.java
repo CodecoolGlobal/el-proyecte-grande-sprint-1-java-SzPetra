@@ -6,10 +6,10 @@ import java.util.UUID;
 
 public class StudentModel extends BaseModel{
 
-    public StudentModel(@JsonProperty("name") String name,
-                        @JsonProperty("name") int age) {
-        super(name, age);
+    private int age;
+
+    public StudentModel(String name, int age, String city, String phone, String email) {
+        super(name, city, phone, email);
+        this.age = age;
     }
-
-
 }

@@ -10,4 +10,6 @@ public interface StudentDao {
 
 
     List<StudentModel> getAllStudent();
+
+    void registerStudent(StudentModel student);
 }
