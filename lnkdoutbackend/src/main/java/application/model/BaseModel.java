@@ -9,17 +9,17 @@ public abstract class BaseModel {
     }
 
     private String name;
-    private int age;
+    private String city;
+    private String phone;
+    private String email;
     private UUID id;
 
-    public BaseModel(String name, int age) {
+    public BaseModel(String name, String city, String phone, String email) {
         this.name = name;
-        this.age = age;
+        this.city = city;
+        this.phone = phone;
+        this.email = email;
         this.id = UUID.randomUUID();
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public UUID getId() {
@@ -28,9 +28,5 @@ public abstract class BaseModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 }
