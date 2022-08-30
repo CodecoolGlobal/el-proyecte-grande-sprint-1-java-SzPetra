@@ -1,0 +1,38 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin-top: 2em;
+    width: 100%;
+    min-height: 10em;
+    background-color: var(--mainblack);
+    color: var(--mainwhite);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.footer-logo {
+    font-size: 1.2em;
+
+}
+
+.footer-links {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links a {
+    margin: 0.5em ;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2em;
+}
+
+.footer .footer-links a:hover {
+    text-decoration: underline var(--mainwhite);
+    transition: .3s ease-in-out;
+}
