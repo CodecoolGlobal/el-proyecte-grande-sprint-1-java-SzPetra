@@ -1,5 +1,6 @@
 import React from "react";
 import Registration from "./components/Registration";
+import {postData} from "../../util/Fetch";
 import './assets/student.css';
 
 function StudentPage() {
@@ -22,6 +23,8 @@ function StudentPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validatePasswords()) {
+            postData("student/registration");
+
             setName('');
             setAge('');
             setEmail('');
