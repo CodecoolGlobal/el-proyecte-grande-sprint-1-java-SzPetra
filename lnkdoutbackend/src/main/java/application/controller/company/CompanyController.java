@@ -18,9 +18,9 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @PostMapping(value = "api/add-company")
-    public void addCompany(@RequestBody CompanyModel companyModel){
-        companyService.addCompany(companyModel);
+    @PostMapping(value = "/register")
+    public void registerCompany(@RequestBody CompanyModel companyModel){
+        companyService.registerCompany(companyModel);
     }
 
     @GetMapping(value = "api/get-all")

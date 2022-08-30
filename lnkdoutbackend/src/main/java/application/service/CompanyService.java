@@ -15,8 +15,8 @@ public class CompanyService {
         this.companyDao = companyDao;
     }
 
-    public void addCompany(CompanyModel company) {
-        companyDao.addCompany(company);
+    public void registerCompany(CompanyModel company) {
+        companyDao.registerCompany(company);
     }
 
     public List<CompanyModel> getAllCompany() {
