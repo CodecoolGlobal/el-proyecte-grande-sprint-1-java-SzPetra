@@ -1,21 +1,22 @@
 import { Outlet, Link } from "react-router-dom";
+import './assets/navbar.css';
 
 const Header = () => {
     return (
         <>
             <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Logo</Link>
+                <ul className="navbar">
+                    <li className="nav-item">
+                        <Link to="/" className="link">Home</Link>
                     </li>
-                    <li>
-                        <Link to="/">Home</Link>
+                    <li className="nav-item">
+                        <a href="/about" className="link">About</a>
                     </li>
-                    <li>
-                        <Link to="/student">Student</Link>
+                    <li className="nav-item">
+                        <a href="/contact" className="link">Contact</a>
                     </li>
-                    <li>
-                        <Link to="/company">Company</Link>
+                    <li className="nav-item">
+                        <Link to="/login" className="login-link">Login</Link>
                     </li>
                 </ul>
             </nav>

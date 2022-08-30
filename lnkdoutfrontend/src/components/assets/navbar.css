@@ -1,0 +1,57 @@
+:root {
+    --lightblue: #a9cef3;
+    --deepblue: #2094e8;
+    --deepblue-04: rgb(111, 177, 232);
+    --mainwhite: #fbf8f3;
+    --mainblack: #232323;
+}
+
+.navbar {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--deepblue);
+    color: var(--mainwhite);
+    margin-bottom: 2rem;
+}
+
+.navbar .nav-item .link,
+.navbar .nav-item .login-link {
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-item a,
+.navbar .nav-item .link,
+.navbar .nav-item .login-link {
+    margin-left: 4rem;
+    padding: 1.35rem 2.5rem;
+}
+
+.navbar .nav-item a:hover,
+.navbar .nav-item .link:hover {
+    cursor: pointer;
+    background-color: var(--deepblue-04);
+    transition: .3s ease-in-out;
+}
+
+.navbar >.nav-item > .login-link {
+    background-color: var(--lightblue);
+    color: var(--mainblack);
+}
+
+.navbar .nav-item .login-link:hover {
+    cursor: pointer;
+    background-color: var(--lightblue);
+}
+
