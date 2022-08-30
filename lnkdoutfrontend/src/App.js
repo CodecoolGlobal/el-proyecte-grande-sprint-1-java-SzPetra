@@ -1,13 +1,26 @@
+import './assets/App.css';
 import React from "react";
-import './App.css';
-import StudentPage from "./pages/Student/components/StudentPage";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import CompanyPage from "./pages/Company/components/CompanyPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import StudentPage from "./pages/Student/StudentPage";
+import Header from "./components/Header";
+import NoPage from "./pages/NoPage";
 
 function App() {
   return (
-    <div>
-      <StudentPage />
-    </div>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Header />}>
+                  <Route index element={<LandingPage />} />
+                  <Route path="student" element={<StudentPage />} />
+                  <Route path="company" element={<CompanyPage />} />
+                  <Route path="*" element={<NoPage />} />
+              </Route>
+          </Routes>
+      </BrowserRouter>
   );
 }
+
 
 export default App;
