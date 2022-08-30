@@ -80,7 +80,7 @@ function Registration({name, setName, email, setEmail, phone, setPhone,
                     />
                 </div>
             </div>
-            <div className="footer">
+            <div className="registration-footer">
                 <button
                     type="submit"
                     className="btn">Register</button>
