@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Registration from "./Registration";
+import {postData} from "../../../util/Fetch";
 
 function CompanyPage() {
 
@@ -27,6 +28,7 @@ function CompanyPage() {
             setPassword('');
             setConfirmPassword('');
             setCity('');
+            postData('/company/registration').then(r => console.log('posted'))
         } else {
             setIsValid(true);
         }
