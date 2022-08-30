@@ -15,7 +15,6 @@
     align-items: center;
     background-color: var(--deepblue);
     color: var(--mainwhite);
-    margin-bottom: 2rem;
 }
 
 .navbar .nav-item .link,
