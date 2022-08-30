@@ -5,7 +5,8 @@ import application.model.CompanyModel;
 import java.util.List;
 
 public interface CompanyDao {
-    void addCompany(CompanyModel company);
+    void registerCompany(CompanyModel company);
 
     List<CompanyModel> getAllCompany();
+
 }

@@ -10,7 +10,7 @@ public class CompanyDaoMem implements CompanyDao {
 
     private List<CompanyModel> companies = new ArrayList<>();
     @Override
-    public void addCompany(CompanyModel company) {
+    public void registerCompany(CompanyModel company) {
         companies.add(company);
     }
 
