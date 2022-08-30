@@ -3,8 +3,9 @@
     left: 0;
     bottom: 0;
     margin-top: 2em;
+    padding: 2em;
     width: 100%;
-    min-height: 10em;
+    min-height: 6em;
     background-color: var(--mainblack);
     color: var(--mainwhite);
     display: flex;

@@ -34,8 +34,8 @@ ul {
 .navbar .nav-item a,
 .navbar .nav-item .link,
 .navbar .nav-item .login-link {
-    margin-left: 4rem;
-    padding: 1.35rem 2.5rem;
+    margin-left: 6rem;
+    padding: 1.35rem 4.5rem;
 }
 
 .navbar .nav-item a:hover,
