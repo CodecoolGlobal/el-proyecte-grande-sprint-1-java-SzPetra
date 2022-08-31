@@ -19,6 +19,6 @@ public class StudentDaoMem implements StudentDao {
     }
 
     private void fillStudents(){
-        students.add(new StudentModel("Petrus", 13));
+        students.add(new StudentModel("Petrus", "q", "123", "123", "123"));
     }
 }

@@ -11,5 +11,5 @@ public class StudentModel extends BaseModel{
                         @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
         super(name, email, password, phone, city);
     }
-    
+
 }
