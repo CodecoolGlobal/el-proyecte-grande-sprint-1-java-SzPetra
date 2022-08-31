@@ -14,7 +14,12 @@ public class StudentDaoMem implements StudentDao {
     private final List<StudentModel> students = new ArrayList<>();
     @Override
     public List<StudentModel> getAllStudent() {
+        fillStudents();
         return students;
+    }
+
+    private void fillStudents() {
+        students.add(new StudentModel("Petrus", "q", "123", "123", "123"));
     }
 
     public void registerStudent(StudentModel student) {
