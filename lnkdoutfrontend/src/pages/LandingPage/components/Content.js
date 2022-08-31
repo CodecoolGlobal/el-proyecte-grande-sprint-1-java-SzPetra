@@ -1,13 +1,24 @@
 import React from 'react';
+import '../assets/landing_page.css'
 
 function Content(props) {
     return (
         <div className="content">
-            <img src="https://c1.wallpaperflare.com/path/499/312/897/paper-business-finance-document-ee8ec662dc3d8d4d4b1b9e23b06df252.jpg" alt="welcome"/>
-            <div className="welcome">
-                <h2>{"LnkdOut"}</h2>
-                <p>{"Work Is Our Playground"}</p>
+            <div className="landing-content">
+                <img className="main-img" src="https://c1.wallpaperflare.com/path/592/997/230/wood-desktop-wooden-aerial-2a879d435fd8302460c85782f4ff2c82.jpg"  alt={"yep"}/>
+                <div className="welcome">
+                    <h2>{"LnkdOut"}</h2>
+                    <p>{"Work Is Our Playground"}</p>
+                </div>
             </div>
+            <section>
+
+
+
+            </section>
+
+
+
 
 
 
