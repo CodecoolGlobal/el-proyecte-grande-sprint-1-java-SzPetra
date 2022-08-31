@@ -14,13 +14,13 @@ function CompanyPage() {
 
     const validate = () => {
         return password === confirmPassword;
-
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
             setIsValid(false);
+            postData('/company/registration', {name, email, phone, password, city}).then(r => console.log(name))
             console.log(isValid);
             setName('');
             setEmail('');
@@ -28,7 +28,6 @@ function CompanyPage() {
             setPassword('');
             setConfirmPassword('');
             setCity('');
-            postData('/company/registration').then(r => console.log('posted'))
         } else {
             setIsValid(true);
         }
