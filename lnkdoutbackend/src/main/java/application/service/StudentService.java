@@ -1,5 +1,6 @@
 package application.service;
 
+import application.controller.student.StudentController;
 import application.model.StudentModel;
 import application.service.dao.StudentDao;
 
@@ -18,4 +19,9 @@ public class StudentService {
     public List<StudentModel> getAllStudent(){
         return studentDao.getAllStudent();
     }
+
+    public void registerStudent(StudentModel student) {
+        studentDao.registerStudent(student);
+    }
 }
+
