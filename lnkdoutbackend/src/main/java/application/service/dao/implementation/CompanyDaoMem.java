@@ -18,4 +18,9 @@ public class CompanyDaoMem implements CompanyDao {
     public List<CompanyModel> getAllCompany() {
         return companies;
     }
+
+    @Override
+    public CompanyModel getCompanyById(int id) {
+        return companies.stream().filter(companyModel -> companyModel.getId()==id).findFirst().orElse(null);
+    }
 }

@@ -28,4 +28,10 @@ public class CompanyController {
     public List<CompanyModel> getAllCompany(){
         return companyService.getAllCompany();
     }
+
+    @GetMapping(value = "api/get-company/{id}")
+    @ResponseBody
+    public CompanyModel getCompanyById(@PathVariable int id) {
+        return companyService.getCompanyById(id);
+    }
 }
