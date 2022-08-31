@@ -9,13 +9,13 @@ ul {
 
 }
 
-li {
+li, .link {
     float: left;
     font-size: 1.5em;
 
 }
 
-li a {
+li a, .link {
     display: block;
     color: white;
     text-align: center;
@@ -25,7 +25,8 @@ li a {
 }
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+li a:hover,
+.link:hover {
     background-color: #111;
 }
 
