@@ -24,6 +24,7 @@ function App() {
                   <Route index element={<CompanyPageLayout />} />
                   <Route path="list-all" element={<ListAllCompanies />}/>
                   <Route path="registration" element={<CompanyRegistration />} />
+                  <Route path="profile/:id" element={<CompanyRegistration />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
               <Route path="*" element={<NoPage />} />
