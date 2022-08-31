@@ -5,19 +5,11 @@ const Header = () => {
     return (
         <>
             <nav>
-                <ul className="navbar">
-                    <li className="nav-item">
-                        <Link to="/" className="link">Home</Link>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/about" className="link">About</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/contact" className="link">Contact</a>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/login" className="login-link">Login</Link>
-                    </li>
+                <ul>
+                    <Link className="link" to="/">Home</Link>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li style={{float:"right", marginRight: "0.3em"}}><a href="#">Login</a></li>
                 </ul>
             </nav>
 
