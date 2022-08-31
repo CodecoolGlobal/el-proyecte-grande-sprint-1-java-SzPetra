@@ -9,4 +9,5 @@ public interface CompanyDao {
 
     List<CompanyModel> getAllCompany();
 
+    CompanyModel getCompanyById(int id);
 }
