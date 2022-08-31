@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import StudentPage from "./pages/Student/StudentPage";
 import Header from "./components/Header";
 import NoPage from "./pages/NoPage";
+import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
               <Route path="/" element={<Header />}>
                   <Route index element={<LandingPage />} />
                   <Route path="student" element={<StudentPage />} />
-                  <Route path="company" element={<CompanyPage />} />
+                  <Route path="company" element={<ListAllCompanies />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
           </Routes>
