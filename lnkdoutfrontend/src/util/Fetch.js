@@ -6,8 +6,11 @@ export async function postData(url='', data={}){
         },
         method: 'POST',
         body: JSON.stringify(data)
-    })
-    return await response.json();
+    }).then((response) => {
+        if (response.ok) {
+            console.log(response);
+        }
+    });
 }
 
 export const getData = async (url) => {

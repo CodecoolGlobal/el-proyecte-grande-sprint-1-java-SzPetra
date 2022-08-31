@@ -69,5 +69,16 @@ public abstract class BaseModel {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "BaseModel{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", city='" + city + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
 
