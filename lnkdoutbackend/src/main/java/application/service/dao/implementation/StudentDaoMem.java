@@ -25,4 +25,9 @@ public class StudentDaoMem implements StudentDao {
     public void registerStudent(StudentModel student) {
         students.add(student);
     }
+
+    @Override
+    public StudentModel getStudentById(int id) {
+        return students.stream().filter(studentModel -> studentModel.getId()==id).findFirst().orElse(null);
+    }
 }

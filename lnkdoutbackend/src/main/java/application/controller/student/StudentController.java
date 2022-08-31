@@ -31,4 +31,10 @@ public class StudentController{
         studentService.registerStudent(student);
     }
 
+    @GetMapping(value = "api/get-student/{id}")
+    @ResponseBody
+    public StudentModel getStudentById(@PathVariable int id) {
+        return studentService.getStudentById(id);
+    }
+
 }
