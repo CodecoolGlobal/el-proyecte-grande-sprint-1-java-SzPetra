@@ -7,8 +7,8 @@ const Header = () => {
             <nav>
                 <ul>
                     <Link className="link" to="/">Home</Link>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li style={{float:"right", marginRight: "0.3em"}}><a href="#">Login</a></li>
                 </ul>
             </nav>
