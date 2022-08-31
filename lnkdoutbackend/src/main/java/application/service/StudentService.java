@@ -23,5 +23,10 @@ public class StudentService {
     public void registerStudent(StudentModel student) {
         studentDao.registerStudent(student);
     }
+
+    public StudentModel getStudentById(int id) {
+        return studentDao.getStudentById(id);
+
+    }
 }
 
