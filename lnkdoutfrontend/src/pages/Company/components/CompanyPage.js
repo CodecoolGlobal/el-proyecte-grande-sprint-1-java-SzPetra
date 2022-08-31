@@ -20,7 +20,7 @@ function CompanyPage() {
         e.preventDefault();
         if (validate()) {
             setIsValid(false);
-            postData('/company/registration', {name, email, phone, password, city}).then(r => console.log(name))
+            postData('/company/register', {name, email, phone, password, city}).then(r => console.log(name))
             console.log(isValid);
             setName('');
             setEmail('');

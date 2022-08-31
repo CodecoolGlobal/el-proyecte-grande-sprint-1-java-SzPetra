@@ -8,4 +8,9 @@ public class CompanyModel extends BaseModel{
                         @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
         super(name, email, password, phone, city);
     }
+
+    @Override
+    public String toString() {
+        return "CompanyModel{}";
+    }
 }
