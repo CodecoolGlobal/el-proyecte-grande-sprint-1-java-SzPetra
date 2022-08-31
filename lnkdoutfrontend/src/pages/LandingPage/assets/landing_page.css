@@ -19,6 +19,7 @@
     padding: 20px;
     text-align: center;
     border: var(--mainwhite) .2em solid;
+    border-radius: .25em;
 
 }
 
