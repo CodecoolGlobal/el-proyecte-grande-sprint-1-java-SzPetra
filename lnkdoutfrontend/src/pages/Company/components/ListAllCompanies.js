@@ -1,31 +1,49 @@
-import React, {useState} from 'react';
-import CompanyContent from "./CompanyContent";
+import React, {useEffect, useState, useRef} from 'react';
+import {getData} from "../../../util/Fetch";
+import "../assets/CompanyList.css"
+import {Link} from "react-router-dom";
 
 function ListAllCompanies() {
 
-    const [companies, setCompanies] = useState([
-        {
-            id: 1,
-            checked: false,
-            company: 'RMB'
-        },
-        {
-            id: 2,
-            checked: true,
-            company: 'Tigra'
+    const [companies, setCompanies] = useState([]);
+
+    const effectRan = useRef(false);
+
+    useEffect(() => {
+        if (effectRan.current === false) {
+            const fetchCompanies = async () => {
+                let data = await getData('api/get-all');
+                console.log(data);
+                setCompanies(data);
+            }
+            fetchCompanies().then(() => console.log('hello'));
+            return () => {
+                effectRan.current = true;
+            }
         }
-    ]);
-    const handleCheck = (id) => {
-        const listItems = companies.map((item) => item.id === id ? { ...item, checked: !item.checked} : item);
-        setCompanies(listItems)
+    }, []);
+
+    const CompanyCard = ({id, name, email, city, phone}) => {
+        return (
+            <Link to={`company/profile/${id}`}>
+            <div className={"companyCard"}>
+                <p className={"companyName"}>{name}<span> in {city}</span></p>
+                <p><span>Contact info: {email}</span></p>
+                <p>Phone: {phone}</p>
+            </div>
+            </Link>
+        );
     }
+
+    const createCard = (company, key) => <CompanyCard key={key} name={company.name} city={company.city}
+                                                      phone={company.phone}
+                                                      email={company.email}/>
+
+    const cardList = companies === undefined ? "Loading..." : companies.map(company => createCard(company, company.id));
 
     return (
         <div>
-        <CompanyContent
-            companies={companies}
-            handleCheck={handleCheck}
-        />
+            {cardList}
         </div>
     );
 }
