@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import {getData} from "../../../util/Fetch";
 import "../assets/studentList.css";
 import {Link} from "react-router-dom";
+import { FaRegEnvelope, FaHeart } from "react-icons/fa"
 
 function ListAllStudents() {
 
@@ -25,11 +26,15 @@ function ListAllStudents() {
 
     const StudentCard = ({id, name, email, city, phone}) => {
         return (
-            <Link to={`/student/profile/${id}`}>
+            <Link className={"Link"} style={{textDecoration: 'none'}} to={`/student/profile/${id}`}>
                 <div className={"studentCard"}>
+                    <div className={"StudentInfo"}>
                     <p className={"studentName"}>{name}<span> in {city}</span></p>
                     <p><span>Contact info: {email}</span></p>
                     <p>Phone: {phone}</p>
+                    </div>
+                    <FaHeart className={"heart"}/>
+                    <FaRegEnvelope className={"envelope"}/>
                 </div>
             </Link>
         );
@@ -42,7 +47,8 @@ function ListAllStudents() {
     const cardList = students === undefined ? "Loading..." : students.map(company => createCard(company, company.id));
 
     return (
-        <div>
+        <div className={"AllStudentContainer"}>
+            <h2 className={"AllStudentHeader"}>List of all available CoodCooler</h2>
             {cardList}
         </div>
     );

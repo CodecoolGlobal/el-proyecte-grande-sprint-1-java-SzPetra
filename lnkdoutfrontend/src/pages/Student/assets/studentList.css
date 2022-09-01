@@ -5,14 +5,22 @@
 
 .studentCard {
     border: 2px solid lightgray;
-    border-radius: 1px;
+    border-radius: 6px;
     margin-bottom: 12px;
     padding: 10px;
-    color: white;
+    color: dimgrey;
+    background-color: antiquewhite;
+    width: 35vw;
+    box-shadow: 1px 1px 5px lightgray;
 }
 
 .studentCard:hover {
     color: indianred;
+}
+
+.Link {
+    background-color: var(--mainwhite);
+
 }
 
 Link:visited{
@@ -22,12 +30,48 @@ Link:visited{
 
 .studentCard p {
     padding: 5px;
+    background-color: antiquewhite;
+
 }
 
 .studentCard span {
     font-weight: normal;
+    background-color: antiquewhite;
 }
 
 .studentName {
     font-weight: bold;
+}
+
+.AllStudentHeader{
+    font-family: sans-serif;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #282c34;
+    background-color: inherit;
+}
+
+.AllStudentContainer{
+    background-color: var(--mainwhite);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heart {
+    font-size: 1.5em;
+    padding: 5px;
+    color: indianred;
+    background-color: inherit;
+}
+
+.envelope {
+    font-size: 1.5em;
+    padding: 5px;
+    color: var(--mainblack);
+    background-color: inherit;
 }
