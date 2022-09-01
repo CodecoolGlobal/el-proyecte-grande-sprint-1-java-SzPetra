@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getData} from "../../../util/Fetch";
 import {useParams} from "react-router-dom";
+import CompanyProfileItem from "./CompanyProfileItem";
 
 function CompanyProfile() {
     const [companyData, setCompanyData] = useState();
@@ -23,7 +24,11 @@ function CompanyProfile() {
 
     }, [])
     return (
-        <div></div>
+        <div>
+            <CompanyProfileItem
+                {...companyData}
+            />
+        </div>
     );
 }
 
