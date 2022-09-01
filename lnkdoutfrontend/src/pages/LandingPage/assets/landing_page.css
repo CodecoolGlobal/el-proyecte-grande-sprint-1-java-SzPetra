@@ -42,24 +42,16 @@ html {
     flex-direction: row;
     justify-content: center;
 }
-
-.get-started {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--mainwhite);
-    margin: 8em 10em;
-    padding-right: 1em;
+.get-started-section {
+   margin: 5em;
 }
-
-.get-started-text {
-    font-size: 2em;
+.get-started-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
-
-.get-started-label {
-    font-size: 3em;
-}
-
 .get-started-btn {
     border: var(--mainwhite) .1em solid;
     border-radius: 0.2rem;
@@ -72,11 +64,21 @@ html {
     border-color: var(--mainblack);
     background-color: var(--mainblack) none;
 }
+img {
+    width: 35em;
+    opacity: 40%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2%;
+}
+
 
 .get-started-border {
     border-right: var(--mainwhite) .1em solid;
-    margin: 6em 2em;
+    margin: 4em 2em;
+    height: 20em;
 }
+
 
 .about-text {
     color: var(--mainwhite);
@@ -84,6 +86,7 @@ html {
     font-size: 1.5em;
     text-align: justify;
 }
+
 
 .contact-container {
     color: var(--mainwhite);
@@ -102,3 +105,4 @@ html {
 #contact-contact {
     margin-left: 2em;
 }
+
