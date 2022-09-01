@@ -42,24 +42,21 @@ html {
     flex-direction: row;
     justify-content: center;
 }
-
-.get-started {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--mainwhite);
-    margin: 8em 10em;
-    padding-right: 1em;
+.get-started-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 30em;
+    margin-top: 6em;
+    margin-bottom: 5em;
 }
-
-.get-started-text {
-    font-size: 2em;
+.get-started-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10em;
 }
-
-.get-started-label {
-    font-size: 3em;
-}
-
 .get-started-btn {
     border: var(--mainwhite) .1em solid;
     border-radius: 0.2rem;
@@ -70,27 +67,37 @@ html {
 }
 .get-started-btn:hover {
     border-color: var(--mainblack);
-    background-color: var(--mainblack) none;
 }
+img {
+    opacity: 40%;
+    width: 100%;
+}
+
 
 .get-started-border {
     border-right: var(--mainwhite) .1em solid;
-    margin: 6em 2em;
+    height: 32em;
+    margin-top: 5em;
+    margin-bottom: 4em;
 }
+
 
 .about-text {
     color: var(--mainwhite);
     margin: 2em;
     font-size: 1.5em;
     text-align: justify;
+    border-bottom: var(--mainwhite) .1em solid;
+    padding-bottom: 2em;
 }
+
 
 .contact-container {
     color: var(--mainwhite);
     font-size: 1em;
     margin-left: 3em;
     margin-bottom: 2em;
-    margin-top: 8em;
+    margin-top: 5em;
     display: flex;
     flex-direction: row;
 }
@@ -102,3 +109,4 @@ html {
 #contact-contact {
     margin-left: 2em;
 }
+

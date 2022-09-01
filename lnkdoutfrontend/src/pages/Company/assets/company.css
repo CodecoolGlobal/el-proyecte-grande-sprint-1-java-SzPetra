@@ -1,0 +1,20 @@
+.company-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3em;
+    justify-content: center;
+}
+.company-form {
+    border: var(--mainwhite) .1em solid;
+    height: 30em;
+}
+.company-btn {
+    background-color: #2094e8;
+    color: var(--mainwhite);
+    border: none;
+    width: 20em;
+    height: 2em;
+}
+.form-body {
+    color: var(--mainwhite);
+}
