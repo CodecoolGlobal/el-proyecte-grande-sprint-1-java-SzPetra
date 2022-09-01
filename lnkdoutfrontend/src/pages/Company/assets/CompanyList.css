@@ -5,13 +5,32 @@
 
 .companyCard {
     border: 2px solid lightgray;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 1px;
+    margin-bottom: 12px;
+    padding: 10px;
+}
+
+.companyCard:hover {
+    color: indianred;
+}
+
+.companyCard{
+    color: white;
+}
+
+Link:visited{
+    text-decoration: none;
+    text-underline: none;
 }
 
 .companyCard p {
-    font-weight: bold;
+    padding: 5px;
 }
+
 .companyCard span {
     font-weight: normal;
+}
+
+.companyName {
+    font-weight: bold;
 }

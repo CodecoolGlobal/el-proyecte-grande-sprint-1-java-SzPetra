@@ -27,7 +27,7 @@ function ListAllCompanies() {
         return (
             <Link to={`company/profile/${id}`}>
             <div className={"companyCard"}>
-                <p>{name} in {city}</p>
+                <p className={"companyName"}>{name}<span> in {city}</span></p>
                 <p><span>Contact info: {email}</span></p>
                 <p>Phone: {phone}</p>
             </div>
