@@ -8,12 +8,16 @@ import java.util.List;
 
 public class CompanyDaoMem implements CompanyDao {
 
-    private List<CompanyModel> companies;
+    private List<CompanyModel> companies = new ArrayList<>();
 
     public CompanyDaoMem() {
-        this.companies = new ArrayList<>();
-        companies.add(new CompanyModel("RFC", "email", "pw", "123", "BP"));
-        companies.add(new CompanyModel("Tigra", "email", "pw", "2134", "Szöged"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
     }
 
     @Override
@@ -23,7 +27,6 @@ public class CompanyDaoMem implements CompanyDao {
 
     @Override
     public List<CompanyModel> getAllCompany() {
-        System.out.println(companies);
         return companies;
     }
 
