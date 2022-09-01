@@ -9,6 +9,7 @@ import NoPage from "./pages/NoPage";
 import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
 import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
 import CompanyProfile from "./pages/Company/components/CompanyProfile";
+import StudentProfile from "./pages/Student/components/StudentProfile";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                   <Route index  element={<StudentPage />} />
                   <Route path="list-all" />
                   <Route path="registration" element={<StudentPage />} />
+                  <Route path="profile/:id" element={<StudentProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
               <Route path="company">
