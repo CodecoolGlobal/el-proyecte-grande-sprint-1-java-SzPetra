@@ -9,6 +9,17 @@ import java.util.List;
 public class CompanyDaoMem implements CompanyDao {
 
     private List<CompanyModel> companies = new ArrayList<>();
+
+    public CompanyDaoMem() {
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+        companies.add(new CompanyModel("Company", "email", "password", "phone", "city"));
+    }
+
     @Override
     public void registerCompany(CompanyModel company) {
         companies.add(company);

@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import NoPage from "./pages/NoPage";
 import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
 import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
+import CompanyProfile from "./pages/Company/components/CompanyProfile";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                   <Route index element={<CompanyPageLayout />} />
                   <Route path="list-all" element={<ListAllCompanies />}/>
                   <Route path="registration" element={<CompanyRegistration />} />
+                  <Route path="profile/:id" element={<CompanyProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
               <Route path="*" element={<NoPage />} />
