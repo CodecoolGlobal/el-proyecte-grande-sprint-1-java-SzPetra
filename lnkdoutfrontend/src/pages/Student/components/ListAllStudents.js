@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import {getData} from "../../../util/Fetch";
 import "../assets/studentList.css";
 import {Link} from "react-router-dom";
-import { FaRegEnvelope, FaHeart } from "react-icons/fa"
+import { FaRegEnvelope, FaHeart } from "react-icons/fa";
 
 function ListAllStudents() {
 
