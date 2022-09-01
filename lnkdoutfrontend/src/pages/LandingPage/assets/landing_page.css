@@ -43,13 +43,19 @@ html {
     justify-content: center;
 }
 .get-started-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("https://www.firmaxhungary.com/wp-content/uploads/2019/09/company-formation-hungary.jpg");
+    position: relative;
+    text-align: center;
+    color: white;
+    width: 30em;
+    margin-top: 6em;
+    margin-bottom: 5em;
 }
 .get-started-content {
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10em;
 }
 .get-started-btn {
     border: var(--mainwhite) .1em solid;
@@ -61,21 +67,18 @@ html {
 }
 .get-started-btn:hover {
     border-color: var(--mainblack);
-    background-color: var(--mainblack) none;
 }
 img {
-    width: 35em;
     opacity: 40%;
-    background-size: cover;
-    background-position: center;
-    border-radius: 2%;
+    width: 100%;
 }
 
 
 .get-started-border {
     border-right: var(--mainwhite) .1em solid;
-    margin: 4em 2em;
-    height: 20em;
+    height: 32em;
+    margin-top: 5em;
+    margin-bottom: 4em;
 }
 
 
@@ -84,6 +87,8 @@ img {
     margin: 2em;
     font-size: 1.5em;
     text-align: justify;
+    border-bottom: var(--mainwhite) .1em solid;
+    padding-bottom: 2em;
 }
 
 
@@ -92,7 +97,7 @@ img {
     font-size: 1em;
     margin-left: 3em;
     margin-bottom: 2em;
-    margin-top: 8em;
+    margin-top: 5em;
     display: flex;
     flex-direction: row;
 }
