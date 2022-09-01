@@ -1,8 +1,8 @@
 import React from "react";
-import Registration from "./components/Registration";
-import './assets/student.css';
+import Registration from "./Registration";
+import '../assets/student.css';
 
-function StudentPage() {
+function StudentRegistration() {
 
     const [name, setName] = React.useState('');
     const [age, setAge] = React.useState('');
@@ -55,4 +55,4 @@ function StudentPage() {
     );
 }
 
-export default StudentPage;
+export default StudentRegistration;

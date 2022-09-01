@@ -20,7 +20,6 @@ public class CompanyController {
 
     @PostMapping(value = "/register")
     public void registerCompany(@RequestBody CompanyModel companyModel){
-        System.out.println(companyModel.toString());
         companyService.registerCompany(companyModel);
     }
 
@@ -29,7 +28,7 @@ public class CompanyController {
         return companyService.getAllCompany();
     }
 
-    @GetMapping(value = "api/get-company/{id}")
+    @GetMapping(value = "profile/{id}")
     @ResponseBody
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);

@@ -14,12 +14,16 @@ public class StudentDaoMem implements StudentDao {
     private final List<StudentModel> students = new ArrayList<>();
     @Override
     public List<StudentModel> getAllStudent() {
-        fillStudents();
         return students;
     }
 
     private void fillStudents() {
         students.add(new StudentModel("Petrus", "q", "123", "123", "123"));
+        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
+        students.add(new StudentModel("Gyulus", "q", "123", "123", "123"));
+        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
+        students.add(new StudentModel("Kris", "q", "123", "123", "123"));
+        students.add(new StudentModel("Stóf", "q", "123", "123", "123"));
     }
 
     public void registerStudent(StudentModel student) {
@@ -29,5 +33,9 @@ public class StudentDaoMem implements StudentDao {
     @Override
     public StudentModel getStudentById(int id) {
         return students.stream().filter(studentModel -> studentModel.getId()==id).findFirst().orElse(null);
+    }
+
+    public StudentDaoMem() {
+        fillStudents();
     }
 }
