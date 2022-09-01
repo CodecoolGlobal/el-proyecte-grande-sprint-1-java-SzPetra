@@ -20,7 +20,6 @@ public class CompanyController {
 
     @PostMapping(value = "/register")
     public void registerCompany(@RequestBody CompanyModel companyModel){
-        System.out.println(companyModel.toString());
         companyService.registerCompany(companyModel);
     }
 
