@@ -25,7 +25,7 @@ function ListAllStudents() {
 
     const StudentCard = ({id, name, email, city, phone}) => {
         return (
-            <Link to={`student/profile/${id}`}>
+            <Link to={`/student/profile/${id}`}>
                 <div className={"studentCard"}>
                     <p className={"studentName"}>{name}<span> in {city}</span></p>
                     <p><span>Contact info: {email}</span></p>

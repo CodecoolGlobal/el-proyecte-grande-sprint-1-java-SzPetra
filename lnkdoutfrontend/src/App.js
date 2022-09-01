@@ -10,6 +10,8 @@ import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
 import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
 import CompanyProfile from "./pages/Company/components/CompanyProfile";
 import StudentProfile from "./pages/Student/components/StudentProfile";
+import ListAllStudents from "./pages/Student/components/ListAllStudents";
+import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
 
 function App() {
   return (
@@ -17,9 +19,9 @@ function App() {
           <Route path="/" element={<Header />}>
               <Route index element={<LandingPage />} />
               <Route path="student">
-                  <Route index  element={<StudentPage />} />
-                  <Route path="list-all" />
-                  <Route path="registration" element={<StudentPage />} />
+                  <Route index  element={<StudentPageLayout />} />
+                  <Route path="list-all" element={<ListAllStudents />}/>
+                  <Route path="registration" element={<StudentRegistration />} />
                   <Route path="profile/:id" element={<StudentProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
