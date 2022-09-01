@@ -1,0 +1,33 @@
+.ListAllStudents {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.studentCard {
+    border: 2px solid lightgray;
+    border-radius: 1px;
+    margin-bottom: 12px;
+    padding: 10px;
+    color: white;
+}
+
+.studentCard:hover {
+    color: indianred;
+}
+
+Link:visited{
+    text-decoration: none;
+    text-underline: none;
+}
+
+.studentCard p {
+    padding: 5px;
+}
+
+.studentCard span {
+    font-weight: normal;
+}
+
+.studentName {
+    font-weight: bold;
+}
