@@ -43,14 +43,13 @@ html {
     justify-content: center;
 }
 .get-started-section {
-   margin: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://www.firmaxhungary.com/wp-content/uploads/2019/09/company-formation-hungary.jpg");
 }
 .get-started-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+
 }
 .get-started-btn {
     border: var(--mainwhite) .1em solid;
