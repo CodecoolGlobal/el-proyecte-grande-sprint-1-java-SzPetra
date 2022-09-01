@@ -1,5 +1,6 @@
 package application.model;
 
+import java.util.Random;
 import java.util.UUID;
 
 public abstract class BaseModel {
@@ -9,7 +10,7 @@ public abstract class BaseModel {
     private String phone;
     private String city;
 
-    private UUID id;
+    private int id;
 
     public BaseModel(String name, String email, String password, String phone, String city) {
         this.name = name;
@@ -17,7 +18,7 @@ public abstract class BaseModel {
         this.password = password;
         this.phone = phone;
         this.city = city;
-        this.id = UUID.randomUUID();
+        this.id = new Random().nextInt();
     }
 
 
@@ -61,11 +62,11 @@ public abstract class BaseModel {
         this.city = city;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

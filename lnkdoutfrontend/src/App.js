@@ -1,24 +1,34 @@
 import './assets/App.css';
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import CompanyPage from "./pages/Company/components/CompanyPage";
+import { Routes, Route } from "react-router-dom";
+import CompanyRegistration from "./pages/Company/components/CompanyRegistration";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import StudentPage from "./pages/Student/StudentPage";
 import Header from "./components/Header";
 import NoPage from "./pages/NoPage";
+import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
+import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
 
 function App() {
   return (
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<Header />}>
-                  <Route index element={<LandingPage />} />
-                  <Route path="student" element={<StudentPage />} />
-                  <Route path="company" element={<CompanyPage />} />
+      <Routes>
+          <Route path="/" element={<Header />}>
+              <Route index element={<LandingPage />} />
+              <Route path="student">
+                  <Route index  element={<StudentPage />} />
+                  <Route path="list-all" />
+                  <Route path="registration" element={<StudentPage />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
-          </Routes>
-      </BrowserRouter>
+              <Route path="company">
+                  <Route index element={<CompanyPageLayout />} />
+                  <Route path="list-all" element={<ListAllCompanies />}/>
+                  <Route path="registration" element={<CompanyRegistration />} />
+                  <Route path="*" element={<NoPage />} />
+              </Route>
+              <Route path="*" element={<NoPage />} />
+          </Route>
+      </Routes>
   );
 }
 

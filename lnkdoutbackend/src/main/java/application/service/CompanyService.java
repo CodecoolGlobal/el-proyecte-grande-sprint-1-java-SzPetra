@@ -22,4 +22,8 @@ public class CompanyService {
     public List<CompanyModel> getAllCompany() {
         return companyDao.getAllCompany();
     }
+
+    public CompanyModel getCompanyById(int id) {
+        return companyDao.getCompanyById(id);
+    }
 }

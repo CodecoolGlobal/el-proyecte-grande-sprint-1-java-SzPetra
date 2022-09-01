@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Registration from "./Registration";
 import {postData} from "../../../util/Fetch";
 
-function CompanyPage() {
+function CompanyRegistration() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -54,4 +54,4 @@ function CompanyPage() {
     );
 }
 
-export default CompanyPage;
+export default CompanyRegistration;
