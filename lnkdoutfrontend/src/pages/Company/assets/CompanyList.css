@@ -1,0 +1,17 @@
+.ListAllCompanies {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.companyCard {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.companyCard p {
+    font-weight: bold;
+}
+.companyCard span {
+    font-weight: normal;
+}
