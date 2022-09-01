@@ -23,7 +23,6 @@ public class CompanyDaoMem implements CompanyDao {
 
     @Override
     public List<CompanyModel> getAllCompany() {
-        System.out.println(companies);
         return companies;
     }
 
