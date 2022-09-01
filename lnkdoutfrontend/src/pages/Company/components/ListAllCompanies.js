@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {getData} from "../../../util/Fetch";
 import "../assets/CompanyList.css"
+import {Link} from "react-router-dom";
 
 function ListAllCompanies() {
 
@@ -22,13 +23,15 @@ function ListAllCompanies() {
         }
     }, []);
 
-    const CompanyCard = ({name, email, city, phone}) => {
+    const CompanyCard = ({id, name, email, city, phone}) => {
         return (
+            <Link to={`company/profile/${id}`}>
             <div className={"companyCard"}>
                 <p>{name} in {city}</p>
                 <p><span>Contact info: {email}</span></p>
                 <p>Phone: {phone}</p>
             </div>
+            </Link>
         );
     }
 
@@ -36,20 +39,11 @@ function ListAllCompanies() {
                                                       phone={company.phone}
                                                       email={company.email}/>
 
-    const cardList = companies === undefined ? "Loading..." : companies.map(company => createCard(company, company.name));
-
-    const handleCheck = (id) => {
-        const listItems = companies.map((item) => item.id === id ? {...item, checked: !item.checked} : item);
-        setCompanies(listItems)
-    }
+    const cardList = companies === undefined ? "Loading..." : companies.map(company => createCard(company, company.id));
 
     return (
         <div>
             {cardList}
-            {/*<CompanyContent*/}
-            {/*    companies={companies}*/}
-            {/*    handleCheck={handleCheck}*/}
-            {/*/>*/}
         </div>
     );
 }
