@@ -18,7 +18,7 @@ public abstract class BaseModel {
         this.password = password;
         this.phone = phone;
         this.city = city;
-        this.id = new Random().nextInt(1, 10);
+        this.id = new Random().nextInt(1, 6);
     }
 
 
