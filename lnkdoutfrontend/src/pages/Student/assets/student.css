@@ -9,15 +9,22 @@
     color: var(--mainwhite);
     margin-top: 3em;
     font-size: 1em;
+
 }
 
 input{
+    font-size: 1em;
     width: 13rem;
     height: 1rem;
-    border: none;
+    border: 1px solid var(--mainwhite);
+    outline: none;
     border-bottom: var(--mainwhite) .1em solid;
     border-right: var(--mainwhite) .1em solid;
     margin: 0.5em;
+    padding: .8em;
+    border-radius: 4px;
+    color: var(--mainwhite);
+
 }
 input::placeholder {
     color: var(--mainwhite);
@@ -25,20 +32,36 @@ input::placeholder {
 #register-btn {
     color: var(--mainwhite);
     width: 6em;
+    padding: .6em 1em;
     border: var(--mainwhite) .1em solid;
     font-size: 1em;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 #register-btn:hover{
     border-color: var(--mainblack);
-    background: var(--mainblack);
+    background: var(--mainwhite);
+    color: var(--mainblack);
 }
 .registration {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     margin-top: 3em;
+    background-color: #fff4cd;
 }
 img{
-    height: 30em;
-    width: 20em;
+    height: 41.5em;
+    width: 30em;
+}
+
+.welcome-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainwhite);
+    font-size: 2em;
+
 }
