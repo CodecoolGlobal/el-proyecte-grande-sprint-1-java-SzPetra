@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import { getData } from "../../../util/Fetch";
+import {getData} from "../../../util/Fetch";
 
-function CompanyProfile(props) {
+
+function CompanyProfile() {
+    const [companyData, setCompanyData] = useState({});
     const { id } = useParams();
-    const api = ``;
-    const companyData = getData();
+    const apiRoute = `company/api/get-company/${id}`;
 
-
-
-
+    useEffect(()=> {
+        getData(apiRoute)
+            .then(data => setCompanyData(data))
+    }, []);
 
     return (
-        <div></div>
+        <div>
+        </div>
     );
 }
 

@@ -32,6 +32,7 @@ public class CompanyController {
     @GetMapping(value = "api/get-company/{id}")
     @ResponseBody
     public CompanyModel getCompanyById(@PathVariable int id) {
+        System.out.println("bejön");
         return companyService.getCompanyById(id);
     }
 }
