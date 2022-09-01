@@ -28,7 +28,7 @@ public class CompanyController {
         return companyService.getAllCompany();
     }
 
-    @GetMapping(value = "api/get-company/{id}")
+    @GetMapping(value = "profile/{id}")
     @ResponseBody
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);

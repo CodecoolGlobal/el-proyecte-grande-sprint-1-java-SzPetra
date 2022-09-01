@@ -25,7 +25,7 @@ function ListAllCompanies() {
 
     const CompanyCard = ({id, name, email, city, phone}) => {
         return (
-            <Link to={`company/profile/${id}`}>
+            <Link to={`/company/profile/${id}`}>
             <div className={"companyCard"}>
                 <p className={"companyName"}>{name}<span> in {city}</span></p>
                 <p><span>Contact info: {email}</span></p>
@@ -37,7 +37,9 @@ function ListAllCompanies() {
 
     const createCard = (company, key) => <CompanyCard key={key} name={company.name} city={company.city}
                                                       phone={company.phone}
-                                                      email={company.email}/>
+                                                      email={company.email}
+                                                      id={company.id}
+    />
 
     const cardList = companies === undefined ? "Loading..." : companies.map(company => createCard(company, company.id));
 
