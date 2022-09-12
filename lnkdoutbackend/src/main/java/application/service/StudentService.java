@@ -2,29 +2,33 @@ package application.service;
 
 import application.model.StudentModel;
 import application.dao.StudentDao;
+import application.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class StudentService {
 
+    private StudentRepository studentRepository;
 
-    private StudentDao studentDao;
-
-    public StudentService(StudentDao studentDao) {
-        this.studentDao = studentDao;
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     public List<StudentModel> getAllStudent(){
-        return studentDao.getAllStudent();
+        return studentRepository.findAll();
     }
 
     public void registerStudent(StudentModel student) {
-        studentDao.registerStudent(student);
+        studentRepository.save(student);
     }
 
     public StudentModel getStudentById(int id) {
-        return studentDao.getStudentById(id);
+        return studentRepository.findById(id)
+                .orElse(null);
 
     }
 }
