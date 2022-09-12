@@ -17,7 +17,7 @@ public class StudentDaoMem implements StudentDao {
     }
 
     private void fillStudents() {
-        students.add(StudentModel.builder().build());
+        students.add(StudentModel.builder().name("Peti").build());
 
     }
 

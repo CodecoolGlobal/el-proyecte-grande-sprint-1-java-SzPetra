@@ -1,7 +1,7 @@
 package application.dao.implementation;
 
-import application.model.CompanyModel;
 import application.dao.CompanyDao;
+import application.model.CompanyModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,7 @@ public class CompanyDaoMem implements CompanyDao {
     private List<CompanyModel> companies = new ArrayList<>();
 
     public CompanyDaoMem() {
-        companies.add(CompanyModel.builder().build());
-
+        companies.add(CompanyModel.builder().name("Jani").build());
     }
 
     @Override

@@ -1,37 +1,27 @@
 package application.model;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.Random;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@MappedSuperclass
 public abstract class BaseModel {
 
-    @JsonProperty
     protected String name;
-
-    @JsonProperty
     private String email;
-
-    @JsonProperty
     private String password;
-
-    @JsonProperty
     private String phone;
-
-    @JsonProperty
     private String city;
-    private Long id;
+    @JsonIgnore
+    @Id
+    @GeneratedValue
+    private int id;
+    @Column(unique = true)
+    private int publicKey;
 
     @Override
     public String toString() {
@@ -42,11 +32,6 @@ public abstract class BaseModel {
                 ", phone='" + phone + '\'' +
                 ", city='" + city + '\'' +
                 '}';
-    }
-
-    @Id
-    public Long getId() {
-        return id;
     }
 }
 
