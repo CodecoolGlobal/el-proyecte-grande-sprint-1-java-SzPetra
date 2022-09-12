@@ -18,12 +18,12 @@ public class StudentDaoMem implements StudentDao {
     }
 
     private void fillStudents() {
-        students.add(new StudentModel("Petrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Gyulus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Kris", "q", "123", "123", "123"));
-        students.add(new StudentModel("Stóf", "q", "123", "123", "123"));
+        students.add(new StudentModel("Petrus", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
+        students.add(new StudentModel("Andrus", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
+        students.add(new StudentModel("Gyulus", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
+        students.add(new StudentModel("Andrus", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
+        students.add(new StudentModel("Kris", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
+        students.add(new StudentModel("Stóf", "sample@email.com", "123", "+36 30 123 456", "Damascus"));
     }
 
     public void registerStudent(StudentModel student) {
