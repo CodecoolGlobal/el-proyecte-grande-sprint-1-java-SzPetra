@@ -1,10 +1,10 @@
 package application.configuration;
 import application.service.CompanyService;
 import application.service.StudentService;
-import application.service.dao.CompanyDao;
-import application.service.dao.StudentDao;
-import application.service.dao.implementation.CompanyDaoMem;
-import application.service.dao.implementation.StudentDaoMem;
+import application.dao.CompanyDao;
+import application.dao.StudentDao;
+import application.dao.implementation.CompanyDaoMem;
+import application.dao.implementation.StudentDaoMem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

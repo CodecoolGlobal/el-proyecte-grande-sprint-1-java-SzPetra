@@ -1,11 +1,30 @@
 package application.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-public class CompanyModel extends BaseModel{
+import lombok.*;
 
-    public CompanyModel(@JsonProperty("name") String name, @JsonProperty("email") String email,
-                        @JsonProperty("password") String password,
-                        @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
-        super(name, email, password, phone, city);
-    }
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+public class CompanyModel extends BaseModel {
+
+    @JsonIgnore
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @JsonProperty
+    @Column(unique = true)
+    private int publicKey;
+
 }

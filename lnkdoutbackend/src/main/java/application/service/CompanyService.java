@@ -1,9 +1,8 @@
 package application.service;
 
 import application.model.CompanyModel;
-import application.model.StudentModel;
-import application.service.dao.CompanyDao;
-import application.service.dao.StudentDao;
+import application.dao.CompanyDao;
+import application.dao.StudentDao;
 
 import java.util.List;
 

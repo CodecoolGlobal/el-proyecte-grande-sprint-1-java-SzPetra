@@ -1,15 +1,31 @@
 package application.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import java.util.UUID;
 
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
 public class StudentModel extends BaseModel{
 
-    public StudentModel(@JsonProperty("name") String name, @JsonProperty("email") String email,
-                        @JsonProperty("password") String password,
-                        @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
-        super(name, email, password, phone, city);
-    }
+    @JsonIgnore
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @JsonProperty
+    @Column(unique = true)
+    private int publicKey;
+
 
 }

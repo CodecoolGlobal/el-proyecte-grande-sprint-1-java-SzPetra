@@ -1,8 +1,7 @@
-package application.service.dao.implementation;
+package application.dao.implementation;
 
 import application.model.StudentModel;
-import application.service.dao.StudentDao;
-import org.springframework.stereotype.Component;
+import application.dao.StudentDao;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -18,12 +17,8 @@ public class StudentDaoMem implements StudentDao {
     }
 
     private void fillStudents() {
-        students.add(new StudentModel("Petrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Gyulus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Andrus", "q", "123", "123", "123"));
-        students.add(new StudentModel("Kris", "q", "123", "123", "123"));
-        students.add(new StudentModel("Stóf", "q", "123", "123", "123"));
+        students.add(StudentModel.builder().build());
+
     }
 
     public void registerStudent(StudentModel student) {

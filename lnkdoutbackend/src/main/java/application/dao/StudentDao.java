@@ -1,7 +1,6 @@
-package application.service.dao;
+package application.dao;
 
 import application.model.StudentModel;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

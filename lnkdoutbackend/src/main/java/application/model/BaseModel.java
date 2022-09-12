@@ -2,31 +2,36 @@ package application.model;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Random;
 import java.util.UUID;
-@Data
+
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@Entity
 public abstract class BaseModel {
-    private String name;
+
+    @JsonProperty
+    protected String name;
+
+    @JsonProperty
     private String email;
+
+    @JsonProperty
     private String password;
+
+    @JsonProperty
     private String phone;
+
+    @JsonProperty
     private String city;
-    @GeneratedValue
-    @Id
-    @JsonIgnore
-    private int id;
-    @Column(unique = true)
-    private int publicKey;
+    private Long id;
 
     @Override
     public String toString() {
@@ -36,8 +41,12 @@ public abstract class BaseModel {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", city='" + city + '\'' +
-                ", id=" + id +
                 '}';
+    }
+
+    @Id
+    public Long getId() {
+        return id;
     }
 }
 

@@ -1,8 +1,7 @@
 package application.service;
 
-import application.controller.student.StudentController;
 import application.model.StudentModel;
-import application.service.dao.StudentDao;
+import application.dao.StudentDao;
 
 import java.util.List;
 
