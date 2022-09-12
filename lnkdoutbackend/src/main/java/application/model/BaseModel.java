@@ -1,7 +1,10 @@
 package application.model;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+
 import java.util.Random;
 import java.util.UUID;
+
 
 public abstract class BaseModel {
     private String name;
