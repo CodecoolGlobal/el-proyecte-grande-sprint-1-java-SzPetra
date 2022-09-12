@@ -3,26 +3,32 @@ package application.service;
 import application.model.CompanyModel;
 import application.dao.CompanyDao;
 import application.dao.StudentDao;
+import application.repository.CompanyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CompanyService {
 
-    private CompanyDao companyDao;
+   private CompanyRepository companyRepository;
 
-    public CompanyService(CompanyDao companyDao) {
-        this.companyDao = companyDao;
+   @Autowired
+    public CompanyService(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
     }
 
     public void registerCompany(CompanyModel company) {
-        companyDao.registerCompany(company);
+       companyRepository.save(company);
     }
 
     public List<CompanyModel> getAllCompany() {
-        return companyDao.getAllCompany();
+        return companyRepository.findAll();
     }
 
     public CompanyModel getCompanyById(int id) {
-        return companyDao.getCompanyById(id);
+        return companyRepository.findById(id)
+                .orElse(null);
     }
 }
