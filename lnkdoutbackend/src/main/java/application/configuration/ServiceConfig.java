@@ -1,4 +1,5 @@
 package application.configuration;
+import application.repository.StudentRepository;
 import application.service.CompanyService;
 import application.service.StudentService;
 import application.dao.CompanyDao;
@@ -21,7 +22,7 @@ public class ServiceConfig {
         return new CompanyDaoMem();
     }
 
-    @Bean
+    /*@Bean
     public StudentService studentService() {
         return new StudentService(studentDao());
     }
@@ -29,5 +30,5 @@ public class ServiceConfig {
     @Bean
     public CompanyService companyService() {
         return new CompanyService(companyDao());
-    }
+    }*/
 }
