@@ -1,15 +1,18 @@
 package application.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+import javax.persistence.Entity;
 
-import java.util.UUID;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
 public class StudentModel extends BaseModel{
 
-    public StudentModel(@JsonProperty("name") String name, @JsonProperty("email") String email,
-                        @JsonProperty("password") String password,
-                        @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
-        super(name, email, password, phone, city);
+    @Builder
+    public StudentModel(String name, String email, String password, String phone, String city, int id, int publicKey) {
+        super(name, email, password, phone, city, id, publicKey);
     }
-
 }
