@@ -1,4 +1,4 @@
-package application.service.dao;
+package application.dao;
 
 import application.model.MessageModel;
 

@@ -1,7 +1,7 @@
 package application.service;
 
 import application.model.MessageModel;
-import application.service.dao.InboxDao;
+import application.dao.InboxDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

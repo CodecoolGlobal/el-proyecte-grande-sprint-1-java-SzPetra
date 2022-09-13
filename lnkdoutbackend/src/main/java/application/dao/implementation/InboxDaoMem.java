@@ -1,7 +1,7 @@
-package application.service.dao.implementation;
+package application.dao.implementation;
 
 import application.model.MessageModel;
-import application.service.dao.InboxDao;
+import application.dao.InboxDao;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
