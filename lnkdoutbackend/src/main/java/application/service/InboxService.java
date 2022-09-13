@@ -9,22 +9,22 @@ import java.util.List;
 @Service
 public class InboxService {
 
-    private InboxDao messageDao;
+    private InboxDao inboxDao;
 
     @Autowired
     public InboxService(InboxDao messageDao) {
-        this.messageDao = messageDao;
+        this.inboxDao = messageDao;
     }
 
     public List<MessageModel> getAllMessages() {
-        return messageDao.getAllMessages();
+        return inboxDao.getAllMessages();
     }
 
     public void sendMessage(MessageModel message) {
-        messageDao.sendMessage(message);
+        inboxDao.sendMessage(message);
     }
 
     public MessageModel getMessageById(int id) {
-        return messageDao.getMessageById(id);
+        return inboxDao.getMessageById(id);
     }
 }

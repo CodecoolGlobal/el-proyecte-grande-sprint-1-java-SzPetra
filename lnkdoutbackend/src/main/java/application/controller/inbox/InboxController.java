@@ -10,25 +10,25 @@ import java.util.List;
 @RequestMapping("/inbox")
 public class InboxController {
 
-    InboxService messageService;
+    InboxService inboxService;
 
     public InboxController(InboxService messageService) {
-        this.messageService = messageService;
+        this.inboxService = messageService;
     }
 
     @GetMapping
     public List<MessageModel> getAllMessage() {
-        return messageService.getAllMessages();
+        return inboxService.getAllMessages();
     }
 
     @PostMapping
     @ResponseBody
     public void sendMessage(@RequestBody MessageModel message) {
-        messageService.sendMessage(message);
+        inboxService.sendMessage(message);
     }
 
     @GetMapping("/{id}")
     public MessageModel getMessageById(@PathVariable("id") int id) {
-        return messageService.getMessageById(id);
+        return inboxService.getMessageById(id);
     }
 }
