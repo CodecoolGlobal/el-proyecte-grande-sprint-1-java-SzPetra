@@ -28,7 +28,7 @@ public class InboxController {
     }
 
     @GetMapping("/{id}")
-    public MessageModel getMessageById(@PathVariable("id") int id) {
-        return inboxService.getMessageById(id);
+    public MessageModel getMessageByPublicKey(@PathVariable("id") int id) {
+        return inboxService.getMessageByPublicKey(id);
     }
 }

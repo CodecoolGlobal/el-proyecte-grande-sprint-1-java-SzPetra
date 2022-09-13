@@ -2,6 +2,7 @@ package application.service;
 
 import application.model.MessageModel;
 import application.dao.InboxDao;
+import application.repository.InboxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,22 +10,22 @@ import java.util.List;
 @Service
 public class InboxService {
 
-    private InboxDao inboxDao;
+   private InboxRepository inboxRepository;
 
-    @Autowired
-    public InboxService(InboxDao messageDao) {
-        this.inboxDao = messageDao;
+   @Autowired
+    public InboxService(InboxRepository inboxRepository) {
+        this.inboxRepository = inboxRepository;
     }
 
     public List<MessageModel> getAllMessages() {
-        return inboxDao.getAllMessages();
+        return inboxRepository.findAll();
     }
 
     public void sendMessage(MessageModel message) {
-        inboxDao.sendMessage(message);
+        inboxRepository.save(message);
     }
 
-    public MessageModel getMessageById(int id) {
-        return inboxDao.getMessageById(id);
+    public MessageModel getMessageByPublicKey(int id) {
+        return inboxRepository.findByPublicKey(id);
     }
 }

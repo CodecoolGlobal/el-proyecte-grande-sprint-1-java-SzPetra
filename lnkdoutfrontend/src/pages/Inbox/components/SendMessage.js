@@ -1,18 +1,23 @@
 import React, {useState} from "react";
-import SendMessage from "./SendMessage";
+import SendMessageForm from "./SendMessageForm";
+import {postData} from "../../../util/Fetch";
 
-function SendMessageToStudent() {
+function SendMessage() {
     const [subject, setSubject] = useState('');
     const [fromPerson, setFromPerson] = useState('');
     const [message, setMessage] = useState('');
 
     const sendMessage = (e) => {
         e.preventDefault();
+        postData('/inbox', {subject, fromPerson, message});
+        setSubject('');
+        setFromPerson('');
+        setMessage('');
     }
 
     return (
         <div>
-            <SendMessage
+            <SendMessageForm
                 subject={subject}
                 setSubject={setSubject}
                 fromPerson={fromPerson}
@@ -25,5 +30,5 @@ function SendMessageToStudent() {
     );
 }
 
-export default SendMessageToStudent;
+export default SendMessage;
 

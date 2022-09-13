@@ -1,0 +1,64 @@
+.inbox-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inbox-form-container {
+    border: 0.5em solid white;
+    border-radius: 2em;
+    width: 22rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    color: plum;
+}
+
+.inbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#message {
+    width: 20rem;
+    height: 10rem;
+    border: outset var(--mainwhite);
+}
+#message::placeholder {
+    color: plum;
+    font-size: 1em;
+}
+#message:focus {
+    color: var(--mainwhite);
+}
+
+#subject {
+    width: 18rem;
+    border: outset var(--mainwhite);
+}
+#subject::placeholder {
+    color: plum;
+}
+
+#from {
+    width: 18rem;
+    border: outset var(--mainwhite);
+}
+#from::placeholder {
+    color: plum;
+}
+
+#send-message-btn {
+    width: 24rem;
+    height: 2rem;
+    background-color: plum;
+    margin-top: 1rem;
+    border: none;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    color: var(--mainwhite);
+    font-size: 1.5em;
+}

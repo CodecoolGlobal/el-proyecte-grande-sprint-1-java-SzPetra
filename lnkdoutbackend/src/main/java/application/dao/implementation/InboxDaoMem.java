@@ -17,11 +17,11 @@ public class InboxDaoMem implements InboxDao {
         return messages;
     }
 
-    private void fillMessages() {
+    /*private void fillMessages() {
         messages.add(new MessageModel("Meeting", "andrew@gmail.com", "Did you hear back from the clients?"));
         messages.add(new MessageModel("Interview", "hayley@codecool.com", "Are you ready for your interview with Innoveo? Do you want to go through it again?"));
         messages.add(new MessageModel("CV", "mads@codecool.com", "I think you should write also that job in your CV that you were talking about the other week."));
-    }
+    }*/
 
     @Override
     public void sendMessage(MessageModel message) {
@@ -37,5 +37,5 @@ public class InboxDaoMem implements InboxDao {
         return searchedMessage;
     }
 
-    public InboxDaoMem() {fillMessages();}
+    //public InboxDaoMem() {fillMessages();}
 }

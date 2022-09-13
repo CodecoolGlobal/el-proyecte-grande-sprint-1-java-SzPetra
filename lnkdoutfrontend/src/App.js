@@ -12,6 +12,7 @@ import CompanyProfile from "./pages/Company/components/CompanyProfile";
 import StudentProfile from "./pages/Student/components/StudentProfile";
 import ListAllStudents from "./pages/Student/components/ListAllStudents";
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
+import SendMessage from "./pages/Inbox/components/SendMessage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                   <Route path="profile/:id" element={<StudentProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
+              <Route path="inbox" element={<SendMessage />} />
               <Route path="company">
                   <Route index element={<CompanyPageLayout />} />
                   <Route path="list-all" element={<ListAllCompanies />}/>

@@ -24,7 +24,6 @@ public class MessageModel {
     private String subject;
     private String email;
     private String message;
-    private LocalDate date;
     @Id
     @GeneratedValue
     @JsonIgnore
