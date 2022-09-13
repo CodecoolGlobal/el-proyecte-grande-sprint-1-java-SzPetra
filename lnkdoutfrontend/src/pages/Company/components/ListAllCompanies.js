@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import {getData} from "../../../util/Fetch";
 import "../assets/CompanyList.css"
 import {Link} from "react-router-dom";
+import {FaRegEnvelope, FaHeart} from "react-icons/fa";
 
 function ListAllCompanies() {
 
@@ -25,11 +26,15 @@ function ListAllCompanies() {
 
     const CompanyCard = ({id, name, email, city, phone}) => {
         return (
-            <Link to={`/company/profile/${id}`}>
+            <Link className={"Link"} style={{textDecoration: 'none'}} to={`/company/profile/${id}`}>
             <div className={"companyCard"}>
+                <div className={"CompanyInfo"}>
                 <p className={"companyName"}>{name}<span> in {city}</span></p>
                 <p><span>Contact info: {email}</span></p>
                 <p>Phone: {phone}</p>
+                </div>
+                <FaHeart className={"heart"}/>
+                <FaRegEnvelope className={"envelope"}/>
             </div>
             </Link>
         );
@@ -44,7 +49,8 @@ function ListAllCompanies() {
     const cardList = companies === undefined ? "Loading..." : companies.map(company => createCard(company, company.id));
 
     return (
-        <div>
+        <div className={"AllCompanyContainer"}>
+            <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
             {cardList}
         </div>
     );

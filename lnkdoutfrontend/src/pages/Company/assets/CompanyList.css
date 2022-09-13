@@ -1,21 +1,26 @@
-.ListAllCompanies {
+.ListAllCompany {
     font-family: sans-serif;
     text-align: center;
 }
 
 .companyCard {
     border: 2px solid lightgray;
-    border-radius: 1px;
+    border-radius: 6px;
     margin-bottom: 12px;
     padding: 10px;
+    color: dimgrey;
+    background-color: antiquewhite;
+    width: 35vw;
+    box-shadow: 1px 1px 5px lightgray;
 }
 
 .companyCard:hover {
     color: indianred;
 }
 
-.companyCard{
-    color: white;
+.Link {
+    background-color: var(--mainwhite);
+
 }
 
 Link:visited{
@@ -25,12 +30,48 @@ Link:visited{
 
 .companyCard p {
     padding: 5px;
+    background-color: antiquewhite;
+
 }
 
 .companyCard span {
     font-weight: normal;
+    background-color: antiquewhite;
 }
 
 .companyName {
     font-weight: bold;
+}
+
+.AllCompanyHeader{
+    font-family: sans-serif;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #282c34;
+    background-color: inherit;
+}
+
+.AllCompanyContainer{
+    background-color: var(--mainwhite);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heart {
+    font-size: 1.5em;
+    padding: 5px;
+    color: indianred;
+    background-color: inherit;
+}
+
+.envelope {
+    font-size: 1.5em;
+    padding: 5px;
+    color: var(--mainblack);
+    background-color: inherit;
 }
