@@ -10,7 +10,7 @@ import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
 import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
 import CompanyProfile from "./pages/Company/components/CompanyProfile";
 import StudentProfile from "./pages/Student/components/StudentProfile";
-import ListAllStudents from "./pages/Student/components/ListAllStudents";
+import ListAllStudents from "./pages/Student/components/listStudents/ListAllStudents";
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
 
 function App() {
