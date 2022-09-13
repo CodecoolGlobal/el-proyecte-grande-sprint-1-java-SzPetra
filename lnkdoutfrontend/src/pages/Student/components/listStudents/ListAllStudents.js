@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {getData} from "../../../../util/Fetch";
 import "../../assets/studentList.css";
-import SearchItem from "./SearchItem";
-import Content from "./Content";
+import SearchItem from "./components/SearchItem";
+import Content from "./components/Content";
 
 function ListAllStudents() {
 
