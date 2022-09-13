@@ -1,8 +1,18 @@
 import React from 'react';
 
-function SearchItem(props) {
+function SearchItem({search, setSearch}) {
     return (
-        <div></div>
+        <form className={'search-form'} onSubmit={(e) => e.preventDefault()}>
+            <label htmlFor='search'>Search</label>
+            <input
+                type='text'
+                id='search'
+                role='searchbar'
+                placeholder='Search Students'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+        </form>
     );
 }
 
