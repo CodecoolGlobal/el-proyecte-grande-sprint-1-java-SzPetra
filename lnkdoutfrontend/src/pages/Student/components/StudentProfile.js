@@ -1,6 +1,6 @@
 import React from 'react';
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {getData} from "../../../util/Fetch";
 import StudentProfileItem from "./StudentProfileItem";
 
@@ -29,6 +29,9 @@ function StudentProfile() {
             <StudentProfileItem
                 {...studentData}
             />
+            <Link to={`/send-message/${id}`}>
+                Send message
+            </Link>
         </div>
     );
 }

@@ -26,7 +26,8 @@ function App() {
                   <Route path="profile/:id" element={<StudentProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
-              <Route path="inbox" element={<SendMessage />} />
+              <Route path="send-message/:id" element={<SendMessage />} />
+              <Route path="inbox/:id" />
               <Route path="company">
                   <Route index element={<CompanyPageLayout />} />
                   <Route path="list-all" element={<ListAllCompanies />}/>
