@@ -1,18 +1,18 @@
-package application.controller;
+package application.controller.inbox;
 
 import application.model.MessageModel;
-import application.service.MessageService;
+import application.service.InboxService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/inbox")
-public class MessageController {
+public class InboxController {
 
-    MessageService messageService;
+    InboxService messageService;
 
-    public MessageController(MessageService messageService) {
+    public InboxController(InboxService messageService) {
         this.messageService = messageService;
     }
 

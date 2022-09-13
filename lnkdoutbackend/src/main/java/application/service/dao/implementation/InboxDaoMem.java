@@ -1,14 +1,14 @@
 package application.service.dao.implementation;
 
 import application.model.MessageModel;
-import application.service.dao.MessageDao;
+import application.service.dao.InboxDao;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class MessageDaoMem implements MessageDao {
+public class InboxDaoMem implements InboxDao {
 
     private final List<MessageModel> messages = new ArrayList<>();
 
@@ -37,5 +37,5 @@ public class MessageDaoMem implements MessageDao {
         return searchedMessage;
     }
 
-    public MessageDaoMem() {fillMessages();}
+    public InboxDaoMem() {fillMessages();}
 }

@@ -1,18 +1,18 @@
 package application.service;
 
 import application.model.MessageModel;
-import application.service.dao.MessageDao;
+import application.service.dao.InboxDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class MessageService {
+public class InboxService {
 
-    private MessageDao messageDao;
+    private InboxDao messageDao;
 
     @Autowired
-    public MessageService(MessageDao messageDao) {
+    public InboxService(InboxDao messageDao) {
         this.messageDao = messageDao;
     }
 

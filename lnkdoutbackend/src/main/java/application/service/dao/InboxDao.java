@@ -4,7 +4,7 @@ import application.model.MessageModel;
 
 import java.util.List;
 
-public interface MessageDao {
+public interface InboxDao {
 
     List<MessageModel> getAllMessages();
 
