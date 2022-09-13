@@ -1,7 +1,9 @@
 package application.controller.inbox;
 
 import application.model.MessageModel;
+import application.model.StudentModel;
 import application.service.InboxService;
+import application.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,9 +13,11 @@ import java.util.List;
 public class InboxController {
 
     InboxService inboxService;
+    StudentService studentService;
 
-    public InboxController(InboxService messageService) {
+    public InboxController(InboxService messageService, StudentService studentService) {
         this.inboxService = messageService;
+        this.studentService = studentService;
     }
 
     @GetMapping
@@ -21,14 +25,18 @@ public class InboxController {
         return inboxService.getAllMessages();
     }
 
-    @PostMapping
+    @PostMapping("send-message/{id}")
     @ResponseBody
-    public void sendMessage(@RequestBody MessageModel message) {
+    public void sendMessage(@RequestBody MessageModel message, @PathVariable("id") int id) {
+        StudentModel studentById = studentService.getStudentById(id);
+        message.setStudent(studentById);
         inboxService.sendMessage(message);
     }
 
-    @GetMapping("/{id}")
-    public MessageModel getMessageByPublicKey(@PathVariable("id") int id) {
-        return inboxService.getMessageByPublicKey(id);
+    @GetMapping("/profile/{id}")
+    public List<MessageModel> getMessagesForProfile(@PathVariable("id") int id) {
+        StudentModel studentById = studentService.getStudentById(id);
+        return inboxService.getMessagesForProfile(studentById);
     }
+
 }

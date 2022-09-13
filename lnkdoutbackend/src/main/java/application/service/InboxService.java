@@ -2,6 +2,7 @@ package application.service;
 
 import application.model.MessageModel;
 import application.dao.InboxDao;
+import application.model.StudentModel;
 import application.repository.InboxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class InboxService {
         inboxRepository.save(message);
     }
 
-    public MessageModel getMessageByPublicKey(int id) {
-        return inboxRepository.findByPublicKey(id);
+    public List<MessageModel> getMessagesForProfile(StudentModel student) {
+       return inboxRepository.findMessageModelsByStudent(student);
     }
 }
