@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 public class CompanyModel extends BaseModel {
 
     @Builder
-    public CompanyModel(String name, String email, String password, String phone, String city, int id, int publicKey) {
-        super(name, email, password, phone, city, id, publicKey);
+    public CompanyModel(String name, String email, String password, String phone, String city, int id) {
+        super(name, email, password, phone, city, id);
     }
 }
