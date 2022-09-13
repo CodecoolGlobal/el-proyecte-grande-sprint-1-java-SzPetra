@@ -36,7 +36,7 @@ function ListAllStudents() {
             setSearch={setSearch}
             />
             <Content
-            students={students}
+            students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
             setStudents={setStudents}
             />
         </div>

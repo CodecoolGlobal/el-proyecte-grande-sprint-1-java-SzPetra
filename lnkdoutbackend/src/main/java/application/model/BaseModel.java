@@ -16,12 +16,11 @@ public abstract class BaseModel {
     private String password;
     private String phone;
     private String city;
-    @JsonIgnore
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column(unique = true)
-    private int publicKey;
+
 
     @Override
     public String toString() {
