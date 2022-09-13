@@ -1,74 +1,27 @@
 package application.model;
 
-import java.util.Random;
-import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+import javax.persistence.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@MappedSuperclass
 public abstract class BaseModel {
-    private String name;
+
+    protected String name;
     private String email;
     private String password;
     private String phone;
     private String city;
-
+    @JsonIgnore
+    @Id
+    @GeneratedValue
     private int id;
-
-    public BaseModel(String name, String email, String password, String phone, String city) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-        this.city = city;
-        this.id = new Random().nextInt(1, 100);
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(unique = true)
+    private int publicKey;
 
     @Override
     public String toString() {
@@ -78,7 +31,6 @@ public abstract class BaseModel {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", city='" + city + '\'' +
-                ", id=" + id +
                 '}';
     }
 }
