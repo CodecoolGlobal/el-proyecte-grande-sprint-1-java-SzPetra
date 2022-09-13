@@ -1,11 +1,18 @@
 package application.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-public class CompanyModel extends BaseModel{
+import lombok.*;
+import javax.persistence.Entity;
 
-    public CompanyModel(@JsonProperty("name") String name, @JsonProperty("email") String email,
-                        @JsonProperty("password") String password,
-                        @JsonProperty("phone") String phone, @JsonProperty("city") String city) {
-        super(name, email, password, phone, city);
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+public class CompanyModel extends BaseModel {
+
+    @Builder
+    public CompanyModel(String name, String email, String password, String phone, String city, int id, int publicKey) {
+        super(name, email, password, phone, city, id, publicKey);
     }
 }
