@@ -9,7 +9,7 @@ function StudentList({students ,setStudents}) {
                 <StudentCard
                 student={student}
                 setStudent={setStudents}
-                key={student.publicKey}
+                key={student.id}
                 />
                 )
             )}

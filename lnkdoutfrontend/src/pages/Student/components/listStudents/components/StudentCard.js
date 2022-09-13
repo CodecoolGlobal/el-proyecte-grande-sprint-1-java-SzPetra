@@ -4,7 +4,7 @@ import {FaHeart, FaRegEnvelope} from "react-icons/fa";
 
 function StudentCard({student}) {
         return (
-            <Link className={"Link"} style={{textDecoration: 'none'}} to={`/student/profile/${student.publicKey}`}>
+            <Link className={"Link"} style={{textDecoration: 'none'}} to={`/student/profile/${student.id}`}>
                 <div className={"studentCard"}>
                     <div className={"StudentInfo"}>
                         <p className={"studentName"}>{student.name}<span> in {student.city}</span></p>
