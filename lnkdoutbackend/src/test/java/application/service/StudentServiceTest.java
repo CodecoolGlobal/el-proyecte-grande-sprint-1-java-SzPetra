@@ -8,11 +8,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -25,15 +24,12 @@ class StudentServiceTest {
     @Autowired
     private StudentRepository studentRepository;
 
-    private StudentService studentService;
-
-
     @Test
     void getAllStudent() {
         List<StudentModel> list = initList();
         studentRepository = mock(StudentRepository.class);
         when(studentRepository.findAll()).thenReturn(list);
-        studentService = new StudentService(studentRepository);
+        StudentService studentService = new StudentService(studentRepository);
 
         assertEquals(list, studentService.getAllStudent());
     }
@@ -41,10 +37,21 @@ class StudentServiceTest {
 
     @Test
     void registerStudent() {
+        StudentModel testStudent = StudentModel.builder().name("Andro").city("Budapest").phone("+36307870036").build();
+        when(studentRepository.save(any(StudentModel.class))).thenReturn(StudentModel.builder().build());
+        new StudentService(studentRepository).registerStudent(testStudent);
+        assertTrue(testStudent.getId() > 0);
+        //assertTrue(studentRepository.exists());
     }
 
     @Test
     void getStudentById() {
+        StudentModel testStudent = StudentModel.builder().name("Andro").city("Budapest").phone("+36307870036").build();
+        when(studentRepository.getById(1)).thenReturn(testStudent);
+        StudentModel studentById = new StudentService(studentRepository).getStudentById(1);
+        assertEquals(testStudent, studentById);
+
+
     }
 
     private List<StudentModel> initList() {

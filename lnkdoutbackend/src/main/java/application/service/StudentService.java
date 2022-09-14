@@ -27,8 +27,7 @@ public class StudentService {
     }
 
     public StudentModel getStudentById(int id) {
-        return studentRepository.findById(id)
-                .orElse(null);
+        return studentRepository.getById(id);
 
     }
 }
