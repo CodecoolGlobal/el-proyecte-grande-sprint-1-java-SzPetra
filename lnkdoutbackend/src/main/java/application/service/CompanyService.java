@@ -28,7 +28,6 @@ public class CompanyService {
     }
 
     public CompanyModel getCompanyById(int id) {
-        return companyRepository.findById(id)
-                .orElse(null);
+        return companyRepository.getById(id);
     }
 }
