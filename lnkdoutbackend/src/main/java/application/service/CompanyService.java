@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class CompanyService {
 
-   private CompanyRepository companyRepository;
+   private final CompanyRepository companyRepository;
 
    @Autowired
     public CompanyService(CompanyRepository companyRepository) {
