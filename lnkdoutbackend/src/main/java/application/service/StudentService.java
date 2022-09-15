@@ -46,7 +46,7 @@ public class StudentService {
     }
 
     public List<CompanyModel> getFavoriteCompanies(int studentId) {
-        StudentModel studentModel = getStudentById(studentId);
+        StudentModel studentModel = studentRepository.getById(studentId);
         return studentModel.getFavoriteCompanies();
     }
 

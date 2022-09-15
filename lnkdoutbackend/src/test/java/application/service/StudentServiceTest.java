@@ -1,5 +1,6 @@
 package application.service;
 
+import application.model.CompanyModel;
 import application.model.StudentModel;
 import application.repository.CompanyRepository;
 import application.repository.StudentRepository;
@@ -57,6 +58,21 @@ class StudentServiceTest {
         assertEquals(testStudent, studentById);
 
 
+    }
+
+    @Test
+    void addFavoriteCompany() {
+
+    }
+
+    @Test
+    void getFavoriteCompanies() {
+        StudentModel andro = StudentModel.builder().name("Andro").build();
+        List<CompanyModel> favoriteCompanies = andro.getFavoriteCompanies();
+        favoriteCompanies.add(CompanyModel.builder().name("Test").build());
+        andro.setFavoriteCompanies(favoriteCompanies);
+        when(studentRepository.getById(1)).thenReturn(andro);
+        assertEquals(favoriteCompanies, studentRepository.getById(1).getFavoriteCompanies());
     }
 
     private List<StudentModel> initList() {
