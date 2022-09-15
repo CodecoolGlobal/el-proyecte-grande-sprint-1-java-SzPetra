@@ -28,7 +28,7 @@ function ListAllCompanies() {
 
 
     const addFavoriteCompany = async (studentId, companyId) => {
-        await postData(`company/add-favorite-company/${studentId}`, {companyId});
+        await postData(`/student/add-favorite-company/${6}`, companyId).then(()=> console.log("like"));
     }
 
 
