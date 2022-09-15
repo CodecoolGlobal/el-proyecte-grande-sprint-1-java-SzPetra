@@ -46,7 +46,6 @@ function StudentProfile() {
             />
             <FavoriteCompaniesList
             favCompanies={favCompanies}
-            getFavoriteCompanies={getFavoriteCompanies}
             />
         </div>
     );
