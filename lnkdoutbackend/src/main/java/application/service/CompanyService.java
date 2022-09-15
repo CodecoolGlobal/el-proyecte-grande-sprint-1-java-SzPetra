@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class CompanyService {
 
-   private CompanyRepository companyRepository;
+   private final CompanyRepository companyRepository;
 
    private StudentRepository studentRepository;
 
@@ -33,8 +33,7 @@ public class CompanyService {
     }
 
     public CompanyModel getCompanyById(int id) {
-        return companyRepository.findById(id)
-                .orElse(null);
+        return companyRepository.getById(id);
     }
 
     public void addFavoriteStudent(int companyId, int studentId) {

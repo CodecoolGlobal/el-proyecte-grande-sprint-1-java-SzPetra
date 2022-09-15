@@ -1,7 +1,6 @@
 package application.controller.company;
 
 import application.model.CompanyModel;
-import application.model.StudentModel;
 import application.service.CompanyService;
 import org.springframework.web.bind.annotation.*;
 
