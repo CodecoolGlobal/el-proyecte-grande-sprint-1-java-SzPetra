@@ -33,10 +33,9 @@ public class InboxController {
         inboxService.sendMessage(message);
     }
 
-    @GetMapping("/profile/{id}")
+    @GetMapping("/get-messages/{id}")
     public List<MessageModel> getMessagesForProfile(@PathVariable("id") int id) {
         StudentModel studentById = studentService.getStudentById(id);
         return inboxService.getMessagesForProfile(studentById);
     }
-
 }

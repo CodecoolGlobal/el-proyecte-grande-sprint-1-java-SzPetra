@@ -29,4 +29,5 @@ public class InboxService {
     public List<MessageModel> getMessagesForProfile(StudentModel student) {
        return inboxRepository.findMessageModelsByStudent(student);
     }
+
 }

@@ -12,8 +12,8 @@ import CompanyProfile from "./pages/Company/components/CompanyProfile";
 import StudentProfile from "./pages/Student/components/StudentProfile";
 import ListAllStudents from "./pages/Student/components/listStudents/ListAllStudents";
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
-import SendMessage from "./pages/Inbox/components/SendMessage";
 import Inbox from "./pages/Inbox/components/Inbox";
+import SendMessage from "./pages/Inbox/components/SendMessage";
 
 function App() {
   return (
@@ -27,8 +27,10 @@ function App() {
                   <Route path="profile/:id" element={<StudentProfile />} />
                   <Route path="*" element={<NoPage />} />
               </Route>
-              <Route path="send-message/:id" element={<SendMessage />} />
-              <Route path="inbox/:id" element={<Inbox />} />
+              <Route path="inbox/:id">
+                  <Route index element={<Inbox />} />
+                  <Route path="send-message" element={<SendMessage />} />
+              </Route>
               <Route path="company">
                   <Route index element={<CompanyPageLayout />} />
                   <Route path="list-all" element={<ListAllCompanies />}/>

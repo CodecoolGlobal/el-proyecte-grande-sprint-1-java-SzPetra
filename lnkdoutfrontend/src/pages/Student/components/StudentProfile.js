@@ -29,9 +29,6 @@ function StudentProfile() {
             <StudentProfileItem
                 {...studentData}
             />
-            <Link to={`/send-message/${id}`}>
-                Send message
-            </Link>
         </div>
     );
 }

@@ -1,0 +1,112 @@
+.my-prof {
+    color: plum;
+    font-size: 4em;
+
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+
+.prof-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    margin-top: 2em;
+}
+
+
+.prof-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.prof-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-decoration: none;
+    border: solid 0.2em plum;
+    border-radius: 0.3em;
+
+    padding: 0.4em;
+    margin: 0.4em;
+
+    color: plum;
+}
+.prof-envelope {
+    padding: 0.5em;
+}
+.prof-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #333333;
+    color: plum;
+
+    width: 30rem;
+}
+.prof-name {
+    background-color: #333333;
+
+    font-size: 3rem;
+}
+.prof-birth {
+    background-color: #333333;
+
+    font-size: 1.5rem;
+}
+.prof-email {
+    background-color: #333333;
+
+    font-size: 1.5rem;
+}
+.prof-phone {
+    background-color: #333333;
+
+    font-size: 1.5rem;
+}
+.prof-city {
+    background-color: #333333;
+
+    font-size: 1.5rem;
+}
+.prof-github {
+    background-color: #333333;
+
+    font-size: 1.5rem;
+}
+.info-heading {
+    font-size: 2rem;
+
+    margin-top: 1em;
+}
+
+
+.prof-pic {
+    width: 19rem;
+    height: 17rem;
+    border-radius: 3em;
+
+    margin-left: 5em;
+}
+.prof-pic-div {
+    display: flex;
+    flex-direction: column;
+}
+.prof-btn {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 6em;
+    width: 12rem;
+
+    border-color: plum;
+    color: plum;
+    font-size: 1.5em;
+}
+.prof-btn:hover {
+    background-color: black;
+}
+

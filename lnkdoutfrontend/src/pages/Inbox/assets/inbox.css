@@ -1,0 +1,14 @@
+.back-from-inbox {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1em;
+    border: solid 0.1em plum;
+    width: 4em;
+    height: 1.5em;
+
+
+    color: plum;
+    text-decoration: none;
+    font-size: 1.5em;
+}

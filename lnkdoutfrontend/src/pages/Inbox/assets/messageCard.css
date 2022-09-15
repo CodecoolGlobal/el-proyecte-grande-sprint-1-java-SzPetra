@@ -1,0 +1,53 @@
+.message-card {
+    display: flex;
+    justify-content: center;
+}
+
+.message-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--mainwhite);
+    border-bottom: 0.2em solid plum;
+
+    width: 70rem;
+    height: 3rem;
+
+    font-size: 1.5em;
+}
+
+.message-subject {
+    background-color: var(--mainwhite);
+
+    max-width: 14rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-m {
+    background-color: var(--mainwhite);
+    margin-right: 1em;
+
+    max-width: 14rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-from {
+    background-color: var(--mainwhite);
+
+    max-width: 14rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fav {
+    background-color: var(--mainwhite);
+    color: plum;
+    margin-left: 1em;
+}

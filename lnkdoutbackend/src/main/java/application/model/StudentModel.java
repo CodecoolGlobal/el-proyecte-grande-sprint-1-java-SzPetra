@@ -2,7 +2,7 @@ package application.model;
 
 import lombok.*;
 import javax.persistence.Entity;
-
+import java.util.List;
 
 
 @Getter

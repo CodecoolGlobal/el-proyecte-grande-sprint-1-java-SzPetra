@@ -1,9 +1,12 @@
 import React from 'react';
 import '../assets/messageForm.css';
+import {Link} from "react-router-dom";
+import {FaHandPointLeft} from "react-icons/fa";
 
-function SendMessageForm({subject, setSubject, fromPerson, setFromPerson, message, setMessage, sendMessage}) {
+function SendMessageForm({subject, setSubject, email, setEmail, message, setMessage, sendMessage, id}) {
     return (
         <div className={'inbox-container'}>
+
             <section className={'inbox-form-container'}>
                 <form className={'inbox-form'} onSubmit={sendMessage}>
 
@@ -19,10 +22,10 @@ function SendMessageForm({subject, setSubject, fromPerson, setFromPerson, messag
                     <label htmlFor={'from'}>From: </label>
                     <input
                         id={'from'}
-                        value={fromPerson}
+                        value={email}
                         required={true}
                         placeholder={'mike.wheeler@strthings.com'}
-                        onChange={(e) => setFromPerson(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
 
                     <label htmlFor={'message'}>Message: </label>
@@ -37,6 +40,10 @@ function SendMessageForm({subject, setSubject, fromPerson, setFromPerson, messag
                     <button id={'send-message-btn'} type={'submit'}>Send</button>
                 </form>
             </section>
+            <Link className={'back-link'} to={`/student/profile/${id}`}>
+                <FaHandPointLeft className={'hand-icon'} />
+                Back
+            </Link>
         </div>
     );
 }
