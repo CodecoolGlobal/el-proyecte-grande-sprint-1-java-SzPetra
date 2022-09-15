@@ -1,7 +1,7 @@
 import React from 'react';
 import StudentList from "./StudentList";
 
-function Content({students, setStudents}) {
+function Content({students, setStudents, addFavoriteStudent}) {
     console.log(students, 'content')
     return (
         <div>
@@ -9,6 +9,7 @@ function Content({students, setStudents}) {
                 <StudentList
                 students={students}
                 setStudents={setStudents}
+                addFavoriteStudent={addFavoriteStudent}
                 />
             ): (
                 <p>There are no available CodeCoolers right now :(</p>

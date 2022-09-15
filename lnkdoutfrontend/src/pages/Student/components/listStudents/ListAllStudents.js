@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {getData} from "../../../../util/Fetch";
+import {getData, postData} from "../../../../util/Fetch";
 import "../../assets/studentList.css";
 import SearchItem from "./components/SearchItem";
 import Content from "./components/Content";
@@ -8,8 +8,6 @@ function ListAllStudents() {
 
     const [students, setStudents] = useState([]);
     const [search, setSearch] = useState('');
-    const [newState, setNewState] = useState('');
-
 
     const effectRan = useRef(false);
 
@@ -27,6 +25,10 @@ function ListAllStudents() {
         }
     }, []);
 
+    const addFavoriteStudent = async (companyId, studentId) => {
+        await postData(`student/add-favorite-student/${companyId}`, {studentId});
+    }
+
 
     return (
         <div className={"AllStudentContainer"}>
@@ -38,6 +40,7 @@ function ListAllStudents() {
             <Content
             students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
             setStudents={setStudents}
+            addFavoriteStudent={addFavoriteStudent}
             />
         </div>
     );

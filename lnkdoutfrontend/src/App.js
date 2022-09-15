@@ -6,7 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import StudentRegistration from "./pages/Student/components/StudentRegistration";
 import Header from "./components/Header";
 import NoPage from "./pages/NoPage";
-import ListAllCompanies from "./pages/Company/components/ListAllCompanies";
+import ListAllCompanies from "./pages/Company/components/listCompanies/ListAllCompanies";
 import CompanyPageLayout from "./pages/Company/components/CompanyPageLayout";
 import CompanyProfile from "./pages/Company/components/CompanyProfile";
 import StudentProfile from "./pages/Student/components/StudentProfile";

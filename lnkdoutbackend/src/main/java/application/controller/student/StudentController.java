@@ -1,5 +1,6 @@
 package application.controller.student;
 
+import application.model.CompanyModel;
 import application.model.StudentModel;
 import application.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,18 @@ public class StudentController{
     @ResponseBody
     public StudentModel getStudentById(@PathVariable int id) {
         return studentService.getStudentById(id);
+    }
+
+    @PostMapping(value = "add-favorite-company/{studentId}")
+    @ResponseBody
+    public void addFavoriteCompany(@PathVariable int studentId, @RequestBody int companyId) {
+        studentService.addFavoriteCompany(studentId, companyId);
+    }
+
+    @GetMapping(value = "get-favorite-companies/{studentId}")
+    @ResponseBody
+    public List<CompanyModel> getFavoriteCompanies(@PathVariable int studentId){
+        return studentService.getFavoriteCompanies(studentId);
     }
 
 }
