@@ -44,4 +44,10 @@ public class StudentController{
         studentService.addFavoriteCompany(studentId, companyId);
     }
 
+    @GetMapping(value = "get-favorite-companies/{studentId}")
+    @ResponseBody
+    public List<CompanyModel> getFavoriteCompanies(@PathVariable int studentId){
+        return studentService.getFavoriteCompanies(studentId);
+    }
+
 }

@@ -45,5 +45,10 @@ public class StudentService {
            studentModel.setFavoriteCompanies(favCompanies);
            studentRepository.save(studentModel);
     }
+
+    public List<CompanyModel> getFavoriteCompanies(int studentId) {
+        StudentModel studentModel = getStudentById(studentId);
+        return studentModel.getFavoriteCompanies();
+    }
 }
 
