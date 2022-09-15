@@ -6,7 +6,7 @@
 }
 
 .page_404  img{ width:100%;}
-.container {
+.nopage-container {
   display: flex;
   justify-content: center;
   width: 80rem;
@@ -22,7 +22,7 @@
 }
 
 
-h1{
+.nopage-container h1{
   font-size:14em;
   background-color: white;
 }
