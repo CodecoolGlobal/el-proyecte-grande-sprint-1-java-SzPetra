@@ -4,13 +4,13 @@ import CompanyCard from "../../Company/components/listCompanies/components/Compa
 function FavoriteCompaniesList({favCompanies}) {
     return (
         <>
-            {favCompanies.map((favCompany) => (
+            {favCompanies.length ? (favCompanies.map((favCompany) => (
                 <CompanyCard
                     company={favCompany}
                     key={favCompany.id}
                 />
                 )
-                )}
+                )) : <p>No favorite Company added yet</p>}
         </>
     );
 }

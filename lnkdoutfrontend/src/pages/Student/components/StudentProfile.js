@@ -6,8 +6,8 @@ import StudentProfileItem from "./StudentProfileItem";
 import FavoriteCompaniesList from "./FavoriteCompaniesList";
 
 function StudentProfile() {
-    const [studentData, setStudentData] = useState();
-    const [favCompanies, setFavCompanies] = useState();
+    const [studentData, setStudentData] = useState({});
+    const [favCompanies, setFavCompanies] = useState([]);
     const { id } = useParams();
 
     const getStudentById = async () => {
@@ -33,7 +33,7 @@ function StudentProfile() {
                 setFavCompanies(result);
             }
         })
-    })
+    }, [])
 
     const getFavoriteCompanies = async (studentId) => {
         return await getData(`student/get-favorite-companies/${studentId}`);
