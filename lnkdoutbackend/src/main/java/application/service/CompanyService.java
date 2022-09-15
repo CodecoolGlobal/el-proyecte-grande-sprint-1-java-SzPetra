@@ -34,7 +34,7 @@ public class CompanyService {
     }
 
     public CompanyModel getCompanyById(int id) {
-        return companyRepository.getById(id);
+        return companyRepository.findById(id).orElse(null);
     }
 
     public void addFavoriteStudent(int companyId, int studentId) {

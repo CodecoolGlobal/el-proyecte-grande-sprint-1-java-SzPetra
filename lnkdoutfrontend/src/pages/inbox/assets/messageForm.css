@@ -1,0 +1,87 @@
+.inbox-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inbox-form-container {
+    border: 0.5em solid white;
+    border-radius: 2em;
+    width: 22rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    color: plum;
+}
+
+.inbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#message {
+    width: 20rem;
+    height: 10rem;
+    border: outset var(--mainwhite);
+}
+#message::placeholder {
+    color: plum;
+    font-size: 1em;
+}
+#message:focus {
+    color: var(--mainwhite);
+}
+
+#subject {
+    width: 18rem;
+    border: outset var(--mainwhite);
+}
+#subject::placeholder {
+    color: plum;
+}
+
+#from {
+    width: 18rem;
+    border: outset var(--mainwhite);
+}
+#from::placeholder {
+    color: plum;
+}
+
+#send-message-btn {
+    width: 24rem;
+    height: 2rem;
+    background-color: plum;
+    margin-top: 1rem;
+    border: none;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    color: #333333;
+    font-size: 1.5em;
+}
+
+
+.back-link {
+    color: plum;
+    font-size: 1.5em;
+    text-decoration: none;
+    border: solid 0.2em plum;
+    height: 2em;
+    width: 8em;
+
+    margin-top: 10em;
+    margin-right: 8em;
+    margin-left: 3em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.hand-icon {
+    margin-right: 0.2em;
+    font-size: 1.5em;
+}

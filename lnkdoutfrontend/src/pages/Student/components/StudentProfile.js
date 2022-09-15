@@ -36,13 +36,14 @@ function StudentProfile() {
     }, [])
 
     const getFavoriteCompanies = async (studentId) => {
-        return await getData(`student/get-favorite-companies/${studentId}`);
+        return await getData(`/student/get-favorite-companies/${studentId}`);
     }
 
     return (
         <div>
             <StudentProfileItem
                 {...studentData}
+                id={id}
             />
             <FavoriteCompaniesList
             favCompanies={favCompanies}
