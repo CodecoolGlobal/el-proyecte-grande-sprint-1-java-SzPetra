@@ -26,7 +26,7 @@ function ListAllStudents() {
     }, []);
 
     const addFavoriteStudent = async (companyId, studentId) => {
-        await postData(`student/add-favorite-company/${companyId}`, {studentId});
+        await postData(`student/add-favorite-student/${companyId}`, {studentId});
     }
 
 

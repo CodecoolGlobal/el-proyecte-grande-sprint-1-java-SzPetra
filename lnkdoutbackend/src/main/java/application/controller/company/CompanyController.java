@@ -33,4 +33,10 @@ public class CompanyController {
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);
     }
+
+    @PostMapping(value = "add-favorite-student/{companyId}")
+    @ResponseBody
+    public void addFavoriteStudent(@PathVariable int companyId, @RequestBody int studentId) {
+        companyService.addFavoriteStudent(companyId, studentId);
+    }
 }
