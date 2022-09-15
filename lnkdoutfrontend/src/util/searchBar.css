@@ -1,0 +1,8 @@
+.search-form {
+    display: flex;
+    margin-top: 3em;
+    justify-content: center;
+    border: var(--mainwhite) .1em solid;
+    height: 5em;
+    background-color: var(--mainwhite);
+}
