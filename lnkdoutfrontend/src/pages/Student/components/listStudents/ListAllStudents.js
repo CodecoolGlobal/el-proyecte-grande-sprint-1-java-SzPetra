@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {getData} from "../../../../util/Fetch";
+import {getData, postData} from "../../../../util/Fetch";
 import "../../assets/studentList.css";
 import SearchItem from "./components/SearchItem";
 import Content from "./components/Content";
@@ -25,6 +25,10 @@ function ListAllStudents() {
         }
     }, []);
 
+    const addFavoriteCompany = async (studentId, companyId) => {
+        await postData(`student/add-favorite-company/${studentId}`, {companyId});
+    }
+
 
     return (
         <div className={"AllStudentContainer"}>
@@ -36,6 +40,7 @@ function ListAllStudents() {
             <Content
             students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
             setStudents={setStudents}
+            addFavoriteCompany={addFavoriteCompany}
             />
         </div>
     );

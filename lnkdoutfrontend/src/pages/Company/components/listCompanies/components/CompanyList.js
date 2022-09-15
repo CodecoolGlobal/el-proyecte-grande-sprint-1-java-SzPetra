@@ -1,15 +1,16 @@
 import React from 'react';
-import StudentCard from "../../../../Student/components/listStudents/components/StudentCard";
+import CompanyCard from "./CompanyCard";
 
-function CompanyList({companies ,setCompanies}) {
+function CompanyList({companies ,setCompanies, addFavoriteCompany}) {
     console.log(companies, 'list')
     return (
         <>
             {companies.map((company) => (
-                    <StudentCard
+                    <CompanyCard
                         company={company}
                         setCompany={setCompanies}
                         key={company.id}
+                        addFavoriteCompany={addFavoriteCompany}
                     />
                 )
             )}

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {FaHeart, FaRegEnvelope} from "react-icons/fa";
 
-function CompanyCard({company}) {
+function CompanyCard({company, addFavoriteCompany}) {
     return (
         <Link className={"Link"} style={{textDecoration: 'none'}} to={`/company/profile/${company.id}`}>
             <div className={"studentCard"}>
@@ -11,7 +11,7 @@ function CompanyCard({company}) {
                     <p><span>Contact info: {company.email}</span></p>
                     <p>Phone: {company.phone}</p>
                 </div>
-                <FaHeart className={"heart"}/>
+                <FaHeart className={"heart"} onClick={() => addFavoriteCompany(1, company.id)}/>
                 <FaRegEnvelope className={"envelope"}/>
             </div>
         </Link>

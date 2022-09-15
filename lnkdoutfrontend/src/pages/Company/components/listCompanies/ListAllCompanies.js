@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {getData} from "../../../../util/Fetch";
+import {getData, postData} from "../../../../util/Fetch";
 import "../../assets/CompanyList.css"
 import SearchItem from "./components/SearchItem";
 import Content from "./components/Content";
@@ -25,6 +25,12 @@ function ListAllCompanies() {
         }
     }, []);
 
+
+    const addFavoriteCompany = async (studentId, companyId) => {
+        await postData(`company/add-favorite-company/${studentId}`, {companyId});
+    }
+
+
     return (
         <div className={"AllCompanyContainer"}>
             <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
@@ -35,6 +41,7 @@ function ListAllCompanies() {
             <Content
                 companies={companies.filter(company => ((company.name).toLowerCase()).includes(search.toLowerCase()))}
                 setCompanies={setCompanies}
+                addFavoriteCompany={addFavoriteCompany}
             />
         </div>
     );
