@@ -8,8 +8,6 @@ function ListAllStudents() {
 
     const [students, setStudents] = useState([]);
     const [search, setSearch] = useState('');
-    const [newState, setNewState] = useState('');
-
 
     const effectRan = useRef(false);
 
