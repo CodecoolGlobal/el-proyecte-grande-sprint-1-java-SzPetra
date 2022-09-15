@@ -1,6 +1,8 @@
 package application.service;
 
+import application.model.CompanyModel;
 import application.model.StudentModel;
+import application.repository.CompanyRepository;
 import application.repository.StudentRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,12 +26,16 @@ class StudentServiceTest {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Mock
+    @Autowired
+    private CompanyRepository companyRepository;
+
     @Test
     void getAllStudent() {
         List<StudentModel> list = initList();
         studentRepository = mock(StudentRepository.class);
         when(studentRepository.findAll()).thenReturn(list);
-        StudentService studentService = new StudentService(studentRepository);
+        StudentService studentService = new StudentService(studentRepository, companyRepository);
 
         assertEquals(list, studentService.getAllStudent());
     }
@@ -39,7 +45,7 @@ class StudentServiceTest {
     void registerStudent() {
         StudentModel testStudent = StudentModel.builder().name("Andro").city("Budapest").phone("+36307870036").build();
         when(studentRepository.save(any(StudentModel.class))).thenReturn(StudentModel.builder().build());
-        new StudentService(studentRepository).registerStudent(testStudent);
+        new StudentService(studentRepository, companyRepository).registerStudent(testStudent);
         assertTrue(testStudent.getId() > 0);
         //assertTrue(studentRepository.exists());
     }
@@ -48,10 +54,25 @@ class StudentServiceTest {
     void getStudentById() {
         StudentModel testStudent = StudentModel.builder().name("Andro").city("Budapest").phone("+36307870036").build();
         when(studentRepository.getById(1)).thenReturn(testStudent);
-        StudentModel studentById = new StudentService(studentRepository).getStudentById(1);
+        StudentModel studentById = new StudentService(studentRepository, companyRepository).getStudentById(1);
         assertEquals(testStudent, studentById);
 
 
+    }
+
+    @Test
+    void addFavoriteCompany() {
+
+    }
+
+    @Test
+    void getFavoriteCompanies() {
+        StudentModel andro = StudentModel.builder().name("Andro").build();
+        List<CompanyModel> favoriteCompanies = andro.getFavoriteCompanies();
+        favoriteCompanies.add(CompanyModel.builder().name("Test").build());
+        andro.setFavoriteCompanies(favoriteCompanies);
+        when(studentRepository.getById(1)).thenReturn(andro);
+        assertEquals(favoriteCompanies, studentRepository.getById(1).getFavoriteCompanies());
     }
 
     private List<StudentModel> initList() {
