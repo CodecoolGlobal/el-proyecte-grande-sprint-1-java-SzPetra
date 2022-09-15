@@ -1,7 +1,7 @@
 import React from 'react';
 import StudentCard from "./StudentCard";
 
-function StudentList({students ,setStudents, addFavoriteCompany}) {
+function StudentList({students ,setStudents, addFavoriteStudent}) {
     console.log(students, 'list')
     return (
         <>
@@ -10,7 +10,7 @@ function StudentList({students ,setStudents, addFavoriteCompany}) {
                 student={student}
                 setStudent={setStudents}
                 key={student.id}
-                addFavoriteCompany={addFavoriteCompany}
+                addFavoriteStudent={addFavoriteStudent}
                 />
                 )
             )}

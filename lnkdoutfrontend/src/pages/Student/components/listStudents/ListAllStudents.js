@@ -25,8 +25,8 @@ function ListAllStudents() {
         }
     }, []);
 
-    const addFavoriteCompany = async (studentId, companyId) => {
-        await postData(`student/add-favorite-company/${studentId}`, {companyId});
+    const addFavoriteStudent = async (companyId, studentId) => {
+        await postData(`student/add-favorite-company/${companyId}`, {studentId});
     }
 
 
@@ -40,7 +40,7 @@ function ListAllStudents() {
             <Content
             students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
             setStudents={setStudents}
-            addFavoriteCompany={addFavoriteCompany}
+            addFavoriteStudent={addFavoriteStudent}
             />
         </div>
     );
