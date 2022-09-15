@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class StudentService {
 
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
     public StudentService(StudentRepository studentRepository) {
@@ -27,8 +27,7 @@ public class StudentService {
     }
 
     public StudentModel getStudentById(int id) {
-        return studentRepository.findById(id)
-                .orElse(null);
+        return studentRepository.getById(id);
 
     }
 }
