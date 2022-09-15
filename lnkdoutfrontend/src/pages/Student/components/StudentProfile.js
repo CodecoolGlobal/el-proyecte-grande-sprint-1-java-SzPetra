@@ -6,6 +6,7 @@ import StudentProfileItem from "./StudentProfileItem";
 
 function StudentProfile() {
     const [studentData, setStudentData] = useState();
+    const [favCompanies, setFavCompanies] = useState();
     const { id } = useParams();
 
     const getStudentById = async () => {
@@ -22,6 +23,7 @@ function StudentProfile() {
             }
         })
     }, [])
+
 
 
     return (
