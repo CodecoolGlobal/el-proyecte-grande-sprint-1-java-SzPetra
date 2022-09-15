@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {getData} from "../../../util/Fetch";
 import StudentProfileItem from "./StudentProfileItem";
+import FavoriteCompaniesList from "./FavoriteCompaniesList";
 
 function StudentProfile() {
     const [studentData, setStudentData] = useState();
@@ -24,12 +25,28 @@ function StudentProfile() {
         })
     }, [])
 
+    useEffect(() => {
+        getFavoriteCompanies(id).then(result => {
+            if (!result) {
+                console.log("No favorite company")
+            } else {
+                setFavCompanies(result);
+            }
+        })
+    })
 
+    const getFavoriteCompanies = async (studentId) => {
+        return await getData(`student/get-favorite-companies/${studentId}`);
+    }
 
     return (
         <div>
             <StudentProfileItem
                 {...studentData}
+            />
+            <FavoriteCompaniesList
+            favCompanies={favCompanies}
+            getFavoriteCompanies={getFavoriteCompanies}
             />
         </div>
     );
