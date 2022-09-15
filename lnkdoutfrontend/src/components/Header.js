@@ -10,6 +10,8 @@ const Header = () => {
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li style={{float:"right", marginRight: "0.3em"}}><a href="#">Login</a></li>
+                    <Link className="link" to="/student/list-all">Students</Link>
+                    <Link className="link" to="/company/list-all">Companies</Link>
                 </ul>
             </nav>
 
