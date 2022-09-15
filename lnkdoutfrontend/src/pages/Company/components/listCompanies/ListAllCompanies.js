@@ -3,6 +3,7 @@ import {getData, postData} from "../../../../util/Fetch";
 import "../../assets/CompanyList.css"
 import SearchItem from "./components/SearchItem";
 import Content from "./components/Content";
+import "../../../../util/searchBar.css";
 
 function ListAllCompanies() {
 
