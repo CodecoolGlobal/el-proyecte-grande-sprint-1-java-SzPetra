@@ -5,7 +5,7 @@ import CompanyList from "./CompanyList";
 function Content({companies, setCompanies, addFavoriteCompany}) {
     console.log(companies, 'content')
     return (
-        <div>
+        <div className={"content-con"} style={{backgroundColor: "white"}}>
             {companies.length ? (
                 <CompanyList
                     companies={companies}

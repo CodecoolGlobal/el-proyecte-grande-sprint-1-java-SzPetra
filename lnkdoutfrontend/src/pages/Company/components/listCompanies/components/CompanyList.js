@@ -4,7 +4,7 @@ import CompanyCard from "./CompanyCard";
 function CompanyList({companies ,setCompanies, addFavoriteCompany}) {
     console.log(companies, 'list')
     return (
-        <>
+        <div className={"list-con"}>
             {companies.map((company) => (
                     <CompanyCard
                         company={company}
@@ -14,7 +14,7 @@ function CompanyList({companies ,setCompanies, addFavoriteCompany}) {
                     />
                 )
             )}
-        </>
+        </div>
     );
 }
 

@@ -4,6 +4,11 @@ import {Link} from "react-router-dom";
 
 function GetStarted(props) {
     return (
+        <>
+            <div className={"get-started-con"}>
+
+                <h2>Get Started</h2>
+            </div>
         <section className={'get-started-container'}>
             <div className={'get-started-section'}>
                 <img src={"https://www.firmaxhungary.com/wp-content/uploads/2019/09/company-formation-hungary.jpg"}/>
@@ -27,6 +32,7 @@ function GetStarted(props) {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 

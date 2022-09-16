@@ -4,7 +4,7 @@ import {FaHeart, FaRegEnvelope} from "react-icons/fa";
 
 function CompanyCard({company, addFavoriteCompany}) {
     return (
-        <>
+        <div className={"card-con"} style={{backgroundColor: "white"}}>
             <Link className={"Link"} style={{textDecoration: 'none'}} to={`/company/profile/${company.id}`}>
                 <div className={"studentCard"}>
                     <div className={"StudentInfo"}>
@@ -16,7 +16,7 @@ function CompanyCard({company, addFavoriteCompany}) {
                 </div>
             </Link>
             <FaHeart className={"heart"} onClick={() => addFavoriteCompany(1, company.id)}/>
-        </>
+        </div>
 
     );
 }
