@@ -75,3 +75,6 @@ Link:visited{
     color: var(--mainblack);
     background-color: inherit;
 }
+.student-list-con {
+    background-color: var(--mainwhite);
+}
