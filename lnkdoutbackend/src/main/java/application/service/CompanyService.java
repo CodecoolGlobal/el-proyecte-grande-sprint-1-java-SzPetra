@@ -17,11 +17,12 @@ public class CompanyService {
 
    private final CompanyRepository companyRepository;
 
-   private StudentRepository studentRepository;
+   private final StudentRepository studentRepository;
 
    @Autowired
-    public CompanyService(CompanyRepository companyRepository) {
+    public CompanyService(CompanyRepository companyRepository, StudentRepository studentRepository) {
         this.companyRepository = companyRepository;
+        this.studentRepository = studentRepository;
         initCompanies();
     }
 

@@ -21,31 +21,27 @@ public class StudentController{
     }
 
 
-    @GetMapping(value = "api/get-all")
+    @GetMapping
     public List<StudentModel> getAllStudent(){
         return studentService.getAllStudent();
     }
 
-    @PostMapping(value = "registration")
-    @ResponseBody
+    @PostMapping
     public void registerStudent(@RequestBody StudentModel student) {
         studentService.registerStudent(student);
     }
 
-    @GetMapping(value = "profile/{id}")
-    @ResponseBody
+    @GetMapping(value = "{id}")
     public StudentModel getStudentById(@PathVariable int id) {
         return studentService.getStudentById(id);
     }
 
     @PostMapping(value = "add-favorite-company/{studentId}")
-    @ResponseBody
     public void addFavoriteCompany(@PathVariable int studentId, @RequestBody int companyId) {
         studentService.addFavoriteCompany(studentId, companyId);
     }
 
     @GetMapping(value = "get-favorite-companies/{studentId}")
-    @ResponseBody
     public List<CompanyModel> getFavoriteCompanies(@PathVariable int studentId){
         return studentService.getFavoriteCompanies(studentId);
     }
