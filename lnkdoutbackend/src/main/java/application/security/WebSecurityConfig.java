@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http)
             throws Exception {
         http.csrf().disable()
-                .addFilterAfter(new BearerTokenAuthenticatingFilter(), ExceptionTranslationFilter.class)
+                .addFilterAfter(new BearerTokenAuthenticationFilter(), ExceptionTranslationFilter.class)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeRequests().antMatchers("/").permitAll();
         ;
