@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.http.HttpHeaders;
 
@@ -19,7 +20,9 @@ import java.security.Key;
 import java.time.LocalDate;
 import java.util.Date;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.stereotype.Component;
 
+// token util class
 public class UsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final Key secretKey = Keys.hmacShaKeyFor("kjbsabFbusfncjfFffMBCBImjvCMS6JVmvnas2NJD".getBytes());
