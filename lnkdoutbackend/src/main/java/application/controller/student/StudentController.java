@@ -4,6 +4,8 @@ import application.model.CompanyModel;
 import application.model.StudentModel;
 import application.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,9 @@ public class StudentController{
         this.studentService = studentService;
     }
 
+
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')")
     public List<StudentModel> getAllStudent(){
         return studentService.getAllStudent();
     }
