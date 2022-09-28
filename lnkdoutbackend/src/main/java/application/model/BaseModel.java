@@ -1,5 +1,6 @@
 package application.model;
 
+import application.model.roles.Roles;
 import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,6 +23,9 @@ public abstract class BaseModel implements UserDetails {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
+
+    @Enumerated(EnumType.STRING)
+    protected Roles roles;
 
 
     @Override
@@ -48,6 +52,7 @@ public abstract class BaseModel implements UserDetails {
     public int hashCode() {
         return Objects.hash(name, email, password, phone, city, id);
     }
+
 
 }
 
