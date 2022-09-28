@@ -1,5 +1,6 @@
 package application.model;
 
+import application.model.roles.Roles;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -20,14 +21,14 @@ public class CompanyModel extends BaseModel {
     private List<StudentModel> favoriteStudents;
 
     @Builder
-    public CompanyModel(String name, String email, String password, String phone, String city, int id) {
-        super(name, email, password, phone, city, id);
+    public CompanyModel(String name, String email, String password, String phone, String city, int id, Roles roles) {
+        super(name, email, password, phone, city, id, roles);
         this.favoriteStudents = new ArrayList<>();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return ;
+        return roles.getGrantedAuthorities();
     }
 
     @Override
