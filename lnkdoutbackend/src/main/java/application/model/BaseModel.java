@@ -12,7 +12,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class BaseModel implements UserDetails {
+public abstract class BaseModel /*implements UserDetails*/ {
 
     protected String name;
     private String email;
