@@ -4,7 +4,8 @@ import application.model.CompanyModel;
 import application.model.StudentModel;
 import application.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,15 +21,28 @@ public class StudentController{
         this.studentService = studentService;
     }
 
-
     @GetMapping
     public List<StudentModel> getAllStudent(){
         return studentService.getAllStudent();
     }
 
     @PostMapping
-    public void registerStudent(@RequestBody StudentModel student) {
+    public ResponseEntity<String> registerStudent(@RequestBody StudentModel student) {
+        if (studentService.getUserExistByEmail(student.getEmail())) {
+            return ResponseEntity
+                    .status(HttpStatus.ALREADY_REPORTED)
+                    .body("Email already exist!.");
+        }
+        if (studentService.getUserExistByUsername(student.getName())) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_ACCEPTABLE)
+                    .body("Username already exists!");
+        }
         studentService.registerStudent(student);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body("Successful registration");
+
     }
 
     @GetMapping(value = "{id}")

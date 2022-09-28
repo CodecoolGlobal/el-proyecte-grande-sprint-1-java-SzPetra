@@ -60,5 +60,13 @@ public class StudentService {
         studentRepository.save(StudentModel.builder().name("Dani").phone("+364343747").city("Budapest").email("dani@gmail.com").password("75459475").build());
         studentRepository.save(StudentModel.builder().name("Juan").phone("+365645454").city("Budapest").email("juan@gmail.com").password("erhhefe9f4").build());
     }
+
+    public boolean getUserExistByEmail(String email) {
+        return studentRepository.existsByEmail(email);
+    }
+
+    public boolean getUserExistByUsername(String username) {
+        return studentRepository.existsByName(username);
+    }
 }
 
