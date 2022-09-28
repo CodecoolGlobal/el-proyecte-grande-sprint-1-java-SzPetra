@@ -3,7 +3,6 @@ package application.model;
 import application.model.roles.Roles;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
