@@ -1,7 +1,8 @@
 package application.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -10,7 +11,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class BaseModel {
+public abstract class BaseModel implements UserDetails {
 
     protected String name;
     private String email;
@@ -47,5 +48,6 @@ public abstract class BaseModel {
     public int hashCode() {
         return Objects.hash(name, email, password, phone, city, id);
     }
+
 }
 
