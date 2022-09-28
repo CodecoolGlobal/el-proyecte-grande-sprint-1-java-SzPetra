@@ -14,6 +14,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     public JwtUserDetailsService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
+
     }
 
     @Override
