@@ -3,7 +3,6 @@ package application.model;
 import application.model.roles.Roles;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -34,26 +33,26 @@ public class StudentModel extends BaseModel{
 
     @Override
     public String getUsername() {
-        return null;
+        return name;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
