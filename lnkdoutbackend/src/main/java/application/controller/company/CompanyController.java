@@ -2,7 +2,7 @@ package application.controller.company;
 
 import application.model.CompanyModel;
 import application.service.CompanyService;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +14,13 @@ public class CompanyController {
     private final CompanyService companyService;
 
 
+
+    @Autowired
     public CompanyController(CompanyService companyService) {
         this.companyService = companyService;
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping
     public void registerCompany(@RequestBody CompanyModel companyModel){
         companyService.registerCompany(companyModel);
     }
@@ -28,8 +30,9 @@ public class CompanyController {
         return companyService.getAllCompany();
     }
 
-    @GetMapping(value = "profile/{id}")
+    @GetMapping(value = "{id}")
     @ResponseBody
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')")
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);
     }

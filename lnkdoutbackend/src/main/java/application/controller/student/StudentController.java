@@ -25,6 +25,7 @@ public class StudentController{
 
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')")
     public List<StudentModel> getAllStudent(){
         return studentService.getAllStudent();
     }
@@ -38,7 +39,7 @@ public class StudentController{
         }
         if (studentService.getUserExistByUsername(student.getName())) {
             return ResponseEntity
-                    .status(HttpStatus.NOT_ACCEPTABLE)
+                    .status(HttpStatus.ALREADY_REPORTED)
                     .body("Username already exists!");
         }
         studentService.registerStudent(student);
