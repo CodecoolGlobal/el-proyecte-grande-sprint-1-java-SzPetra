@@ -43,7 +43,7 @@ public class StudentController{
         }
         studentService.registerStudent(student);
         return ResponseEntity
-                .status(HttpStatus.CREATED)
+                .status(HttpStatus.OK)
                 .body("Successful registration");
 
     }

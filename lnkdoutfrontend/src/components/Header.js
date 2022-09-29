@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import './assets/navbar.css';
 
-const Header = () => {
+const Header = ({isLoggedIn}) => {
     return (
         <>
             <nav>
@@ -12,6 +12,13 @@ const Header = () => {
                     <li style={{float:"right", marginRight: "0.3em"}}><a href="#">Login</a></li>
                     <Link className="link" to="/student/list-all">Students</Link>
                     <Link className="link" to="/company/list-all">Companies</Link>
+                    <li>
+                        {isLoggedIn ? (
+                            <a href={"/"}> Logout </a>
+                        ) : (
+                            <Link to="/login">Login</Link>
+                        )}
+                    </li>
                 </ul>
             </nav>
 

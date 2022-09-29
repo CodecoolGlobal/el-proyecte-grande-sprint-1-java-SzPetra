@@ -25,7 +25,6 @@ public class StudentService {
         this.studentRepository = studentRepository;
         this.companyRepository = companyRepository;
         this.passwordEncoder = passwordEncoder;
-        initDatas();
     }
 
     public List<StudentModel> getAllStudent(){
@@ -59,14 +58,6 @@ public class StudentService {
         return studentModel.getFavoriteCompanies();
     }
 
-    private void initDatas() {
-        studentRepository.save(StudentModel.builder().name("Andro").phone("+362320015").city("Budapest").email("dro@gmail.com").password("111").build());
-        studentRepository.save(StudentModel.builder().name("Petra").phone("+362321515").city("Budapest").email("petra@gmail.com").password("34342").build());
-        studentRepository.save(StudentModel.builder().name("Kristóf").phone("+367343433").city("Budapest").email("stóf@gmail.com").password("667").build());
-        studentRepository.save(StudentModel.builder().name("Gyuszi").phone("+364466454").city("Budapest").email("gyusz@gmail.com").password("93834").build());
-        studentRepository.save(StudentModel.builder().name("Dani").phone("+364343747").city("Budapest").email("dani@gmail.com").password("75459475").build());
-        studentRepository.save(StudentModel.builder().name("Juan").phone("+365645454").city("Budapest").email("juan@gmail.com").password("erhhefe9f4").build());
-    }
 
     public boolean getUserExistByEmail(String email) {
         return studentRepository.existsByEmail(email);
