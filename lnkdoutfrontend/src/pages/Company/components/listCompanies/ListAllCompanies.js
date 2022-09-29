@@ -15,7 +15,7 @@ function ListAllCompanies() {
     useEffect(() => {
         if (effectRan.current === false) {
             const fetchCompanies = async () => {
-                let data = await getData('api/get-all');
+                let data = await getData('/company');
                 console.log(data);
                 setCompanies(data);
             }

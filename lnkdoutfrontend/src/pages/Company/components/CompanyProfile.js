@@ -8,7 +8,7 @@ function CompanyProfile() {
     const { id } = useParams();
 
     const getCompanyById = async () => {
-        return await getData(`/company/profile/${id}`)
+        return await getData(`/company/${id}`)
     }
 
     useEffect( () => {

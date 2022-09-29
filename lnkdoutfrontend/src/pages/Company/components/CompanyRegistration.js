@@ -20,7 +20,7 @@ function CompanyRegistration() {
         e.preventDefault();
         if (validate()) {
             setIsValid(false);
-            postData('/company/register', {name, email, phone, password, city});
+            postData('/company', {name, email, phone, password, city});
             setName('');
             setEmail('');
             setPhone('');
