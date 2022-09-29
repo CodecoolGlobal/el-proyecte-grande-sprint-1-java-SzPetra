@@ -40,4 +40,17 @@ public class InboxController {
         return inboxService.getMessagesByCompany(company);
     }
 
+    @PostMapping("/student/send/{id}")
+    public void sendMessageToStudent(@PathVariable("id") int id, @RequestBody StudentMessageModel message) {
+        StudentModel student = studentService.getStudentById(id);
+        message.setReceiver(student);
+        inboxService.sendMessageToStudent(message);
+    }
+
+    @PostMapping("/company/send/{id}")
+    public void sendMessageToCompany(@PathVariable("id") int id, @RequestBody CompanyMessageModel message) {
+        CompanyModel company = companyService.getCompanyById(id);
+        message.setReceiver(company);
+        inboxService.sendMessageToCompany(message);
+    }
 }

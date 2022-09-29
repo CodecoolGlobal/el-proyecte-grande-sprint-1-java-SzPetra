@@ -32,7 +32,6 @@ public class CompanyController {
 
     @GetMapping(value = "{id}")
     @ResponseBody
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')")
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);
     }

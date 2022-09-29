@@ -11,7 +11,7 @@ function SendMessage() {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        postData(`/inbox/student/${id}`, {subject, email, message});
+        postData(`/inbox/student/send/${id}`, {subject, email, message});
         setSubject('');
         setEmail('');
         setMessage('');

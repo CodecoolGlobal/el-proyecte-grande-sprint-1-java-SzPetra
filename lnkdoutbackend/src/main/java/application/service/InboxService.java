@@ -30,5 +30,11 @@ public class InboxService {
         return companyInboxRepository.findCompanyMessageModelByReceiver(company);
     }
 
+    public void sendMessageToStudent(StudentMessageModel message) {
+        studentInboxRepository.save(message);
+    }
 
+    public void sendMessageToCompany(CompanyMessageModel message) {
+        companyInboxRepository.save(message);
+    }
 }
