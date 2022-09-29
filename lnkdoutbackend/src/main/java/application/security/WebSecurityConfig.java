@@ -46,9 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST, "/login").permitAll()
-                .anyRequest()
-                .authenticated();
+                .antMatchers(HttpMethod.POST, "/login").permitAll();
 
         // student-side
         http
@@ -59,6 +57,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN");
 
+        // company-side
+        http
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/company").permitAll()
+                .antMatchers(HttpMethod.GET, "/company").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/company/**").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/company/add-favorite-student/**").hasAnyRole("COMPANY", "ADMIN");
 
     }
     @Override
