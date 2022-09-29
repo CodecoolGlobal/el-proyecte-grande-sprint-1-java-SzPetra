@@ -4,7 +4,7 @@ import StudentList from "./StudentList";
 function Content({students, setStudents, addFavoriteStudent}) {
     console.log(students, 'content')
     return (
-        <div>
+        <div style={{backgroundColor: "inherit"}}>
             {students.length ? (
                 <StudentList
                 students={students}
