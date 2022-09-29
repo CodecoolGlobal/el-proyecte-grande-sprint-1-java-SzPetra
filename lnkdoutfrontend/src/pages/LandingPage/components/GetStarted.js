@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/landing_page.css';
 import {Link} from "react-router-dom";
 
-function GetStarted(props) {
+function GetStarted() {
     return (
         <>
             <div className={"get-started-con"}>

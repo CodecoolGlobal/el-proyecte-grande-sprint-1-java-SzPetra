@@ -15,7 +15,6 @@ function LandingPage() {
             <GetStarted />
             <About />
             <Contact />
-            <Login />
             {/*<Footer/>*/}
         </>
     );

@@ -24,14 +24,14 @@ function App() {
     return (
 
         <Routes>
+            <Route path="login" element={<Login
+                setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path="/" element={
                 <Header
                 isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
                 />
             }>
-                <Route path="login" element={<Login
-                setIsLoggedIn={setIsLoggedIn}/>} />
-
                 <Route index element={<LandingPage/>}/>
                 <Route path="student">
                     <Route index element={<StudentPageLayout/>}/>

@@ -1,7 +1,15 @@
 import { Outlet, Link } from "react-router-dom";
 import './assets/navbar.css';
 
-const Header = ({isLoggedIn}) => {
+const Header = ({isLoggedIn, setIsLoggedIn}) => {
+
+    const handleLogout = () => {
+        setIsLoggedIn(false)
+        localStorage.removeItem("user")
+        localStorage.removeItem("header")
+
+    }
+
     return (
         <>
             <nav>
@@ -14,7 +22,7 @@ const Header = ({isLoggedIn}) => {
                     <Link className="link" to="/company/list-all">Companies</Link>
                     <li>
                         {isLoggedIn ? (
-                            <a href={"/"}> Logout </a>
+                            <a href={"/"} onClick={handleLogout}> Logout </a>
                         ) : (
                             <Link to="/login">Login</Link>
                         )}

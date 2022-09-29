@@ -10,6 +10,13 @@ export async function postData(url='', data={}){
 }
 
 export const getData = async (url) => {
-    let response = await fetch(url);
+    const token = localStorage.getItem('header');
+    console.log("token", JSON.parse(token))
+    let response = await fetch(url, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': JSON.parse(token)
+        }
+    });
     return await response.json();
 }
