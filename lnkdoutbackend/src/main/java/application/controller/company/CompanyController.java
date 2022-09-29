@@ -21,7 +21,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @PostMapping(value = "/register")
+    @PostMapping
     public void registerCompany(@RequestBody CompanyModel companyModel){
         companyService.registerCompany(companyModel);
     }
