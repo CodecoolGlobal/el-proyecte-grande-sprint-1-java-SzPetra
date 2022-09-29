@@ -14,35 +14,25 @@ import ListAllStudents from "./pages/Student/components/listStudents/ListAllStud
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
 import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
-import {useState} from "@types/react";
+import {useState} from "react";
+import Login from "./pages/Login/Login";
 
 function App() {
-        const [authTokens, setAuthTokens] = useState(
-            localStorage.getItem("tokens") || ""
-        );
-        const setTokens = (data) => {
-            localStorage.setItem("tokens", JSON.stringify(data));
-            setAuthTokens(data);
-        };
 
-        console.log("authTokens", authTokens);
-
-        const handleLogout = () => {
-            localStorage.removeItem("tokens");
-            setAuthTokens("");
-        };
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
 
     return (
+
         <Routes>
-            <Route path="/" element={<Header
-            authTokens={authTokens}
-            handleLogout={handleLogout}
-            />}>
-                <Route index element={<LandingPage
-                handleLogout={handleLogout}
-                authTokens={authTokens}
-                setAuthTokens={setAuthTokens}
-                setTokens={setTokens}/>}/>
+            <Route path="/" element={
+                <Header
+                isLoggedIn={isLoggedIn}
+                />
+            }>
+                <Route path="login" element={<Login
+                setIsLoggedIn={setIsLoggedIn}/>} />
+
+                <Route index element={<LandingPage/>}/>
                 <Route path="student">
                     <Route index element={<StudentPageLayout/>}/>
                     <Route path="list-all" element={<ListAllStudents/>}/>
@@ -64,6 +54,7 @@ function App() {
                 <Route path="*" element={<NoPage/>}/>
             </Route>
         </Routes>
+
     );
 }
 

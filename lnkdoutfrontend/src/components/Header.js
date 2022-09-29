@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import './assets/navbar.css';
 
-const Header = ({authTokens, handleLogout}) => {
+const Header = ({isLoggedIn}) => {
     return (
         <>
             <nav>
@@ -13,8 +13,8 @@ const Header = ({authTokens, handleLogout}) => {
                     <Link className="link" to="/student/list-all">Students</Link>
                     <Link className="link" to="/company/list-all">Companies</Link>
                     <li>
-                        {authTokens ? (
-                            <Link onClick={handleLogout}> Logout </Link>
+                        {isLoggedIn ? (
+                            <a href={"/"}> Logout </a>
                         ) : (
                             <Link to="/login">Login</Link>
                         )}

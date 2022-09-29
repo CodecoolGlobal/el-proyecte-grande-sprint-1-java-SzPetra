@@ -1,23 +1,27 @@
 import React, {useState} from 'react';
 import {postData} from "../../util/Fetch";
-import {useAuth} from "./Authorization";
+import {useNavigate} from "react-router-dom";
 
-export default function Login() {
-
-    const [isLoggedIn, setLoggedIn] = useState(false);
+export default function Login({setIsLoggedIn}) {
     const [isError, setIsError] = useState(false);
     const [userName, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { setAuthTokens } = useAuth();
+
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        postData('/login', {userName, password}).then((result) => {
-            console.log("result", result);
-            if (result.status === 200) {
-                setAuthTokens(result.data);
-                setLoggedIn(true);
-                console.log(result.data);
+        postData('/login', {"username" : userName, password}).then((response) => {
+            console.log("result", response);
+            if (response.ok) {
+                let header = response.headers.get('Authorization');
+                localStorage.setItem("user", JSON.stringify({userName}));
+                localStorage.setItem("header", JSON.stringify(header));
+                setIsLoggedIn(true);
+                console.log(response);
+                navigate("/")
+
             } else {
                 setIsError(true);
             }
