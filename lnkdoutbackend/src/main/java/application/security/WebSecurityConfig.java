@@ -31,21 +31,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http)
             throws Exception {
+
         http
                 .csrf()
                 .disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
         // filters
         http
                 .addFilter(new UsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .addFilterAfter(new JwtTokenVerifier(), UsernameAndPasswordAuthenticationFilter.class);
+
         // matchers
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST, "/student").permitAll()
+                .antMatchers(HttpMethod.POST, "/login").permitAll()
                 .anyRequest()
                 .authenticated();
+
+        // student-side
+        http
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/student").permitAll()
+                .antMatchers(HttpMethod.GET, "/student").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN");
+
+
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
