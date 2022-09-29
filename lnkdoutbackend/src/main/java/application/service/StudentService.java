@@ -2,6 +2,7 @@ package application.service;
 
 import application.model.CompanyModel;
 import application.model.StudentModel;
+import application.model.roles.Roles;
 import application.repository.CompanyRepository;
 import application.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class StudentService {
     //TODO
     public void registerStudent(StudentModel student) {
         student.setPassword(passwordEncoder.encode(student.getPassword()));
+        student.setRoles(Roles.STUDENT);
         studentRepository.save(student);
     }
 
