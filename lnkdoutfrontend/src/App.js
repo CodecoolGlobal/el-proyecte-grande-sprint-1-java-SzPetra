@@ -34,8 +34,15 @@ function App() {
 
     return (
         <Routes>
-            <Route path="/" element={<Header/>}>
-                <Route index element={<LandingPage/>}/>
+            <Route path="/" element={<Header
+            authTokens={authTokens}
+            handleLogout={handleLogout}
+            />}>
+                <Route index element={<LandingPage
+                handleLogout={handleLogout}
+                authTokens={authTokens}
+                setAuthTokens={setAuthTokens}
+                setTokens={setTokens}/>}/>
                 <Route path="student">
                     <Route index element={<StudentPageLayout/>}/>
                     <Route path="list-all" element={<ListAllStudents/>}/>
