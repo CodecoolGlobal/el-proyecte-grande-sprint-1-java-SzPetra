@@ -39,7 +39,7 @@ public class StudentController{
         }
         if (studentService.getUserExistByUsername(student.getName())) {
             return ResponseEntity
-                    .status(HttpStatus.NOT_ACCEPTABLE)
+                    .status(HttpStatus.ALREADY_REPORTED)
                     .body("Username already exists!");
         }
         studentService.registerStudent(student);
