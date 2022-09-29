@@ -3,6 +3,7 @@ package application.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -43,12 +44,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // matchers
         http
                 .authorizeRequests()
-                .antMatchers("/", "/db/**").permitAll()
-                .anyRequest()
-                .authenticated();
+                .antMatchers("/").permitAll()
+                .antMatchers(HttpMethod.POST, "/login").permitAll();
+
+        // student-side
+        http
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/student").permitAll()
+                .antMatchers(HttpMethod.GET, "/student").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN");
+
+        // company-side
+        http
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/company").permitAll()
+                .antMatchers(HttpMethod.GET, "/company").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/company/**").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/company/add-favorite-student/**").hasAnyRole("COMPANY", "ADMIN");
+
     }
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(daoAuthenticationProvider());
     }
 
