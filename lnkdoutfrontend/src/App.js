@@ -14,8 +14,24 @@ import ListAllStudents from "./pages/Student/components/listStudents/ListAllStud
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
 import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
+import {useState} from "@types/react";
 
 function App() {
+        const [authTokens, setAuthTokens] = useState(
+            localStorage.getItem("tokens") || ""
+        );
+        const setTokens = (data) => {
+            localStorage.setItem("tokens", JSON.stringify(data));
+            setAuthTokens(data);
+        };
+
+        console.log("authTokens", authTokens);
+
+        const handleLogout = () => {
+            localStorage.removeItem("tokens");
+            setAuthTokens("");
+        };
+
     return (
         <Routes>
             <Route path="/" element={<Header/>}>
