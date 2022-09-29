@@ -10,16 +10,12 @@ export async function postData(url='', data={}){
 }
 
 export const getData = async (url) => {
-    const token = localStorage.getItem('Authorization');
+    const token = localStorage.getItem('header');
+    console.log("token", JSON.parse(token))
     let response = await fetch(url, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': {token}
+            'Authorization': JSON.parse(token)
         }
     });
     return await response.json();
