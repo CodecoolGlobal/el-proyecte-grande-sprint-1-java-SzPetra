@@ -1,16 +1,31 @@
 import React, {useState} from 'react';
 import {postData} from "../../util/Fetch";
+import {useAuth} from "./Authorization";
 
 export default function Login() {
 
-    const [userName, setUsername] = useState('');
-    const [userPassword, setUserPassword] = useState('');
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [userName, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const { setAuthTokens } = useAuth();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        postData('/login', {userName, userPassword}).then()
-        setUsername('');
-        setUserPassword('');
+        postData('/login', {userName, password}).then((result) => {
+            console.log("result", result);
+            if (result.status === 200) {
+                setAuthTokens(result.data);
+                setLoggedIn(true);
+                console.log(result.data);
+            } else {
+                setIsError(true);
+            }
+        })
+            .catch((e) => {
+                setIsError(true);
+                console.log(e);
+            });
     }
 
     return (
@@ -36,18 +51,16 @@ export default function Login() {
                             className="form-control mt-1"
                             placeholder="Enter password"
                             required={true}
-                            value={userPassword}
-                            onChange={(e) => setUserPassword(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="d-grid gap-2 mt-3">
                         <button className="btn btn-primary" type={"submit"}>
                             Submit
                         </button>
+                        {isError && <div>The username or password is incorrect.</div>}
                     </div>
-                    <p className="forgot-password text-right mt-2">
-                        Forgot <a href="#">password?</a>
-                    </p>
                 </div>
             </form>
         </div>
