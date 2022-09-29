@@ -6,17 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@MappedSuperclass
 public abstract class MessageBaseModel <T> {
 
         protected String subject;
         protected String email;
         protected String message;
         @ManyToOne
-        protected T sender;
+        protected T receiver;
 
 }

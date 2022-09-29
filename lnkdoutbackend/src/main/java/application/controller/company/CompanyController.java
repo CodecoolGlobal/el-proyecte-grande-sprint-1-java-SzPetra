@@ -24,14 +24,12 @@ public class CompanyController {
     }
 
     @GetMapping(value = "api/get-all")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STUDENT')")
     public List<CompanyModel> getAllCompany(){
         return companyService.getAllCompany();
     }
 
     @GetMapping(value = "profile/{id}")
     @ResponseBody
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_COMPANY')")
     public CompanyModel getCompanyById(@PathVariable int id) {
         return companyService.getCompanyById(id);
     }

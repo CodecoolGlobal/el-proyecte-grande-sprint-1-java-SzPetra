@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
@@ -33,17 +32,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf()
                 .disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .headers().frameOptions().disable();
+        // matchers
+        http
+                .authorizeRequests()
+                .antMatchers("/", "/db/**", "/inbox/**", "/student/**", "/company/**").permitAll()
+                .anyRequest()
+                .authenticated();
         // filters
         http
                 .addFilter(new UsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .addFilterAfter(new JwtTokenVerifier(), UsernameAndPasswordAuthenticationFilter.class);
-        // matchers
-        http
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .anyRequest()
-                .authenticated();
+
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

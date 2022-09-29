@@ -1,9 +1,13 @@
 package application.controller.inbox;
 
+import application.model.CompanyMessageModel;
+import application.model.CompanyModel;
 import application.model.StudentMessageModel;
 import application.model.StudentModel;
+import application.service.CompanyService;
 import application.service.InboxService;
 import application.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,28 +18,26 @@ public class InboxController {
 
     InboxService inboxService;
     StudentService studentService;
+    CompanyService companyService;
 
-    public InboxController(InboxService messageService, StudentService studentService) {
-        this.inboxService = messageService;
+    @Autowired
+    public InboxController(InboxService inboxService, StudentService studentService, CompanyService companyService) {
+        this.inboxService = inboxService;
         this.studentService = studentService;
+        this.companyService = companyService;
     }
 
-    @GetMapping
-    public List<StudentMessageModel> getAllMessage() {
-        return inboxService.getAllMessages();
+    @GetMapping("/student/{id}")
+    public List<StudentMessageModel> getMessagesByStudent (@PathVariable("id") int id) {
+
+        StudentModel student = studentService.getStudentById(id);
+        return inboxService.getMessagesByStudent(student);
     }
 
-    @PostMapping("send-message/{id}")
-    @ResponseBody
-    public void sendMessage(@RequestBody StudentMessageModel message, @PathVariable("id") int id) {
-        StudentModel studentById = studentService.getStudentById(id);
-        message.setStudent(studentById);
-        inboxService.sendMessage(message);
+    @GetMapping("/company/{id}")
+    public List<CompanyMessageModel> getMessagesByCompany (@PathVariable("id") int id) {
+        CompanyModel company = companyService.getCompanyById(id);
+        return inboxService.getMessagesByCompany(company);
     }
 
-    @GetMapping("/get-messages/{id}")
-    public List<StudentMessageModel> getMessagesForProfile(@PathVariable("id") int id) {
-        StudentModel studentById = studentService.getStudentById(id);
-        return inboxService.getMessagesForProfile(studentById);
-    }
 }

@@ -5,13 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class StudentMessageModel extends MessageBaseModel<StudentModel>{
+public class CompanyMessageModel extends MessageBaseModel<CompanyModel>{
 
     @Id
     @JsonIgnore

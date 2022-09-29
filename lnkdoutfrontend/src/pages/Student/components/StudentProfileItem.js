@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/studentProfile.css';
 import {Link} from "react-router-dom";
 import {FaAt, FaBirthdayCake, FaEnvelopeOpen, FaGithub, FaHouseUser, FaPhone, FaRegEnvelope} from "react-icons/fa";
-import profPic from '../assets/pictures/prof.webp';
+//import profPic from '../assets/pictures/prof.webp';
 
 function StudentProfileItem({name, email, phone, city, id}) {
 
@@ -10,7 +10,6 @@ function StudentProfileItem({name, email, phone, city, id}) {
             <h1 className={'my-prof'}>My profile:</h1>
             <div className={'prof-container'}>
                 <div className={'prof-pic-div'}>
-                    <img className={'prof-pic'} src={profPic}/>
                     <button className={'prof-btn'}>Edit profile</button>
                 </div>
                 <div className={'prof-card'}>

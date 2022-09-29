@@ -1,8 +1,11 @@
 package application.service;
 
+import application.model.CompanyMessageModel;
+import application.model.CompanyModel;
 import application.model.StudentMessageModel;
 import application.model.StudentModel;
-import application.repository.InboxRepository;
+import application.repository.CompanyInboxRepository;
+import application.repository.StudentInboxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,23 +13,22 @@ import java.util.List;
 @Service
 public class InboxService {
 
-    private InboxRepository inboxRepository;
+    private StudentInboxRepository studentInboxRepository;
+    private CompanyInboxRepository companyInboxRepository;
 
     @Autowired
-    public InboxService(InboxRepository inboxRepository) {
-        this.inboxRepository = inboxRepository;
+    public InboxService(StudentInboxRepository studentInboxRepository, CompanyInboxRepository companyInboxRepository) {
+        this.studentInboxRepository = studentInboxRepository;
+        this.companyInboxRepository = companyInboxRepository;
     }
 
-    public List<StudentMessageModel> getAllMessages() {
-        return inboxRepository.findAll();
+    public List<StudentMessageModel> getMessagesByStudent(StudentModel student) {
+        return studentInboxRepository.findStudentMessageModelByReceiver(student);
     }
 
-    public void sendMessage(StudentMessageModel message) {
-        inboxRepository.save(message);
+    public List<CompanyMessageModel> getMessagesByCompany(CompanyModel company) {
+        return companyInboxRepository.findCompanyMessageModelByReceiver(company);
     }
 
-    public List<StudentMessageModel> getMessagesForProfile(StudentModel student) {
-        return inboxRepository.findMessageModelsByStudent(student);
-    }
 
 }

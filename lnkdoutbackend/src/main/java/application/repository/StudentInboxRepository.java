@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface InboxRepository extends JpaRepository<StudentMessageModel, Integer> {
+public interface StudentInboxRepository extends JpaRepository<StudentMessageModel, Integer> {
 
-    List<StudentMessageModel> findMessageModelsByStudent(StudentModel student);
+    List<StudentMessageModel> findStudentMessageModelByReceiver(StudentModel student);
 }
