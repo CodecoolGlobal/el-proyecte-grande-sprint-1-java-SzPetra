@@ -1,6 +1,6 @@
 package application.controller.inbox;
 
-import application.model.MessageModel;
+import application.model.StudentMessageModel;
 import application.model.StudentModel;
 import application.service.InboxService;
 import application.service.StudentService;
@@ -21,20 +21,20 @@ public class InboxController {
     }
 
     @GetMapping
-    public List<MessageModel> getAllMessage() {
+    public List<StudentMessageModel> getAllMessage() {
         return inboxService.getAllMessages();
     }
 
     @PostMapping("send-message/{id}")
     @ResponseBody
-    public void sendMessage(@RequestBody MessageModel message, @PathVariable("id") int id) {
+    public void sendMessage(@RequestBody StudentMessageModel message, @PathVariable("id") int id) {
         StudentModel studentById = studentService.getStudentById(id);
         message.setStudent(studentById);
         inboxService.sendMessage(message);
     }
 
     @GetMapping("/get-messages/{id}")
-    public List<MessageModel> getMessagesForProfile(@PathVariable("id") int id) {
+    public List<StudentMessageModel> getMessagesForProfile(@PathVariable("id") int id) {
         StudentModel studentById = studentService.getStudentById(id);
         return inboxService.getMessagesForProfile(studentById);
     }

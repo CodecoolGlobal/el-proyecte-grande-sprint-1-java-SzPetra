@@ -1,6 +1,6 @@
 package application.service;
 
-import application.model.MessageModel;
+import application.model.StudentMessageModel;
 import application.model.StudentModel;
 import application.repository.InboxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +17,15 @@ public class InboxService {
         this.inboxRepository = inboxRepository;
     }
 
-    public List<MessageModel> getAllMessages() {
+    public List<StudentMessageModel> getAllMessages() {
         return inboxRepository.findAll();
     }
 
-    public void sendMessage(MessageModel message) {
+    public void sendMessage(StudentMessageModel message) {
         inboxRepository.save(message);
     }
 
-    public List<MessageModel> getMessagesForProfile(StudentModel student) {
+    public List<StudentMessageModel> getMessagesForProfile(StudentModel student) {
         return inboxRepository.findMessageModelsByStudent(student);
     }
 
