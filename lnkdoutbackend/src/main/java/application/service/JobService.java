@@ -23,6 +23,7 @@ public class JobService {
         List<JobModel> filteredJobs = new ArrayList<>();
         List<JobModel> allJobs = jobRepository.findAll();
         for (JobModel jobModel : allJobs) {
+            jobModel.setDescription(null);
             filteredJobs.add(getFilteredJob(jobModel));
         }
         return filteredJobs;
