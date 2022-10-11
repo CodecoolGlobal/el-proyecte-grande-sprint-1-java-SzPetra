@@ -8,17 +8,21 @@ function ListAllStudents() {
 
     const [students, setStudents] = useState([]);
     const [search, setSearch] = useState('');
+    const [error, setError] = useState(false);
 
     const effectRan = useRef(false);
 
     useEffect(() => {
         if (effectRan.current === false) {
             const fetchStudents = async () => {
-                let data = await getData('api/get-all');
-                console.log(data);
+                let data = await getData('/student');
+                if(data.status){
+                    setError(true)
+                }
                 setStudents(data);
             }
-            fetchStudents().then(() => console.log(''));
+            fetchStudents().then()
+
             return () => {
                 effectRan.current = true;
             }
@@ -31,19 +35,23 @@ function ListAllStudents() {
 
 
     return (
-        <div className={"AllStudentContainer"}>
-            <h2 className={"AllStudentHeader"}>List of all available CoodCooler</h2>
-            <SearchItem
-            search={search}
-            setSearch={setSearch}
-            />
-            <Content
-            students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
-            setStudents={setStudents}
-            addFavoriteStudent={addFavoriteStudent}
-            />
-        </div>
-    );
+        <>
+            {error ? <p>You are not authorized to see this webpage!</p> : (
+            <div className={"AllStudentContainer"}>
+                <h2 className={"AllStudentHeader"}>List of all available CoodCooler</h2>
+                <SearchItem
+                search={search}
+                setSearch={setSearch}
+                />
+                <Content
+                students={students.filter(student => ((student.name).toLowerCase()).includes(search.toLowerCase()))}
+                setStudents={setStudents}
+                addFavoriteStudent={addFavoriteStudent}
+                />
+            </div>
+            )}
+        </>
+    )
 }
 
 export default ListAllStudents;

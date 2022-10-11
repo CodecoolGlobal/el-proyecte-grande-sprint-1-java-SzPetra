@@ -23,7 +23,7 @@ function StudentRegistration() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validatePasswords()) {
-            postData('/student/registration', {name, email, phone, password, city});
+            postData('/student', {name, email, phone, password, city});
             setName('');
             setAge('');
             setEmail('');

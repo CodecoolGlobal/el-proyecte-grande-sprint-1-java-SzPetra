@@ -9,14 +9,17 @@ function ListAllCompanies() {
 
     const [companies, setCompanies] = useState([]);
     const [search, setSearch] = useState('');
+    const [error, setError] = useState(false);
 
     const effectRan = useRef(false);
 
     useEffect(() => {
         if (effectRan.current === false) {
             const fetchCompanies = async () => {
-                let data = await getData('api/get-all');
-                console.log(data);
+                let data = await getData('/company');
+                if(data.status){
+                    setError(true)
+                }
                 setCompanies(data);
             }
             fetchCompanies().then(() => console.log('hello'));
@@ -33,19 +36,24 @@ function ListAllCompanies() {
 
 
     return (
-        <div className={"AllCompanyContainer"}>
-            <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
-            <SearchItem
-                search={search}
-                setSearch={setSearch}
-            />
-            <Content
-                companies={companies.filter(company => ((company.name).toLowerCase()).includes(search.toLowerCase()))}
-                setCompanies={setCompanies}
-                addFavoriteCompany={addFavoriteCompany}
-            />
-        </div>
-    );
+            <>
+                {error ? <p>You are not authorized to see this webpage!</p> : ( <div className={"AllCompanyContainer"}>
+                    <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
+                    <SearchItem
+                        search={search}
+                        setSearch={setSearch}
+                    />
+                    <Content
+                        companies={companies.filter(company => ((company.name).toLowerCase()).includes(search.toLowerCase()))}
+                        setCompanies={setCompanies}
+                        addFavoriteCompany={addFavoriteCompany}
+                    />
+                </div>
+            )}
+            </>
+    )
+
+
 }
 
 export default ListAllCompanies;

@@ -31,24 +31,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http)
             throws Exception {
-
         http
                 .csrf()
                 .disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .headers().frameOptions().disable()
                 .and()
-                .headers().frameOptions().disable();
-
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         // filters
         http
                 .addFilter(new UsernameAndPasswordAuthenticationFilter(authenticationManager()))
                 .addFilterAfter(new JwtTokenVerifier(), UsernameAndPasswordAuthenticationFilter.class);
-
         // matchers
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST, "/login", "/db/**").permitAll();
+                .antMatchers(HttpMethod.POST, "/login").permitAll();
 
         // student-side
         http

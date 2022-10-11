@@ -14,11 +14,24 @@ import ListAllStudents from "./pages/Student/components/listStudents/ListAllStud
 import StudentPageLayout from "./pages/Student/components/StudentPageLayout";
 import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
+import {useState} from "react";
+import Login from "./pages/Login/Login";
 
 function App() {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
+
     return (
+
         <Routes>
-            <Route path="/" element={<Header/>}>
+            <Route path="login" element={<Login
+                setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path="/" element={
+                <Header
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                />
+            }>
                 <Route index element={<LandingPage/>}/>
                 <Route path="student">
                     <Route index element={<StudentPageLayout/>}/>
@@ -41,6 +54,7 @@ function App() {
                 <Route path="*" element={<NoPage/>}/>
             </Route>
         </Routes>
+
     );
 }
 

@@ -11,7 +11,7 @@ function StudentProfile() {
     const { id } = useParams();
 
     const getStudentById = async () => {
-        return await getData(`/student/profile/${id}`)
+        return await getData(`/student/${id}`)
     }
 
     useEffect( () => {

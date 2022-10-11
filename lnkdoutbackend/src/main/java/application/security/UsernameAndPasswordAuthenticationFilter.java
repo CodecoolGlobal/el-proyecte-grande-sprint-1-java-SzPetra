@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.time.LocalDate;
 import java.util.Date;
@@ -25,7 +26,7 @@ import org.springframework.stereotype.Component;
 // token util class
 public class UsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
-    private final Key secretKey = Keys.hmacShaKeyFor("kjbsabFbusfncjfFffMBCBImjvCMS6JVmvnas2NJD".getBytes());
+    private final String secretKey = "kjbsabFbusfncjfFffMBCBImjvCMS6JVmvnas2NJD";
 
     public UsernameAndPasswordAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -56,7 +57,7 @@ public class UsernameAndPasswordAuthenticationFilter extends UsernamePasswordAut
                 .claim("authorities", authResult.getAuthorities())
                 .setIssuedAt(new Date())
                 .setExpiration(java.sql.Date.valueOf(LocalDate.now().plusDays(2)))
-                .signWith(secretKey)
+                .signWith(Keys.hmacShaKeyFor(secretKey.getBytes()))
                 .compact();
 
         response.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + token);
