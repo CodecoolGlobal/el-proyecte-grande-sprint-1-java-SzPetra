@@ -24,7 +24,7 @@ public class CompanyService {
     public CompanyService(CompanyRepository companyRepository, StudentRepository studentRepository) {
         this.companyRepository = companyRepository;
         this.studentRepository = studentRepository;
-        //initCompanies();
+        initCompanies();
     }
 
     public void registerCompany(CompanyModel company) {
@@ -50,9 +50,5 @@ public class CompanyService {
 
     private void initCompanies() {
        companyRepository.save(CompanyModel.builder().name("CodeCool").phone("+362151215").city("Budapest").email("code@cool.com").roles(Roles.COMPANY).build());
-       companyRepository.save(CompanyModel.builder().name("Tigra").phone("+34557843").city("Budapest").email("tigra@cool.com").roles(Roles.COMPANY).build());
-       companyRepository.save(CompanyModel.builder().name("MorganStanly").phone("+362151215").city("Budapest").email("morgan@cool.com").roles(Roles.COMPANY).build());
-       companyRepository.save(CompanyModel.builder().name("Ericsen").phone("+362151215").city("Budapest").email("ericsen@cool.com").roles(Roles.COMPANY).build());
-       companyRepository.save(CompanyModel.builder().name("CenrtalUI").phone("+362151215").city("Budapest").email("central@cool.com").roles(Roles.COMPANY).build());
     }
 }

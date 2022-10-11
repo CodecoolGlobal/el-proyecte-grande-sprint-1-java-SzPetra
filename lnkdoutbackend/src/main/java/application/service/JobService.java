@@ -22,7 +22,7 @@ public class JobService {
     public JobService(JobRepository jobRepository, CompanyRepository companyRepository) {
         this.jobRepository = jobRepository;
         this.companyRepository = companyRepository;
-
+        initJObs();
     }
 
     public List<JobModel> getAllJobs() {
@@ -49,7 +49,6 @@ public class JobService {
         company.setEmail(null);
         company.setPassword(null);
         company.setPhone(null);
-        company.setRoles(null);
         jobModel.setCompany(company);
         return jobModel;
     }
