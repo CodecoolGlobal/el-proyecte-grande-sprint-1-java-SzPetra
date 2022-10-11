@@ -2,10 +2,13 @@ package application.service;
 
 import application.model.CompanyModel;
 import application.model.JobModel;
+import application.model.roles.Roles;
+import application.repository.CompanyRepository;
 import application.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +16,13 @@ import java.util.List;
 public class JobService {
 
     private final JobRepository jobRepository;
+    private final CompanyRepository companyRepository;
 
     @Autowired
-    public JobService(JobRepository jobRepository) {
+    public JobService(JobRepository jobRepository, CompanyRepository companyRepository) {
         this.jobRepository = jobRepository;
+        this.companyRepository = companyRepository;
+
     }
 
     public List<JobModel> getAllJobs() {
@@ -46,5 +52,14 @@ public class JobService {
         company.setRoles(null);
         jobModel.setCompany(company);
         return jobModel;
+    }
+
+
+    private void initJObs() {
+        JobModel build = JobModel.builder().jobTitle("Frontend Developer").company(CompanyModel.builder().name("Tigra").build()).deadline(LocalDate.now()).isOpen(true).seats(5).location("Budapest").description("Good shit").build();
+        CompanyModel byId = companyRepository.findAll().get(0);
+        byId.setRoles(Roles.COMPANY);
+        build.setCompany(byId);
+        jobRepository.save(build);
     }
 }
