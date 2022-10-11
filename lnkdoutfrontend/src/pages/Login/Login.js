@@ -6,17 +6,19 @@ export default function Login({setIsLoggedIn}) {
     const [isError, setIsError] = useState(false);
     const [userName, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [role] = useState("");
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        postData('/login', {"username" : userName, password}).then((response) => {
+        postData('/login', {"username" : userName, password, role}).then((response) => {
             console.log("result", response);
             if (response.ok) {
                 let header = response.headers.get('Authorization');
                 localStorage.setItem("user", JSON.stringify({userName}));
                 localStorage.setItem("header", JSON.stringify(header));
+                localStorage.setItem("role", JSON.stringify({role}));
                 setIsLoggedIn(true);
                 console.log(response);
                 navigate("/")

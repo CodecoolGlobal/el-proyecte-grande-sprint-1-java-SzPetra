@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useRef, useState} from "@types/react";
+import {useEffect, useRef, useState} from 'react';
 import {getData, postData} from "../../../util/Fetch";
 import SearchItem from "../../../util/SearchItem";
 import Content from "./Content";
@@ -42,7 +42,7 @@ function ListAllJobs() {
                         setSearch={setSearch}
                     />
                     <Content
-                        jobs={jobs.filter(job => ((job.name).toLowerCase()).includes(search.toLowerCase()))}
+                        jobs={jobs.filter(job => ((job.jobTitle).toLowerCase()).includes(search.toLowerCase()))}
                         setJobs={setJobs}
                         applyJob={applyJob()}
                     />

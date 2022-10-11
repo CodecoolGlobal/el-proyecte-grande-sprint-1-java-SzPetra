@@ -1,11 +1,10 @@
-import React from 'react';
-
 import React, {useEffect, useState} from 'react';
 import {getData} from "../../../util/Fetch";
 import {useParams} from "react-router-dom";
 import JobProfileItem from "./JobProfileItem";
 
 function JobProfile() {
+
     const [jobData, setJobData] = useState();
     const { id } = useParams();
 
