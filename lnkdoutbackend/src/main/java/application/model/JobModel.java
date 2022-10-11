@@ -2,9 +2,7 @@ package application.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
@@ -16,7 +14,8 @@ import java.time.LocalDate;
 public class JobModel {
 
     @Id
-    private Long id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
 
     private String jobTitle;
 
