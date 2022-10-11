@@ -66,6 +66,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/company/**").hasAnyRole("COMPANY", "ADMIN")
                 .antMatchers(HttpMethod.POST, "/company/add-favorite-student/**").hasAnyRole("COMPANY", "ADMIN");
 
+
+        http
+                .authorizeRequests()
+
+                .antMatchers(HttpMethod.GET, "/job").permitAll()
+                .antMatchers(HttpMethod.GET, "/job/**").permitAll();
+
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {

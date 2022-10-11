@@ -5,6 +5,7 @@ import application.model.CompanyModel;
 import application.dao.CompanyDao;
 import application.dao.StudentDao;
 import application.model.StudentModel;
+import application.model.roles.Roles;
 import application.repository.CompanyRepository;
 import application.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +49,6 @@ public class CompanyService {
     }
 
     private void initCompanies() {
-       companyRepository.save(CompanyModel.builder().name("CodeCool").phone("+362151215").city("Budapest").email("code@cool.com").build());
-       companyRepository.save(CompanyModel.builder().name("Tigra").phone("+34557843").city("Budapest").email("tigra@cool.com").build());
-       companyRepository.save(CompanyModel.builder().name("MorganStanly").phone("+362151215").city("Budapest").email("morgan@cool.com").build());
-       companyRepository.save(CompanyModel.builder().name("Ericsen").phone("+362151215").city("Budapest").email("ericsen@cool.com").build());
-       companyRepository.save(CompanyModel.builder().name("CenrtalUI").phone("+362151215").city("Budapest").email("central@cool.com").build());
+       companyRepository.save(CompanyModel.builder().name("CodeCool").phone("+362151215").city("Budapest").email("code@cool.com").roles(Roles.COMPANY).build());
     }
 }

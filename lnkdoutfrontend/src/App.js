@@ -25,35 +25,40 @@ function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
 
     return (
-
         <Routes>
-            <Route path="login" element={<Login
-                setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path="/" element={
                 <Header
                 isLoggedIn={isLoggedIn}
                 setIsLoggedIn={setIsLoggedIn}
                 />
             }>
+                    <Route index element={<LandingPage/>}/>
+                    <Route path="student">
+                        <Route index element={<StudentPageLayout/>}/>
+                        <Route path="list-all" element={<ListAllStudents/>}/>
+                        <Route path="registration" element={<StudentRegistration/>}/>
+                        <Route path="profile/:id" element={<StudentProfile/>}/>
+                        <Route path="" element={<NoPage/>}/>
+                    </Route>
+                    <Route path="inbox/:id">
+                        <Route index element={<Inbox/>}/>
+                        <Route path="send-message" element={<SendMessage/>}/>
+                    </Route>
+                    <Route path="company">
+                        <Route index element={<CompanyPageLayout/>}/>
+                        <Route path="list-all" element={<ListAllCompanies/>}/>
+                        <Route path="registration" element={<CompanyRegistration/>}/>
+                        <Route path="profile/:id" element={<CompanyProfile/>}/>
+                        <Route path="" element={<NoPage/>}/>
+                    </Route>
+                    <Route path="login"
+                           element={<Login
+                                        setIsLoggedIn={setIsLoggedIn}
+                                    />}
+                    />
+                    <Route path="*" element={<NoPage/>}/>
                 <Route index element={<LandingPage/>}/>
-                <Route path="student">
-                    <Route index element={<StudentPageLayout/>}/>
-                    <Route path="list-all" element={<ListAllStudents/>}/>
-                    <Route path="registration" element={<StudentRegistration/>}/>
-                    <Route path="profile/:id" element={<StudentProfile/>}/>
-                    <Route path="" element={<NoPage/>}/>
-                </Route>
-                <Route path="inbox/:id">
-                    <Route index element={<Inbox/>}/>
-                    <Route path="send-message" element={<SendMessage/>}/>
-                </Route>
-                <Route path="company">
-                    <Route index element={<CompanyPageLayout/>}/>
-                    <Route path="list-all" element={<ListAllCompanies/>}/>
-                    <Route path="registration" element={<CompanyRegistration/>}/>
-                    <Route path="profile/:id" element={<CompanyProfile/>}/>
-                    <Route path="" element={<NoPage/>}/>
-                </Route>
+
                 <Route path="job">
                     <Route index element={<JobPageLayout />} />
                     <Route path="list-all" element={<ListAllJobs />} />
@@ -63,7 +68,6 @@ function App() {
                 <Route path="*" element={<NoPage/>}/>
             </Route>
         </Routes>
-
     );
 }
 
