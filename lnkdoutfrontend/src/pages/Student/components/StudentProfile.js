@@ -1,14 +1,18 @@
 import React from 'react';
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {useParams} from "react-router-dom";
 import {getData} from "../../../util/Fetch";
 import StudentProfileItem from "./StudentProfileItem";
 import FavoriteCompaniesList from "./FavoriteCompaniesList";
+import {EditValue} from "../../../App";
+import EditStudentProfile from "./listStudents/EditStudentProfile";
 
 function StudentProfile() {
     const [studentData, setStudentData] = useState({});
     const [favCompanies, setFavCompanies] = useState([]);
     const { id } = useParams();
+
+    const {edited} = useContext(EditValue);
 
     const getStudentById = async () => {
         return await getData(`/student/${id}`)
@@ -40,15 +44,22 @@ function StudentProfile() {
     }
 
     return (
-        <div>
-            <StudentProfileItem
-                {...studentData}
-                id={id}
-            />
-            <FavoriteCompaniesList
-            favCompanies={favCompanies}
-            />
-        </div>
+        <>
+            {edited ? <EditStudentProfile
+                    {...studentData}
+                    id={id}
+                /> :
+                (<div>
+                    <StudentProfileItem
+                        {...studentData}
+                        id={id}
+                    />
+                    <FavoriteCompaniesList
+                        favCompanies={favCompanies}
+                    />
+                </div>)
+            }
+        </>
     );
 }
 

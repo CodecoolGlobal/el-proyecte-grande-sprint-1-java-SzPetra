@@ -1,15 +1,9 @@
-import React, {useContext, useState} from 'react';
-import '../assets/studentProfile.css';
+import React from "react";
 import {Link} from "react-router-dom";
 import {FaAt, FaBirthdayCake, FaEnvelopeOpen, FaGithub, FaHouseUser, FaPhone, FaRegEnvelope} from "react-icons/fa";
-import {EditValue} from "../../../App";
-//import profPic from '../assets/pictures/prof.webp';
 
-function StudentProfileItem({name, email, phone, city, id}) {
-    const {setEdited} = useContext(EditValue);
-
+function EditStudentProfile ({name, email, phone, city, id}) {
     return (
-
         <div>
             <h1 className={'my-prof'}>My profile:</h1>
             <div className={'prof-container'}>
@@ -46,7 +40,7 @@ function StudentProfileItem({name, email, phone, city, id}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default StudentProfileItem;
+export default EditStudentProfile;
