@@ -1,4 +1,5 @@
 import React from 'react';
+import JobCard from "./JobCard";
 
 function JobList({jobs, setJobs,applyJobs}) {
     return (

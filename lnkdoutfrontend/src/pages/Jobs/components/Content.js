@@ -1,7 +1,8 @@
 import React from 'react';
+import JobList from "./JobList";
 
 
-function Content(jobs, setJobs, applyJobs) {
+function Content({jobs, setJobs, applyJobs}) {
     return (
         <div className={"content-con"} style={{backgroundColor: "white"}}>
             {jobs.length ? (

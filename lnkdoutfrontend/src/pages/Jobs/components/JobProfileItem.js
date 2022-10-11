@@ -1,6 +1,6 @@
 import React from 'react';
 
-function JobProfileItem(id, jobTitle, description, location, isOpen, seats, company, deadline) {
+function JobProfileItem({id, jobTitle, description, location, isOpen, seats, company, deadline}) {
     return (
         <div>
             <h2>{jobTitle}</h2>
