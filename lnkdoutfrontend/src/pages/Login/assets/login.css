@@ -59,3 +59,6 @@
     color: #fbf8f3;
     font-size: 2em;
 }
+.login-btn:hover {
+    background-color: #f8e6d0;
+}

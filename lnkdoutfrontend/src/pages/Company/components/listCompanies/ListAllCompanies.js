@@ -37,7 +37,7 @@ function ListAllCompanies() {
 
     return (
             <>
-                {error ? <p>You are not authorized to see this webpage!</p> : ( <div className={"AllCompanyContainer"}>
+                {error ? <p className={"login-error"}>You are not authorized to see this webpage!</p> : ( <div className={"AllCompanyContainer"}>
                     <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
                     <SearchItem
                         search={search}
