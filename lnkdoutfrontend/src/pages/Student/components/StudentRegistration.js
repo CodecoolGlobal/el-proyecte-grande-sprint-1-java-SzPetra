@@ -2,6 +2,8 @@ import React from "react";
 import Registration from "./Registration";
 import '../assets/student.css';
 import {postData} from "../../../util/Fetch";
+import {useNavigate} from "react-router-dom";
+
 
 function StudentRegistration() {
 
@@ -12,6 +14,7 @@ function StudentRegistration() {
     const [password, setPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
     const [city, setCity] = React.useState('');
+    const navigate = useNavigate();
 
     const validatePasswords = () => {
         if (password === confirmPassword) {
@@ -31,6 +34,7 @@ function StudentRegistration() {
             setPassword('');
             setConfirmPassword('');
             setCity('');
+            navigate("/");
         }
     }
 
