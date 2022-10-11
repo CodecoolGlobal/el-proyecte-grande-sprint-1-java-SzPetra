@@ -16,6 +16,9 @@ import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
 import {useState} from "react";
 import Login from "./pages/Login/Login";
+import JobPageLayout from "./pages/Jobs/components/JobPageLayout";
+import ListAllJobs from "./pages/Jobs/components/ListAllJobs";
+import JobProfile from "./pages/Jobs/components/JobProfile";
 
 function App() {
 
@@ -49,6 +52,12 @@ function App() {
                     <Route path="list-all" element={<ListAllCompanies/>}/>
                     <Route path="registration" element={<CompanyRegistration/>}/>
                     <Route path="profile/:id" element={<CompanyProfile/>}/>
+                    <Route path="" element={<NoPage/>}/>
+                </Route>
+                <Route path="job">
+                    <Route index element={<JobPageLayout />} />
+                    <Route path="list-all" element={<ListAllJobs />} />
+                    <Route path="profile/:id" element={<JobProfile />} />
                     <Route path="" element={<NoPage/>}/>
                 </Route>
                 <Route path="*" element={<NoPage/>}/>
