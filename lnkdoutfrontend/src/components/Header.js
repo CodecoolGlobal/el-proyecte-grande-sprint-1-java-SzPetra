@@ -7,6 +7,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
         setIsLoggedIn(false)
         localStorage.removeItem("user")
         localStorage.removeItem("header")
+        localStorage.removeItem("role")
 
     }
 
@@ -27,6 +28,11 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
                             <Link to="/login">Login</Link>
                         )}
                     </li>
+                    {localStorage.getItem("role") === "company" &&
+                        <li>
+                            <Link className="link" to="/job/create-job-offer">Create job offer</Link>
+                        </li>
+                    }
                 </ul>
             </nav>
 
