@@ -20,6 +20,7 @@ import JobPageLayout from "./pages/Jobs/components/JobPageLayout";
 import ListAllJobs from "./pages/Jobs/components/ListAllJobs";
 import JobProfile from "./pages/Jobs/components/JobProfile";
 import {getData} from "./util/Fetch";
+import CreateJob from "./pages/Jobs/components/CreateJob";
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
                 <Route path="job">
                     <Route index element={<JobPageLayout />} />
                     <Route path="list-all" element={<ListAllJobs />} />
+                    <Route path="create-job" element={<CreateJob />} />
                     <Route path="profile/:id" element={<JobProfile />} />
                     <Route path="" element={<NoPage/>}/>
                 </Route>
