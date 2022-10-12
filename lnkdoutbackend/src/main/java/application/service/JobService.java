@@ -16,13 +16,10 @@ import java.util.List;
 public class JobService {
 
     private final JobRepository jobRepository;
-    private final CompanyRepository companyRepository;
 
     @Autowired
-    public JobService(JobRepository jobRepository, CompanyRepository companyRepository) {
+    public JobService(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
-        this.companyRepository = companyRepository;
-        initJObs();
     }
 
     public List<JobModel> getAllJobs() {
@@ -30,19 +27,18 @@ public class JobService {
         List<JobModel> allJobs = jobRepository.findAll();
         for (JobModel jobModel : allJobs) {
             jobModel.setDescription(null);
-            filteredJobs.add(getFilteredJob(jobModel));
+            filteredJobs.add(jobModel);
         }
         return filteredJobs;
     }
 
     public JobModel getJobById(int id) {
-        JobModel byId = jobRepository.getById(id);
-        return getFilteredJob(byId);
+        return jobRepository.getById(id);
 
     }
 
 
-    private JobModel getFilteredJob(JobModel jobModel) {
+    /*private JobModel getFilteredJob(JobModel jobModel) {
         CompanyModel company = jobModel.getCompany();
         company.setCity(null);
         company.setFavoriteStudents(null);
@@ -51,14 +47,22 @@ public class JobService {
         company.setPhone(null);
         jobModel.setCompany(company);
         return jobModel;
+    }*/
+
+
+    public void initJObs() {
+        JobModel build = JobModel.builder()
+                .jobTitle("Frontend Developer")
+                .deadline(LocalDate.now().plusDays(20))
+                .isOpen(true)
+                .seats(5)
+                .location("Budapest")
+                .description("Good shit")
+                .build();
+        jobRepository.save(build);
     }
 
-
-    private void initJObs() {
-        JobModel build = JobModel.builder().jobTitle("Frontend Developer").company(CompanyModel.builder().name("Tigra").build()).deadline(LocalDate.now()).isOpen(true).seats(5).location("Budapest").description("Good shit").build();
-        CompanyModel byId = companyRepository.findAll().get(0);
-        byId.setRoles(Roles.COMPANY);
-        build.setCompany(byId);
-        jobRepository.save(build);
+    public JobModel createJob(JobModel job) {
+        return jobRepository.save(job);
     }
 }

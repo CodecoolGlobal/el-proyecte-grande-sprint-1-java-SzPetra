@@ -1,8 +1,10 @@
 package application.controller.company;
 
 import application.model.CompanyModel;
+import application.model.JobModel;
 import application.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

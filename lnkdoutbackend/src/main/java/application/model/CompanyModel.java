@@ -20,6 +20,9 @@ public class CompanyModel extends BaseModel {
     @OneToMany
     private List<StudentModel> favoriteStudents;
 
+    @OneToMany
+    private List<JobModel> jobs;
+
     @Builder
     public CompanyModel(String name, String email, String password, String phone, String city, int id, Roles roles) {
         super(name, email, password, phone, city, id, roles);
