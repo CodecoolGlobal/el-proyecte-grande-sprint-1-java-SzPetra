@@ -1,5 +1,4 @@
 import './assets/App.css';
-import React, {createContext} from "react";
 import {Routes, Route} from "react-router-dom";
 import CompanyRegistration from "./pages/Company/components/CompanyRegistration";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -16,17 +15,13 @@ import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
 import {useState} from "react";
 import Login from "./pages/Login/Login";
-import EditStudentProfile from "./pages/Student/components/listStudents/EditStudentProfile";
 
-export const EditValue = createContext();
 function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
-    const [edited, setEdited] = useState(false);
 
     return (
 
-        <EditValue.Provider value={{edited, setEdited}}>
             <Routes>
                 <Route path="login" element={<Login
                     setIsLoggedIn={setIsLoggedIn}/>} />
@@ -42,7 +37,6 @@ function App() {
                             <Route path="list-all" element={<ListAllStudents/>}/>
                             <Route path="registration" element={<StudentRegistration/>}/>
                             <Route path="profile/:id" element={<StudentProfile/>}/>
-                            <Route path="profile/edit" element={<EditStudentProfile />} />
                             <Route path="" element={<NoPage/>}/>
                         </Route>
                     <Route path="inbox/:id">
@@ -59,7 +53,6 @@ function App() {
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
-        </EditValue.Provider>
 
     );
 }

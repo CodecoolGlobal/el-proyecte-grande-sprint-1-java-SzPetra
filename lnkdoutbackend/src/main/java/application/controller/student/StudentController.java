@@ -54,6 +54,15 @@ public class StudentController{
         return studentService.getStudentById(id);
     }
 
+    @PutMapping(value = "{id}")
+    public void updateStudentById(@PathVariable int id, @RequestBody StudentModel updatedStudent) {
+        StudentModel student = studentService.getStudentById(id);
+        student.setCity(updatedStudent.getCity());
+        student.setEmail(updatedStudent.getEmail());
+        student.setPhone(updatedStudent.getPhone());
+        student.setGitRepository(updatedStudent.getGitRepository());
+    }
+
     @PostMapping(value = "add-favorite-company/{studentId}")
     public void addFavoriteCompany(@PathVariable int studentId, @RequestBody int companyId) {
         studentService.addFavoriteCompany(studentId, companyId);
