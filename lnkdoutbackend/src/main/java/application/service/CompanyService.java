@@ -4,14 +4,17 @@ import application.controller.company.CompanyController;
 import application.model.CompanyModel;
 import application.dao.CompanyDao;
 import application.dao.StudentDao;
+import application.model.JobModel;
 import application.model.StudentModel;
 import application.model.roles.Roles;
 import application.repository.CompanyRepository;
+import application.repository.JobRepository;
 import application.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompanyService {
@@ -20,11 +23,13 @@ public class CompanyService {
 
    private final StudentRepository studentRepository;
 
+   private final JobRepository jobRepository;
+
    @Autowired
-    public CompanyService(CompanyRepository companyRepository, StudentRepository studentRepository) {
+    public CompanyService(CompanyRepository companyRepository, StudentRepository studentRepository, JobRepository jobRepository) {
         this.companyRepository = companyRepository;
         this.studentRepository = studentRepository;
-        initCompanies();
+        this.jobRepository = jobRepository;
     }
 
     public void registerCompany(CompanyModel company) {
@@ -48,7 +53,24 @@ public class CompanyService {
         companyRepository.save(companyModel);
     }
 
-    private void initCompanies() {
-       companyRepository.save(CompanyModel.builder().name("CodeCool").phone("+362151215").city("Budapest").email("code@cool.com").roles(Roles.COMPANY).build());
+    public void initCompanies() {
+
+        CompanyModel companyModel = CompanyModel.builder().name("CodeCool").phone("+362151215").city("Budapest").email("code@cool.com").roles(Roles.COMPANY).build();
+        List<JobModel> jobs = companyModel.getJobs();
+        jobs.add(jobRepository.findAll().get(0));
+        companyModel.setJobs(jobs);
+        companyRepository.save(companyModel);
+    }
+
+    public int createJob(JobModel jobModel, int companyId) {
+       try {
+           CompanyModel byId = companyRepository.findById(companyId).get();
+           List<JobModel> jobs = byId.getJobs();
+           jobs.add(jobModel);
+           byId.setJobs(jobs);
+           return companyRepository.save(byId).getId();
+       } catch (Exception e){
+           return -1;
+        }
     }
 }
