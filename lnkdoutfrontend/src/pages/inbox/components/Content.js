@@ -15,7 +15,7 @@ function Content({messages, id}) {
                     <p style={{color:"plum", fontSize:"2rem", marginTop:"1em"}}>
                         No new messages...
                     </p>
-                    <Link className={'back-from-inbox'} to={`/student/profile/${id}`}>
+                    <Link id={`student-profile-${id}`} className={'back-from-inbox'} to={`/student/profile/${id}`}>
                         Back
                     </Link>
                 </div>

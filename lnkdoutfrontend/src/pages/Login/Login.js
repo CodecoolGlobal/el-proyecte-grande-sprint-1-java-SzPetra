@@ -8,17 +8,20 @@ export default function Login({setIsLoggedIn}) {
     const [isError, setIsError] = useState(false);
     const [userName, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [role] = useState("");
 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         postData('/login', {"username" : userName, password}).then((response) => {
+            console.log("result", response);
             if (response.ok) {
                 let header = response.headers.get('Authorization');
                 localStorage.setItem("user", JSON.stringify({userName}));
                 localStorage.setItem("header", JSON.stringify(header));
                 setIsLoggedIn(true);
+                //localStorage.setItem("role", JSON.stringify({role}));
                 navigate("/")
 
             } else {
@@ -53,7 +56,7 @@ export default function Login({setIsLoggedIn}) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <button  className="login-btn" type={"submit"}>
+                        <button id={"login-btn"}  className="login-btn" type={"submit"}>
                             Login
                         </button>
                         {isError && <div className="login-error">The username or password is incorrect!</div>}

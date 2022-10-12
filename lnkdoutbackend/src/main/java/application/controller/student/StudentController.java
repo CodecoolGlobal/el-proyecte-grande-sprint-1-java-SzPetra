@@ -63,4 +63,6 @@ public class StudentController{
         return studentService.getFavoriteCompanies(studentId);
     }
 
+
+
 }

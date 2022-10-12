@@ -54,7 +54,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/student").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN");
+                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/job/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/job/list-all").hasAnyRole("STUDENT", "ADMIN");
 
         // company-side
         http

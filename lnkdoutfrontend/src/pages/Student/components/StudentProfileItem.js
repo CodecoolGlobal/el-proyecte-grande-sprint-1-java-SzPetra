@@ -11,7 +11,7 @@ function StudentProfileItem({name, email, phone, city, id}) {
             <div className={'prof-container'}>
                 <div className={'prof-pic-div'}>
                     <img className={'prof-pic'} src={profPic}/>
-                    <button className={'prof-btn'}>Edit profile</button>
+                    <button id={`edit-profile`} className={'prof-btn'}>Edit profile</button>
                 </div>
                 <div className={'prof-card'}>
                     <h2 className={'prof-name'}> {name}
@@ -29,11 +29,11 @@ function StudentProfileItem({name, email, phone, city, id}) {
                     <p className={'prof-github'}><FaGithub/> No github repository added</p>
                 </div>
                 <div className={'prof-links'}>
-                    <Link className={'prof-link'} to={`/inbox/${id}/send-message`}>
+                    <Link id={`profile-inbox-send-${id}`} className={'prof-link'} to={`/inbox/${id}/send-message`}>
                         <FaRegEnvelope className={'prof-envelope'}/>
                         Send message
                     </Link>
-                    <Link className={'prof-link'} to={`/inbox/${id}`}>
+                    <Link id={`profile-inbox-receive-${id}`} className={'prof-link'} to={`/inbox/${id}`}>
                         <FaEnvelopeOpen className={'prof-envelope'}/>
                         My inbox
                     </Link>
