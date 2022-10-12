@@ -1,5 +1,5 @@
 import './assets/App.css';
-import React from "react";
+import React, {useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
 import CompanyRegistration from "./pages/Company/components/CompanyRegistration";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -19,10 +19,15 @@ import Login from "./pages/Login/Login";
 import JobPageLayout from "./pages/Jobs/components/JobPageLayout";
 import ListAllJobs from "./pages/Jobs/components/ListAllJobs";
 import JobProfile from "./pages/Jobs/components/JobProfile";
+import {getData} from "./util/Fetch";
 
 function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
+
+    /*useEffect(() => {
+        getData()
+    }, [isLoggedIn])*/ //todo
 
     return (
         <Routes>

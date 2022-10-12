@@ -14,7 +14,7 @@ function JobCard({job, applyJob}) {
 
     return (
         <div className={"card-con"} style={{backgroundColor: "white"}}>
-            <Link className={"Link"} style={{textDecoration: 'none'}} to={`/job/${job.id}`}>
+            <Link id={`job-${id}`} className={"Link"} style={{textDecoration: 'none'}} to={`/job/${job.id}`}>
                 <div className={"studentCard"}>
                     <div className={"StudentInfo"}>
                         <p className={"studentName"}>{jobTitle}<span> in {location}</span></p>
