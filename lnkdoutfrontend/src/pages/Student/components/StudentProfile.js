@@ -1,7 +1,7 @@
 import React from 'react';
 import {useEffect, useState, useContext} from "react";
 import {useParams} from "react-router-dom";
-import {getData} from "../../../util/Fetch";
+import {getData, putData} from "../../../util/Fetch";
 import StudentProfileItem from "./StudentProfileItem";
 import FavoriteCompaniesList from "./FavoriteCompaniesList";
 
@@ -12,6 +12,11 @@ function StudentProfile() {
 
     const getStudentById = async () => {
         return await getData(`/student/${id}`)
+    }
+
+    const saveChanges = (e) => {
+        e.preventDefault();
+        putData(`/student/${id}`, {studentData});
     }
 
     useEffect( () => {
@@ -52,6 +57,7 @@ function StudentProfile() {
                 handleUpdate={handleUpdate}
                 studentData={studentData}
                 id={id}
+                saveChanges={saveChanges}
             />
             <FavoriteCompaniesList
                 favCompanies={favCompanies}
