@@ -2,16 +2,11 @@ import React, {useState} from 'react';
 import '../assets/studentProfile.css';
 import {Link} from "react-router-dom";
 import {FaAt, FaBirthdayCake, FaEnvelopeOpen, FaGithub, FaHouseUser, FaPhone, FaRegEnvelope} from "react-icons/fa";
-import {postData, putData} from "../../../util/Fetch";
 
 
-function StudentProfileItem({studentData, handleUpdate, id}) {
+
+function StudentProfileItem({studentData, handleUpdate, id, saveChanges}) {
     const [edit, setEdit] = useState(false);
-
-    const saveChanges = (e) => {
-        e.preventDefault();
-        putData(`/student/${id}`, {studentData});
-    }
 
     return (
         <div>
@@ -21,7 +16,11 @@ function StudentProfileItem({studentData, handleUpdate, id}) {
 
                     <img className="prof-pic" src="/prof_pic.jpg" />
                     {edit ?
-                    <button id={'save-btn'} type={'submit'} className={'prof-btn'} onClick={(e) => {setEdit(false); saveChanges(e)}}>
+                    <button id={'save-btn'} type={'submit'} className={'prof-btn'} onClick={(e) => {
+                        setEdit(false);
+                        console.log(e)
+                        saveChanges(e)}
+                    }>
                         Save changes
                     </button>
                         :
