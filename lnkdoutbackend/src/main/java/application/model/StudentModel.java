@@ -17,13 +17,16 @@ import java.util.List;
 @Entity
 public class StudentModel extends BaseModel{
 
+    private String gitRepository;
+
     @OneToMany
     private List<CompanyModel> favoriteCompanies;
 
     @Builder
-    public StudentModel(String name, String email, String password, String phone, String city, int id, Roles roles) {
+    public StudentModel(String name, String email, String password, String phone, String city, int id, Roles roles, String gitRepository) {
         super(name, email, password, phone, city, id, roles);
         this.favoriteCompanies = new ArrayList<>();
+        this.gitRepository = gitRepository;
     }
 
     @Override

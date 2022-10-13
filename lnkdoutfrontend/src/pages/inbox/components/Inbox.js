@@ -12,7 +12,7 @@ function Inbox() {
     useEffect(() => {
         if (effectRan.current === false) {
             const fetchMessages = async () => {
-                let data = await getData(`/inbox/get-messages/${id}`);
+                let data = await getData(`/inbox/student/${id}`);
                 setMessage(data);
             }
             fetchMessages().then(() => console.log(''));

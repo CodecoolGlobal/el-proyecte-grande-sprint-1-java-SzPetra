@@ -1,33 +1,87 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../assets/studentProfile.css';
 import {Link} from "react-router-dom";
 import {FaAt, FaBirthdayCake, FaEnvelopeOpen, FaGithub, FaHouseUser, FaPhone, FaRegEnvelope} from "react-icons/fa";
-import profPic from '../assets/pictures/prof.webp';
+import {postData, putData} from "../../../util/Fetch";
 
-function StudentProfileItem({name, email, phone, city, id}) {
 
-    return (<div>
+function StudentProfileItem({studentData, handleUpdate, id}) {
+    const [edit, setEdit] = useState(false);
+
+    const saveChanges = (e) => {
+        e.preventDefault();
+        putData(`/student/${id}`, {studentData});
+    }
+
+    return (
+        <div>
             <h1 className={'my-prof'}>My profile:</h1>
             <div className={'prof-container'}>
                 <div className={'prof-pic-div'}>
-                    <img className={'prof-pic'} src={profPic}/>
-                    <button id={`edit-profile`} className={'prof-btn'}>Edit profile</button>
+
+                    <img className="prof-pic" src="/prof_pic.jpg" />
+                    {edit ?
+                    <button id={'save-btn'} type={'submit'} className={'prof-btn'} onClick={(e) => {setEdit(false); saveChanges(e)}}>
+                        Save changes
+                    </button>
+                        :
+                    <button id={'edit-btn'} className={'prof-btn'} onClick={() => setEdit(true)}>
+                        Edit profile
+                    </button>
+                    }
+
                 </div>
                 <div className={'prof-card'}>
-                    <h2 className={'prof-name'}> {name}
-                        <p className={'prof-birth'}><FaBirthdayCake/> No birthday added</p>
-                        <p className={'prof-city'}><FaHouseUser/> {city}</p>
+                    <h2 className={'prof-name'}> {studentData.name}
+                        <div className={'info-container'}>
+                            <p className={'prof-birth'}><FaBirthdayCake/> {studentData.age}</p>
+                            {edit?
+                                <label htmlFor={'city'}>
+                                    <FaHouseUser/>
+                                    <input id={'city'} value={studentData.city} onChange={(e) =>
+                                        handleUpdate(e)
+                                    }/>
+                                </label>
+                                :
+                                <p className={'prof-city'}><FaHouseUser/> {studentData.city}</p>
+                            }
+                        </div>
                     </h2>
 
                     <h3 className={'info-heading'}>Contact info: </h3>
-                    <div>
-                        <p className={'prof-email'}><FaAt/> {email}</p>
-                        <p className={'prof-phone'}><FaPhone/> {phone}</p>
+                    <div className={'info-container'}>
+                        {edit?
+                        <label htmlFor={'email'}>
+                            <FaAt/>
+                        <input id={'email'} value={studentData.email} onChange={(e) => handleUpdate(e)}/>
+                        </label>
+                            :
+                        <p className={'prof-email'}><FaAt/> {studentData.email}</p>
+                        }
+                        {edit?
+                        <label htmlFor={'phone'}>
+                            <FaPhone/>
+                        <input id={'phone'} value={studentData.phone} onChange={(e) => handleUpdate(e)}/>
+                        </label>
+                            :
+                        <p className={'prof-phone'}><FaPhone/> {studentData.phone}</p>
+                        }
                     </div>
 
-                    <h3 className={'info-heading'}>Other: </h3>
-                    <p className={'prof-github'}><FaGithub/> No github repository added</p>
+                    {/*<h3 className={'info-heading'}>Other:
+                        <div className={'info-container'}>
+                            {edit?
+                            <label htmlFor={'git'}>
+                                <FaGithub/>
+                            <input id={'git'} value={studentData} onChange={(e) => setNewGitRepo(e.target.value)}/>
+                            </label>
+                                :
+                            <p className={'prof-github'}><FaGithub/> No github repository added</p>
+                            }
+                        </div>
+                    </h3>*/}
                 </div>
+
                 <div className={'prof-links'}>
                     <Link id={`profile-inbox-send-${id}`} className={'prof-link'} to={`/inbox/${id}/send-message`}>
                         <FaRegEnvelope className={'prof-envelope'}/>
@@ -39,7 +93,8 @@ function StudentProfileItem({name, email, phone, city, id}) {
                     </Link>
                 </div>
             </div>
-        </div>)
+        </div>
+    )
 }
 
 export default StudentProfileItem;

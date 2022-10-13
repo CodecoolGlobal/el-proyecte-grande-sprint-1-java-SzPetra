@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {useParams} from "react-router-dom";
 import {getData} from "../../../util/Fetch";
 import StudentProfileItem from "./StudentProfileItem";
@@ -39,14 +39,22 @@ function StudentProfile() {
         return await getData(`/student/get-favorite-companies/${studentId}`);
     }
 
+    const handleUpdate = (e) => {
+        const inputId = e.target.id;
+        const value = e.target.value;
+        setStudentData({...studentData, [inputId]: value})
+    }
+
     return (
         <div>
             <StudentProfileItem
-                {...studentData}
+                setStudentData={setStudentData}
+                handleUpdate={handleUpdate}
+                studentData={studentData}
                 id={id}
             />
             <FavoriteCompaniesList
-            favCompanies={favCompanies}
+                favCompanies={favCompanies}
             />
         </div>
     );

@@ -27,8 +27,7 @@ public class CompanyController {
         companyService.registerCompany(companyModel);
     }
 
-    @GetMapping
-    // @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_STUDENT')")
+    @GetMapping(value = "api/get-all")
     public List<CompanyModel> getAllCompany(){
         return companyService.getAllCompany();
     }

@@ -47,11 +47,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll();
 
+        http.
+                authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/student").permitAll()
+                .antMatchers(HttpMethod.GET, "/student/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/company").permitAll()
+                .antMatchers(HttpMethod.GET, "/company/**").permitAll();
+
         // student-side
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/student").permitAll()
-                .antMatchers(HttpMethod.GET, "/student").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/**").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN")

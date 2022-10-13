@@ -66,5 +66,9 @@ public class StudentService {
     public boolean getUserExistByUsername(String username) {
         return studentRepository.existsByName(username);
     }
+
+    public void updateStudent(StudentModel student) {
+        studentRepository.save(student);
+    }
 }
 

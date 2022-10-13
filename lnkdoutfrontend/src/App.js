@@ -1,5 +1,4 @@
 import './assets/App.css';
-import React, {useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
 import CompanyRegistration from "./pages/Company/components/CompanyRegistration";
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -46,6 +45,7 @@ function App() {
                         <Route path="profile/:id" element={<StudentProfile/>}/>
                         <Route path="" element={<NoPage/>}/>
                     </Route>
+
                     <Route path="inbox/:id">
                         <Route index element={<Inbox/>}/>
                         <Route path="send-message" element={<SendMessage/>}/>
@@ -57,6 +57,7 @@ function App() {
                         <Route path="profile/:id" element={<CompanyProfile/>}/>
                         <Route path="" element={<NoPage/>}/>
                     </Route>
+
                     <Route path="login"
                            element={<Login
                                         setIsLoggedIn={setIsLoggedIn}
