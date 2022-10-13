@@ -54,14 +54,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/company").permitAll()
                 .antMatchers(HttpMethod.GET, "/company/**").permitAll();
 
-        /* // student-side
+        // student-side
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/student").permitAll()
                 .antMatchers(HttpMethod.GET, "/student/**").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN");
+                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/job/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/job/list-all").hasAnyRole("STUDENT", "ADMIN");
 
         // company-side
         http
@@ -69,7 +71,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/company").permitAll()
                 .antMatchers(HttpMethod.GET, "/company").hasAnyRole("COMPANY", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/company/**").hasAnyRole("COMPANY", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/company/add-favorite-student/**").hasAnyRole("COMPANY", "ADMIN"); */
+                .antMatchers(HttpMethod.GET, "/job/**").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/job/**").hasAnyRole("COMPANY", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/company/add-favorite-student/**").hasAnyRole("COMPANY", "ADMIN");
+
+
+        http
+                .authorizeRequests()
+
+                .antMatchers(HttpMethod.GET, "/job").permitAll()
+                .antMatchers(HttpMethod.GET, "/job/**").permitAll();
 
     }
     @Override

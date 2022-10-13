@@ -31,13 +31,13 @@ function ListAllCompanies() {
 
 
     const addFavoriteCompany = async (studentId, companyId) => {
-        await postData(`/student/add-favorite-company/${6}`, companyId).then(()=> console.log("like"));
+        await postData(`/student/add-favorite-company/${studentId}`, companyId).then(()=> console.log("like"));
     }
 
 
     return (
             <>
-                {error ? <p>You are not authorized to see this webpage!</p> : ( <div className={"AllCompanyContainer"}>
+                {error ? <p className={"login-error"}>You are not authorized to see this webpage!</p> : ( <div className={"AllCompanyContainer"}>
                     <h2 className={"AllCompanyHeader"}>List of all available Companies</h2>
                     <SearchItem
                         search={search}

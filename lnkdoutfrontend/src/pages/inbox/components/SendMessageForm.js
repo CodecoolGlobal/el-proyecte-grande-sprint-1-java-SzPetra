@@ -39,7 +39,7 @@ function SendMessageForm({subject, setSubject, email, setEmail, message, setMess
                     <button id={'send-message-btn'} type={'submit'}>Send</button>
                 </form>
             </section>
-            <Link className={'back-link'} to={`/student/profile/${id}`}>
+            <Link id={`student-profile-${id}`} className={'back-link'} to={`/student/profile/${id}`}>
                 <FaHandPointLeft className={'hand-icon'}/>
                 Back
             </Link>

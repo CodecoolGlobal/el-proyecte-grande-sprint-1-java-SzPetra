@@ -8,9 +8,9 @@ function Footer(props) {
                 <p>{"Logo here"}</p>
             </div>
             <div className="footer-links">
-                <a href="/#">{"Cookie Policy"}</a>
-                <a href="/#">{"Privacy Policy"}</a>
-                <a href="/#">{"Site Map"}</a>
+                <a id={"cookie"} href="/#">{"Cookie Policy"}</a>
+                <a id={"privacy"} href="/#">{"Privacy Policy"}</a>
+                <a id={"site"} href="/#">{"Site Map"}</a>
             </div>
         </div>
     );

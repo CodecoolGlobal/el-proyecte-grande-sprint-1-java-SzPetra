@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import {postData} from "../../util/Fetch";
 import {useNavigate} from "react-router-dom";
+import '../Login/assets/login.css'
+
 
 export default function Login({setIsLoggedIn}) {
     const [isError, setIsError] = useState(false);
     const [userName, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [role] = useState("");
 
     const navigate = useNavigate();
 
@@ -18,54 +21,50 @@ export default function Login({setIsLoggedIn}) {
                 localStorage.setItem("user", JSON.stringify({userName}));
                 localStorage.setItem("header", JSON.stringify(header));
                 setIsLoggedIn(true);
-                console.log(response);
+                //localStorage.setItem("role", JSON.stringify({role}));
                 navigate("/")
 
             } else {
                 setIsError(true);
+                setUsername("");
+                setPassword("");
             }
         })
-            .catch((e) => {
-                setIsError(true);
-                console.log(e);
-            });
     }
 
     return (
-        <div className="Auth-form-container">
-            <form className="Auth-form" onSubmit={handleSubmit}>
-                <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign In</h3>
-                    <div className="form-group mt-3">
-                        <label>Username</label>
+        <>
+            <div className={"welcome-register"}>
+                <h1>{"Login"}</h1>
+            </div>
+            <div className="login">
+                <img src={'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVvcGxlJTIwc21pbGV8ZW58MHx8MHx8&w=1000&q=80'} alt={""}/>
+                <div className="login-container">
+                    <form className="login-form" onSubmit={handleSubmit}>
+                        <label className="login-label">Username</label>
                         <input
-                            type="username"
-                            className="form-control mt-1"
-                            placeholder="Enter username"
+                            type="text"
                             required={true}
+                            autoFocus={true}
                             value={userName}
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                    </div>
-                    <div className="form-group mt-3">
-                        <label>Password</label>
+                        <label className="login-label">Password</label>
                         <input
                             type="password"
-                            className="form-control mt-1"
-                            placeholder="Enter password"
                             required={true}
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                    </div>
-                    <div className="d-grid gap-2 mt-3">
-                        <button className="btn btn-primary" type={"submit"}>
-                            Submit
+                        <button id={"login-btn"}  className="login-btn" type={"submit"}>
+                            Login
                         </button>
-                        {isError && <div>The username or password is incorrect.</div>}
-                    </div>
+                        {isError && <div className="login-error">The username or password is incorrect!</div>}
+                    </form>
                 </div>
-            </form>
-        </div>
+
+            </div>
+        </>
+
     )
 }

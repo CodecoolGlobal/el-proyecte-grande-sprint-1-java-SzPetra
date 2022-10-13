@@ -9,7 +9,7 @@ function Registration({name, setName, age, setAge, email, setEmail, phone, setPh
                 <h1>{"Register as Student"}</h1>
             </div>
         <div className={'registration'}>
-            <img src={'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVvcGxlJTIwc21pbGV8ZW58MHx8MHx8&w=1000&q=80'}/>
+            <img src={'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVvcGxlJTIwc21pbGV8ZW58MHx8MHx8&w=1000&q=80'} alt={""}/>
             <div className={'container'}>
 
                 <form className={'form'} onSubmit={handleSubmit}>

@@ -18,6 +18,7 @@ function StudentProfileItem({studentData, handleUpdate, id}) {
             <h1 className={'my-prof'}>My profile:</h1>
             <div className={'prof-container'}>
                 <div className={'prof-pic-div'}>
+
                     <img className="prof-pic" src="/prof_pic.jpg" />
                     {edit ?
                     <button id={'save-btn'} type={'submit'} className={'prof-btn'} onClick={(e) => {setEdit(false); saveChanges(e)}}>
@@ -28,6 +29,7 @@ function StudentProfileItem({studentData, handleUpdate, id}) {
                         Edit profile
                     </button>
                     }
+
                 </div>
                 <div className={'prof-card'}>
                     <h2 className={'prof-name'}> {studentData.name}
@@ -81,11 +83,11 @@ function StudentProfileItem({studentData, handleUpdate, id}) {
                 </div>
 
                 <div className={'prof-links'}>
-                    <Link className={'prof-link'} to={`/inbox/${id}/send-message`}>
+                    <Link id={`profile-inbox-send-${id}`} className={'prof-link'} to={`/inbox/${id}/send-message`}>
                         <FaRegEnvelope className={'prof-envelope'}/>
                         Send message
                     </Link>
-                    <Link className={'prof-link'} to={`/inbox/${id}`}>
+                    <Link id={`profile-inbox-receive-${id}`} className={'prof-link'} to={`/inbox/${id}`}>
                         <FaEnvelopeOpen className={'prof-envelope'}/>
                         My inbox
                     </Link>

@@ -7,6 +7,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
         setIsLoggedIn(false)
         localStorage.removeItem("user")
         localStorage.removeItem("header")
+        localStorage.removeItem("role")
 
     }
 
@@ -14,19 +15,27 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
         <>
             <nav>
                 <ul>
-                    <Link className="link" to="/">Home</Link>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li style={{float:"right", marginRight: "0.3em"}}><a href="#">Login</a></li>
-                    <Link className="link" to="/student/list-all">Students</Link>
-                    <Link className="link" to="/company/list-all">Companies</Link>
-                    <li>
+                    <Link id={"home"} className="link" to="/">Home</Link>
+                    <li><a id={"about"} href="#about">About</a></li>
+                    <li><a id={"contact"} href="#contact">Contact</a></li>
+                    {isLoggedIn &&
+                        <Link id={"student-list"} className="link" to="/student/list-all">Students</Link>
+                    }
+                    {isLoggedIn &&
+                        <Link id={"company-list"} className="link" to="/company/list-all">Companies</Link>
+                    }
+                    <li style={{float:"right", marginRight: "3em"}}>
                         {isLoggedIn ? (
-                            <a href={"/"} onClick={handleLogout}> Logout </a>
+                            <a id={"logout"} href={"/"} onClick={handleLogout}> Logout </a>
                         ) : (
-                            <Link to="/login">Login</Link>
+                            <Link id={"login"} to="/login">Login</Link>
                         )}
                     </li>
+                    {localStorage.getItem("role") === "company" &&
+                        <li>
+                            <Link id={"job-offer"} className="link" to="/job/create-job-offer">Create job offer</Link>
+                        </li>
+                    }
                 </ul>
             </nav>
 

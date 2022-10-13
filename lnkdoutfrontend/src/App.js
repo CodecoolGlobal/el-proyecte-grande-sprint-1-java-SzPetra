@@ -15,30 +15,37 @@ import Inbox from "./pages/inbox/components/Inbox";
 import SendMessage from "./pages/inbox/components/SendMessage";
 import {useState} from "react";
 import Login from "./pages/Login/Login";
+import JobPageLayout from "./pages/Jobs/components/JobPageLayout";
+import ListAllJobs from "./pages/Jobs/components/ListAllJobs";
+import JobProfile from "./pages/Jobs/components/JobProfile";
+import {getData} from "./util/Fetch";
+import CreateJob from "./pages/Jobs/components/CreateJob";
 
 function App() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("user") !== null);
 
-    return (
+    /*useEffect(() => {
+        getData()
+    }, [isLoggedIn])*/ //todo
 
-            <Routes>
-                <Route path="login" element={<Login
-                    setIsLoggedIn={setIsLoggedIn}/>} />
-                <Route path="/" element={
-                    <Header
-                    isLoggedIn={isLoggedIn}
-                    setIsLoggedIn={setIsLoggedIn}
-                    />
-                }>
+    return (
+        <Routes>
+            <Route path="/" element={
+                <Header
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                />
+            }>
                     <Route index element={<LandingPage/>}/>
-                        <Route path="student">
-                            <Route index element={<StudentPageLayout/>}/>
-                            <Route path="list-all" element={<ListAllStudents/>}/>
-                            <Route path="registration" element={<StudentRegistration/>}/>
-                            <Route path="profile/:id" element={<StudentProfile/>}/>
-                            <Route path="" element={<NoPage/>}/>
-                        </Route>
+                    <Route path="student">
+                        <Route index element={<StudentPageLayout/>}/>
+                        <Route path="list-all" element={<ListAllStudents/>}/>
+                        <Route path="registration" element={<StudentRegistration/>}/>
+                        <Route path="profile/:id" element={<StudentProfile/>}/>
+                        <Route path="" element={<NoPage/>}/>
+                    </Route>
+
                     <Route path="inbox/:id">
                         <Route index element={<Inbox/>}/>
                         <Route path="send-message" element={<SendMessage/>}/>
@@ -50,10 +57,25 @@ function App() {
                         <Route path="profile/:id" element={<CompanyProfile/>}/>
                         <Route path="" element={<NoPage/>}/>
                     </Route>
-                    <Route path="*" element={<NoPage/>}/>
-                </Route>
-            </Routes>
 
+                    <Route path="login"
+                           element={<Login
+                                        setIsLoggedIn={setIsLoggedIn}
+                                    />}
+                    />
+                    <Route path="*" element={<NoPage/>}/>
+                <Route index element={<LandingPage/>}/>
+
+                <Route path="job">
+                    <Route index element={<JobPageLayout />} />
+                    <Route path="list-all" element={<ListAllJobs />} />
+                    <Route path="create-job" element={<CreateJob />} />
+                    <Route path="profile/:id" element={<JobProfile />} />
+                    <Route path="" element={<NoPage/>}/>
+                </Route>
+                <Route path="*" element={<NoPage/>}/>
+            </Route>
+        </Routes>
     );
 }
 
