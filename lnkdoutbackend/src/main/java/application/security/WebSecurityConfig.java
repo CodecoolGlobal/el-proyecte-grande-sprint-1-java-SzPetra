@@ -50,7 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/student").permitAll()
-                .antMatchers(HttpMethod.GET, "/student/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/company").permitAll()
                 .antMatchers(HttpMethod.GET, "/company/**").permitAll();
 
@@ -58,10 +57,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/student").permitAll()
-                .antMatchers(HttpMethod.GET, "/student/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/student/{id}").hasAnyRole("STUDENT", "ADMIN")
-                .antMatchers(HttpMethod.GET, "/student/get-favorite-companies/**").hasAnyRole("STUDENT", "ADMIN")
-                .antMatchers(HttpMethod.POST, "/student/add-favorite-company/**").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.GET, "/student/get-favorite-companies").hasAnyRole("STUDENT", "ADMIN")
+                .antMatchers(HttpMethod.POST, "/student/add-favorite-company").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.POST, "/job/**").hasAnyRole("STUDENT", "ADMIN")
                 .antMatchers(HttpMethod.GET, "/job/list-all").hasAnyRole("STUDENT", "ADMIN");
 
