@@ -2,20 +2,15 @@ import React, {useState} from 'react';
 import '../assets/studentProfile.css';
 import {Link} from "react-router-dom";
 import {FaAt, FaBirthdayCake, FaEnvelopeOpen, FaGithub, FaHouseUser, FaPhone, FaRegEnvelope} from "react-icons/fa";
-import {postData} from "../../../util/Fetch";
+import {postData, putData} from "../../../util/Fetch";
 
 
-function StudentProfileItem({name, email, phone, city, age, id}) {
+function StudentProfileItem({studentData, handleUpdate, id}) {
     const [edit, setEdit] = useState(false);
-
-    const [newEmail, setNewEmail] = useState(email);
-    const [newPhone, setNewPhone] = useState(phone);
-    const [newCity, setNewCity] = useState(city);
-    const [newGitRepo, setNewGitRepo] = useState('');
 
     const saveChanges = (e) => {
         e.preventDefault();
-        postData(`/student/${id}`, {newEmail, newPhone, newCity, newGitRepo});
+        putData(`/student/${id}`, {studentData});
     }
 
     return (
@@ -35,16 +30,18 @@ function StudentProfileItem({name, email, phone, city, age, id}) {
                     }
                 </div>
                 <div className={'prof-card'}>
-                    <h2 className={'prof-name'}> {name}
+                    <h2 className={'prof-name'}> {studentData.name}
                         <div className={'info-container'}>
-                            <p className={'prof-birth'}><FaBirthdayCake/> {age}</p>
+                            <p className={'prof-birth'}><FaBirthdayCake/> {studentData.age}</p>
                             {edit?
                                 <label htmlFor={'city'}>
                                     <FaHouseUser/>
-                                    <input id={'city'} value={newCity} onChange={(e) => setNewCity(e.target.value)} />
+                                    <input id={'city'} value={studentData.city} onChange={(e) =>
+                                        handleUpdate(e)
+                                    }/>
                                 </label>
                                 :
-                                <p className={'prof-city'}><FaHouseUser/> {city}</p>
+                                <p className={'prof-city'}><FaHouseUser/> {studentData.city}</p>
                             }
                         </div>
                     </h2>
@@ -54,33 +51,33 @@ function StudentProfileItem({name, email, phone, city, age, id}) {
                         {edit?
                         <label htmlFor={'email'}>
                             <FaAt/>
-                        <input id={'email'} value={newEmail} onChange={(e) => setNewEmail(e.target.value)}/>
+                        <input id={'email'} value={studentData.email} onChange={(e) => handleUpdate(e)}/>
                         </label>
                             :
-                        <p className={'prof-email'}><FaAt/> {email}</p>
+                        <p className={'prof-email'}><FaAt/> {studentData.email}</p>
                         }
                         {edit?
                         <label htmlFor={'phone'}>
                             <FaPhone/>
-                        <input id={'phone'} value={newPhone} onChange={(e) => setNewPhone(e.target.value)}/>
+                        <input id={'phone'} value={studentData.phone} onChange={(e) => handleUpdate(e)}/>
                         </label>
                             :
-                        <p className={'prof-phone'}><FaPhone/> {phone}</p>
+                        <p className={'prof-phone'}><FaPhone/> {studentData.phone}</p>
                         }
                     </div>
 
-                    <h3 className={'info-heading'}>Other:
+                    {/*<h3 className={'info-heading'}>Other:
                         <div className={'info-container'}>
                             {edit?
                             <label htmlFor={'git'}>
                                 <FaGithub/>
-                            <input id={'git'} value={newGitRepo} onChange={(e) => setNewGitRepo(e.target.value)}/>
+                            <input id={'git'} value={studentData} onChange={(e) => setNewGitRepo(e.target.value)}/>
                             </label>
                                 :
                             <p className={'prof-github'}><FaGithub/> No github repository added</p>
                             }
                         </div>
-                    </h3>
+                    </h3>*/}
                 </div>
 
                 <div className={'prof-links'}>

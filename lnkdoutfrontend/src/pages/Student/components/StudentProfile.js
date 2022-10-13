@@ -39,10 +39,18 @@ function StudentProfile() {
         return await getData(`/student/get-favorite-companies/${studentId}`);
     }
 
+    const handleUpdate = (e) => {
+        const inputId = e.target.id;
+        const value = e.target.value;
+        setStudentData({...studentData, [inputId]: value})
+    }
+
     return (
         <div>
             <StudentProfileItem
-                {...studentData}
+                setStudentData={setStudentData}
+                handleUpdate={handleUpdate}
+                studentData={studentData}
                 id={id}
             />
             <FavoriteCompaniesList

@@ -20,3 +20,13 @@ export const getData = async (url) => {
     });
     return await response.json();
 }
+
+export async function putData(url='', data={}){
+    return await fetch(url, {
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        method: 'PUT',
+        body: JSON.stringify(data)
+    })
+}
